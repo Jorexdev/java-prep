@@ -65,7 +65,7 @@
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 <div align="center">
-  <a href="https://jorex.dev" target="_blank"><img src="assets/recursos-v8.svg" width="100%" alt=""/></a>
+  <a href="https://jorex.dev/recursos/" target="_blank"><img src="assets/recursos-v8.svg" width="100%" alt=""/></a>
 </div>
 
 <br/>
