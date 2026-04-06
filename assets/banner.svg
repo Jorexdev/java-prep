@@ -37,7 +37,7 @@
   <text x="214" y="112" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#A3B067" filter="url(#glow)">prep</text>
 
   <!-- subtitle -->
-  <text x="48" y="150" class="sub" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">preparación de entrevistas técnicas · backend developer</text>
+  <text x="48" y="150" class="sub" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Preparando tu próxima entrevista técnica · Backend</text>
 
   <!-- brand -->
   <text x="852" y="150" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#606C38">jorex.dev</text>
