@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="32" viewBox="0 0 900 32">
+  <defs>
+    <filter id="glow-sep" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <text x="30.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="72.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.08s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="114.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.16s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="156.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.24s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="198.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.32s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="240.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="282.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.48s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="324.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.56s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="366.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.64s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="408.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.72s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="450.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="492.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.88s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="534.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="0.96s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="576.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.04s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="618.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="660.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="702.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.28s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="744.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.36s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="786.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.44s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+  <text x="828.0" y="22" font-family="'DM Mono', monospace" font-size="13" fill="#A3B067" filter="url(#glow-sep)">====
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="1.6s" begin="1.52s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+  </text>
+</svg>
