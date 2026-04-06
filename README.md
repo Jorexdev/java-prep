@@ -14,28 +14,20 @@
 
 <br>
 
-Apuntes y ejemplos que voy haciendo mientras me preparo para entrevistas técnicas de backend.
-
-<br>
-
----
-
-<br>
-
 ```
 src/
 ├── base/
-│   ├── colecciones/       →  List, Set, Map, Queue, colecciones concurrentes
-│   ├── concurrencia/      →  synchronized, volatile, locks, CompletableFuture, Virtual Threads
-│   ├── genericos/         →  wildcards, bounded types, PECS
-│   ├── streams/           →  operaciones + 30 ejercicios (fácil · medio · difícil)
+│   ├── colecciones/       —  List, Set, Map, Queue, colecciones concurrentes
+│   ├── concurrencia/      —  synchronized, volatile, locks, CompletableFuture, Virtual Threads
+│   ├── genericos/         —  wildcards, bounded types, PECS
+│   ├── streams/           —  operaciones + 30 ejercicios (fácil · medio · difícil)
 │   ├── lambdas/
 │   ├── excepciones/
 │   └── opcional/
-├── solid/                 →  los 5 principios con ejemplos de violación y corrección
-├── patronesdiseno/        →  Singleton, Factory, Builder, Strategy, Observer, Adapter, Decorator
-├── aop/                   →  @Before · @Around · @AfterReturning · @AfterThrowing
-└── herramientas/          →  Maven · Gradle · Git · Docker
+├── solid/                 —  los 5 principios con ejemplos de violación y corrección
+├── patronesdiseno/        —  Singleton, Factory, Builder, Strategy, Observer, Adapter, Decorator
+├── aop/                   —  @Before · @Around · @AfterReturning · @AfterThrowing
+└── herramientas/          —  Maven · Gradle · Git · Docker
 ```
 
 <br>
