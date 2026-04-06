@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="26" viewBox="0 0 900 26">
+  <defs>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <text x="0"  y="20" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)">·</text>
+  <text x="16" y="20" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)">jorex.dev: contenido y recursos sobre desarrollo backend</text>
+</svg>
