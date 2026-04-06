@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="370" viewBox="0 0 900 370">
+  <defs>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- done -->
+  <text x="0"  y="22"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="22"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Colecciones — List, Set, Map, Queue, colecciones concurrentes</text>
+
+  <text x="0"  y="44"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="44"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Streams — operaciones + 30 ejercicios (fácil · medio · difícil)</text>
+
+  <text x="0"  y="66"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="66"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Concurrencia — synchronized, volatile, locks, CompletableFuture, Virtual Threads</text>
+
+  <text x="0"  y="88"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="88"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Genéricos — wildcards, bounded types, PECS</text>
+
+  <text x="0"  y="110" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="110" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Lambdas</text>
+
+  <text x="0"  y="132" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="132" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Excepciones</text>
+
+  <text x="0"  y="154" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="154" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Optional</text>
+
+  <text x="0"  y="176" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="176" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">SOLID — los 5 principios con ejemplos de violación y corrección</text>
+
+  <text x="0"  y="198" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="198" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Patrones de diseño — Singleton, Factory, Builder, Strategy, Observer, Adapter, Decorator</text>
+
+  <text x="0"  y="220" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">+</text>
+  <text x="20" y="220" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">AOP — @Before · @Around · @AfterReturning · @AfterThrowing</text>
+
+  <!-- pending -->
+  <text x="0"  y="252" font-family="'Courier New', monospace" font-size="13" fill="#3d4f24">-</text>
+  <text x="20" y="252" font-family="'Courier New', monospace" font-size="13" fill="#606C38">Spring Boot</text>
+
+  <text x="0"  y="274" font-family="'Courier New', monospace" font-size="13" fill="#3d4f24">-</text>
+  <text x="20" y="274" font-family="'Courier New', monospace" font-size="13" fill="#606C38">JPA / Hibernate</text>
+
+  <text x="0"  y="296" font-family="'Courier New', monospace" font-size="13" fill="#3d4f24">-</text>
+  <text x="20" y="296" font-family="'Courier New', monospace" font-size="13" fill="#606C38">Spring Security</text>
+
+  <text x="0"  y="318" font-family="'Courier New', monospace" font-size="13" fill="#3d4f24">-</text>
+  <text x="20" y="318" font-family="'Courier New', monospace" font-size="13" fill="#606C38">Testing — JUnit, Mockito</text>
+
+  <text x="0"  y="340" font-family="'Courier New', monospace" font-size="13" fill="#3d4f24">-</text>
+  <text x="20" y="340" font-family="'Courier New', monospace" font-size="13" fill="#606C38">Microservicios</text>
+
+  <text x="0"  y="362" font-family="'Courier New', monospace" font-size="13" fill="#3d4f24">-</text>
+  <text x="20" y="362" font-family="'Courier New', monospace" font-size="13" fill="#606C38">Observabilidad</text>
+</svg>
