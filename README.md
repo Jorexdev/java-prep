@@ -1,11 +1,11 @@
 <div align="center">
-  <a href="#"><img src="assets/banner.svg" width="100%" alt="java-prep banner"/></a>
+  <a href="#"><img src="assets/banner-v2.svg" width="100%" alt="java-prep banner"/></a>
 </div>
 
 <br>
 
 <div align="center">
-  <a href="#"><img src="assets/separator.svg" width="100%" alt=""/></a>
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
 </div>
 
 <div align="center">
