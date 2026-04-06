@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" width="900" height="180">
+  <defs>
+    <style>
+      @keyframes glowPulse {
+        0%, 100% { fill: #A3B067; }
+        50%       { fill: #d4e87a; }
+      }
+      @keyframes borderPulse {
+        0%, 100% { opacity: 0.25; }
+        50%       { opacity: 0.6; }
+      }
+      @keyframes subtitleFade {
+        0%, 100% { opacity: 0.55; }
+        50%       { opacity: 0.9; }
+      }
+      .accent     { animation: glowPulse    2.4s ease-in-out infinite; }
+      .border-anim{ animation: borderPulse  2.4s ease-in-out infinite; }
+      .sub        { animation: subtitleFade 3.2s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- bg -->
+  <rect width="900" height="180" rx="14" fill="#0f1a0e"/>
+  <rect class="border-anim" width="900" height="180" rx="14" fill="none" stroke="#A3B067" stroke-width="1"/>
+
+  <!-- badge pill -->
+  <rect x="48" y="28" width="196" height="24" rx="12" fill="#1C2B1A" stroke="#606C38" stroke-width="0.5"/>
+  <text x="146" y="44.5" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#A3B067" letter-spacing="1.4">// java · spring boot</text>
+
+  <!-- title -->
+  <text x="48" y="112" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#E8EDD4">java</text>
+  <text x="220" y="112" class="accent" font-family="'Courier New', monospace" font-size="56" font-weight="700">-prep</text>
+
+  <!-- subtitle -->
+  <text x="48" y="150" class="sub" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">preparación de entrevistas técnicas · backend developer</text>
+
+  <!-- brand -->
+  <text x="852" y="150" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#606C38">jorex.dev</text>
+</svg>
