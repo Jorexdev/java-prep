@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380" viewBox="0 0 900 380">
+  <defs>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <text x="450" y="20"  font-family="'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#A3B067" text-anchor="middle" filter="url(#glow)" opacity="0">¿En qué orden recomiendo estudiar los temas?<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+  <text x="450" y="46"  font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Tienes un RoadMap donde te recomiendo un orden para estudiar los temas.<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+  <text x="450" y="68"  font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Se encuentra en la raíz del proyecto (ROADMAP.md)<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+
+  <text x="450" y="98"  font-family="'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#A3B067" text-anchor="middle" filter="url(#glow)" opacity="0">¿Los ejemplos de código son ejecutables tal cual?<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.1s" fill="freeze"/></text>
+  <text x="450" y="124" font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Sí, cada archivo tiene un main y puede ejecutarse directamente desde el IDE<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.1s" fill="freeze"/></text>
+
+  <text x="450" y="154" font-family="'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#A3B067" text-anchor="middle" filter="url(#glow)" opacity="0">¿Hay ejercicios para practicar además de teoría?<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/></text>
+  <text x="450" y="180" font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Sí, actualmente hay más de 30 ejercicios sobre Streams y multitud en otras secciones<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/></text>
+
+  <text x="450" y="210" font-family="'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#A3B067" text-anchor="middle" filter="url(#glow)" opacity="0">¿Hace falta experiencia previa?<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.3s" fill="freeze"/></text>
+  <text x="450" y="236" font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Se asume conocimiento básico de Java, no está pensado como curso desde cero<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.3s" fill="freeze"/></text>
+
+  <text x="450" y="266" font-family="'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#A3B067" text-anchor="middle" filter="url(#glow)" opacity="0">¿Cada cuánto se actualiza el repo?<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.4s" fill="freeze"/></text>
+  <text x="450" y="292" font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Cada semana tengo planeado subir dos secciones o agregar cosas nuevas,<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.4s" fill="freeze"/></text>
+  <text x="450" y="314" font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">adicionalmente subo cambios de formateo, legibilidad...<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.4s" fill="freeze"/></text>
+
+  <text x="450" y="344" font-family="'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#A3B067" text-anchor="middle" filter="url(#glow)" opacity="0">¿Puedo aportar?<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.5s" fill="freeze"/></text>
+  <text x="450" y="370" font-family="'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Claro! Abre un Issue y lo reviso :) También puedes escribirme en jorgebp@jorex.dev<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.5s" fill="freeze"/></text>
+</svg>
