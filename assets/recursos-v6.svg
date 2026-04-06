@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="156" viewBox="0 0 900 156">
+  <defs>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <text x="0"  y="22"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+  <text x="16" y="22"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Effective Java: patrones y buenas prácticas para escribir Java idiomático<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+
+  <text x="0"  y="48"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.1s" fill="freeze"/></text>
+  <text x="16" y="48"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Clean Code: cómo escribir código limpio, legible y mantenible<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.1s" fill="freeze"/></text>
+
+  <text x="0"  y="74"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/></text>
+  <text x="16" y="74"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Designing Data-Intensive Applications: sistemas distribuidos y arquitectura de datos a escala<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/></text>
+
+  <text x="0"  y="100" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.3s" fill="freeze"/></text>
+  <text x="16" y="100" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Java 21 docs: referencia oficial del lenguaje<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.3s" fill="freeze"/></text>
+
+  <text x="0"  y="126" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.4s" fill="freeze"/></text>
+  <text x="16" y="126" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Spring Boot docs: referencia oficial del framework<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.4s" fill="freeze"/></text>
+
+  <text x="0"  y="152" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.5s" fill="freeze"/></text>
+  <text x="16" y="152" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">jorex.dev: contenido y recursos sobre desarrollo backend<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.5s" fill="freeze"/></text>
+</svg>
