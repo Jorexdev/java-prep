@@ -1,131 +1,61 @@
-# ☕ java-prep
+<div align="center">
 
-Repositorio para preparación de **entrevistas técnicas backend con Java y Spring Boot**.  
-Incluye **apuntes, ejemplos prácticos y demos** de Java avanzado, diseño de software, DevOps básico y buenas prácticas para prepararte para entrevistas técnicas de Java.
+<br>
 
----
-⚠️ **Aviso:** Este repositorio está en proceso de construcción y se encuentra en constante actualización ⚠️
+**`// java-prep`**
 
-## 📌 Contenido
+[![Java](https://img.shields.io/badge/java-21+-606C38?style=flat-square&logo=openjdk&logoColor=E8EDD4)](https://openjdk.org/)
+[![Spring Boot](https://img.shields.io/badge/spring_boot-3.x-606C38?style=flat-square&logo=springboot&logoColor=E8EDD4)](https://spring.io/projects/spring-boot)
+[![Estado](https://img.shields.io/badge/estado-en_construcción-A3B067?style=flat-square)](.)
 
-### 1. Fundamentos de Java
-- Colecciones, Genéricos, Lambdas, Streams  
-- Manejo de Excepciones  
-- Concurrencia: `synchronized`, `volatile`, `ConcurrentHashMap`  
-- `CompletableFuture`, `ExecutorService`, Virtual Threads
-- Garbage Collector (visión general y tuning básico)  
+<br>
 
-### 2. Principios y Diseño de Software
-- Principios **SOLID**  
-- Patrones de diseño: Singleton, Factory, Builder, Strategy, Observer, Adapter, Decorator  
-- Arquitectura en capas y Clean Architecture  
-- Introducción a DDD (Domain Driven Design)  
+*Apuntes y ejemplos que voy haciendo mientras me preparo para entrevistas técnicas de backend.*
 
-### 3. Herramientas de Build y Control de Versiones
-- Maven / Gradle (dependencias, profiles, plugins)  
-- Git (branching, pull requests, conflictos, GitFlow)  
+<br>
 
-### 4. CI/CD y DevOps básico
-- Pipelines (Jenkins, GitHub Actions, GitLab CI)  
-- Docker (imágenes, volúmenes, redes)  
-- Kubernetes (pods, deployments, services, config maps, secrets)  
-- Infraestructura como código
-
-### 5. Spring Core & Spring Boot
-- IoC y DI (Inversión de Control, Inyección de Dependencias)  
-- Beans, ciclos de vida y scopes  
-- Starters y autoconfiguración  
-- Configuración externalizada (properties, YAML)  
-- Perfiles de entorno  
-- Logging con SLF4J / Logback  
-
-### 6. Desarrollo Web
-- Spring MVC (Controllers, RequestMapping, ResponseEntity)  
-- Validación (Bean Validation con `@Valid`, `@NotNull`, etc.)  
-- Manejo de errores global (`@ControllerAdvice`, `@ExceptionHandler`)  
-
-### 7. Persistencia
-- JPA/Hibernate (entidades, relaciones, cascade, fetch types)  
-- Repositorios: `CrudRepository`, `JpaRepository`, queries con `@Query` y Query Methods  
-- Transacciones (`@Transactional`)  
-- Migraciones con Flyway / Liquibase  
-- Rendimiento: N+1 problem, batch inserts, caching  
-- NoSQL: MongoDB, Redis  
-- Cacheo con Spring Cache + Redis  
-
-### 8. Comunicación entre Servicios
-- Clientes HTTP: RestTemplate, WebClient  
-- Resilience4j
-- Kafka (producers, consumers, topics, consumer groups)  
-- Event-driven architecture  
-- API Gateway (Spring Cloud Gateway)  
-- Service Registry (Eureka / Consul)  
-- Config Server (Spring Cloud Config)  
-
-### 9. Seguridad
-- Spring Security (filtros, SecurityFilterChain)  
-- Autenticación y autorización  
-- JWT  
-- Method Security (`@PreAuthorize`)  
-- OAuth2 y OpenID Connect  
-- Integración con Keycloak / Auth0  
-
-### 10. Observabilidad
-- Micrometer 
-- Logging estructurado  
-- Prometheus + Grafana  
-- Tracing distribuido  
-
-### 11. Asincronía y Scheduling
-- `@Async`  
-- `@Scheduled`  
-- Colas de mensajes (RabbitMQ, Kafka)  
-
-### 12. Testing
-- Unit testing con JUnit 5 + Mockito  
-- Integration testing con Spring Boot Test  
-- Testcontainers (bases de datos, Kafka, RabbitMQ)  
-- Contract Testing (Pact)  
-- API Testing con Postman o REST Assured  
-- Documentación de pruebas con Swagger / OpenAPI  
-
-### 13. Buenas Prácticas
-- Nomenclatura y organización de paquetes  
-- Manejo de logs y trazabilidad  
-- Clean Code  
-- Principios de 12-factor app  
-- Performance tuning  
+</div>
 
 ---
 
-## 🚀 Cómo usar este repo
+## `// contenido actual`
 
-- Cada tema tiene su propia carpeta con **apuntes** y **ejemplos**.  
-- Los ejemplos están en **Java 21+** (incluyendo features de Java 21 como virtual threads).  
-- Se incluyen casos prácticos y snippets.  
+```
+src/
+├── base/
+│   ├── colecciones/       → List, Set, Map, Queue, colecciones concurrentes
+│   ├── concurrencia/      → synchronized, volatile, locks, CompletableFuture, Virtual Threads
+│   ├── genericos/         → wildcards, bounded types, PECS
+│   ├── streams/           → operaciones + 30 ejercicios (facil / medio / dificil)
+│   ├── lambdas/
+│   ├── excepciones/
+│   └── opcional/
+├── solid/                 → los 5 principios con ejemplos de violación y corrección
+├── patronesdiseno/        → Singleton, Factory, Builder, Strategy, Observer, Adapter, Decorator
+├── aop/                   → Spring AOP con @Before, @Around, @AfterReturning, @AfterThrowing
+└── herramientas/          → Maven, Gradle, Git, Docker
+```
+
+<br>
+
+## `// cómo está organizado`
+
+Cada tema tiene un archivo de intro con la teoría orientada a entrevistas — qué es, para qué sirve, cuándo usarlo y preguntas típicas — seguido de ejemplos de código en el mismo archivo o en una carpeta de ejemplos al lado.
+
+Los ejercicios de streams tienen los enunciados separados de las soluciones.
+
+<br>
+
+## `// pendiente`
+
+Spring Boot · JPA/Hibernate · Spring Security · Testing · Microservicios · Observabilidad
+
+<br>
 
 ---
 
-## 🎯 Objetivo
+<div align="center">
 
-Este repositorio busca:  
-- Servir como **guía de repaso** para entrevistas técnicas.  
-- Tener a mano ejemplos y explicaciones de **temas avanzados de Java y Spring**.  
-- Cubrir lo esencial de DevOps para entrevistas de backend.  
+[jorex.dev](https://jorex.dev) · [@programando_con_jorge](https://instagram.com/jorex.dev)
 
----
-
-## 📖 Recursos recomendados
-
-- *Effective Java* – Joshua Bloch  
-- *Clean Code* – Robert C. Martin  
-- *Spring in Action* – Craig Walls  
-- Documentación oficial de [Java](https://docs.oracle.com/en/java/) y [Spring](https://spring.io/projects/spring-boot)  
-
----
-
-✍️ **Autor**: @programando_con_jorge
-📌 Proyecto en constante actualización mientras avanzo en mi preparación.
-🤝 Este repositorio está abierto a mejoras y contribuciones.
-
-
+</div>
