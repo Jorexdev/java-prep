@@ -1,4 +1,4 @@
-package base.streams.ejemplosercicios.dificil.soluciones;
+package base.streams.ejercicios.dificil.soluciones;
 
 import java.util.Comparator;
 import java.util.List;

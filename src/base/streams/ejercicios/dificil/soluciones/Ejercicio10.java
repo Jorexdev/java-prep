@@ -1,4 +1,4 @@
-package base.streams.ejemplosercicios.dificil.soluciones;
+package base.streams.ejercicios.dificil.soluciones;
 
 import java.util.DoubleSummaryStatistics;
 import java.util.List;

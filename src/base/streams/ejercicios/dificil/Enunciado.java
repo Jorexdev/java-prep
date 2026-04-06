@@ -1,4 +1,4 @@
-package base.streams.ejemplosercicios.dificil;
+package base.streams.ejercicios.dificil;
 
 /*
     STREAMS - Ejercicios Hard

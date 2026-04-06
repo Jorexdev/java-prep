@@ -1,4 +1,4 @@
-package base.streams.ejemplosercicios.medio.soluciones;
+package base.streams.ejercicios.medio.soluciones;
 
 import java.util.List;
 import java.util.function.Function;

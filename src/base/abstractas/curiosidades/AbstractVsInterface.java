@@ -1,4 +1,4 @@
-package base.abstractas.trivia;
+package base.abstractas.curiosidades;
 
 public class AbstractVsInterface {
 

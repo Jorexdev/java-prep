@@ -1,4 +1,4 @@
-package base.streams.ejemplosercicios.medio;
+package base.streams.ejercicios.medio;
 
 /*
     STREAMS - Ejercicios Medium

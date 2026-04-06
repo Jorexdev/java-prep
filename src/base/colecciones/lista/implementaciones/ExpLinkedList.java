@@ -1,4 +1,4 @@
-package base.colecciones.listaa.implementaciones;
+package base.colecciones.lista.implementaciones;
 
 import java.util.LinkedList;
 
