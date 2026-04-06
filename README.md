@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="#"><img src="assets/banner-v2.svg" width="100%" alt="java-prep banner"/></a>
+  <a href="#"><img src="assets/banner-v3.svg" width="100%" alt="java-prep banner"/></a>
 </div>
 
 <br>
