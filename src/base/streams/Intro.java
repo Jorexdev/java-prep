@@ -1,44 +1,40 @@
 package base.streams;
 
-public class Intro {
+/*
+    STREAMS - Introducción
 
-    /*
-       En Java, los Streams fueron introducidos en Java 8 como una API para procesar
-       colecciones de datos de forma declarativa y funcional. Permiten trabajar con
-       secuencias de elementos mediante operaciones como filter, map, reduce, collect, etc.
+    ¿Qué es?
+    API introducida en Java 8 para procesar colecciones de datos de forma declarativa y funcional.
+    Un Stream no almacena datos, describe un "pipeline" de operaciones sobre una fuente
+    (colección, array, generador...).
 
-       Un Stream no almacena datos por sí mismo, sino que se apoya en una fuente 
-       (colección, array, I/O, generador…) y describe un "pipeline" de operaciones.
+    ¿Para qué sirve?
+    Para reemplazar bucles imperativos por operaciones encadenadas más legibles.
+    En vez de "recorro la lista, si cumple la condición la añado a otra lista",
+    escribes directamente lo que quieres: filter, map, collect.
 
-       Personalmente creo que traducirlo hace que tenga mas sentido; flujo de datos,
-       asi es como actua
-    */
+    ¿Cuándo usarlo?
+    - Transformaciones y filtrados sobre colecciones.
+    - Agrupaciones, estadísticas, reducciones.
+    - Cuando quieres aprovechar paralelismo fácilmente con parallelStream().
 
+    ¿Cuándo NO usarlo?
+    - Si necesitas modificar la colección original durante el recorrido.
+    - Si el bucle tiene efectos secundarios complejos que dependen del orden.
+    - Para operaciones muy simples donde un for es más claro.
 
-    /*                             KEY FEATURES                            */
+    Tipos de operaciones:
 
-    /*
-        - API introducida en Java 8.
-        - Permite trabajar con colecciones de manera declarativa.
-        - Basado en el patrón "pipeline": se encadenan operaciones.
-        - Las operaciones pueden ser (IMPORTANTE CONOCER DIFERENCIA):
-            * Intermedias: devuelven otro Stream (lazy).
-              Ej: filter, map, sorted, distinct, limit.
-            * Terminales: cierran el stream y producen un resultado.
-              Ej: collect, reduce, forEach, count, anyMatch.
-        - Son "lazy": las operaciones intermedias no se ejecutan hasta que
-          aparece una operación terminal.
-        - Soporta procesamiento paralelo con parallelStream().
-    */
+    Intermedias - devuelven otro Stream, son lazy (no se ejecutan hasta la terminal)
+        filter, map, flatMap, sorted, distinct, limit, skip, peek
 
+    Terminales - cierran el stream y producen un resultado
+        collect, reduce, forEach, count, anyMatch, allMatch, findFirst, min, max
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Código más conciso y legible.
-        - Permite programación funcional en Java.
-        - Facilita operaciones complejas sobre colecciones (map, filter, reduce).
-        - Optimización interna: el framework decide cómo iterar eficientemente.
-        - Se puede ejecutar en paralelo fácilmente.
-    */
-}
+    Preguntas típicas de entrevista:
+    - ¿Qué significa que los streams son lazy?
+    - ¿Qué diferencia hay entre map y flatMap?
+    - ¿Cuándo usarías parallelStream()? ¿Qué riesgos tiene?
+    - ¿Puedes reutilizar un stream una vez consumido?
+    - ¿Qué diferencia hay entre findFirst() y findAny() en paralelo?
+*/
