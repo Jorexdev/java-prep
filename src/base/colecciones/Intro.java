@@ -1,36 +1,47 @@
 package base.colecciones;
 
-public class Intro {
-    /*
-        En Java existe el JCF (Java Collections Framework), un conjunto de clases e interfaces
-        que proveen estructuras de datos listas para usar de forma eficiente.
+/*
+    JAVA COLLECTIONS FRAMEWORK - Introducción
 
-        Dentro del JCF encontramos principalmente las siguientes interfaces:
-        - List
-        - Set
-        - Queue
-        - Map (no hereda de Collection, pero forma parte del framework)
+    ¿Qué es?
+    Conjunto de clases e interfaces que proveen estructuras de datos listas para usar.
+    A diferencia de los arrays, las colecciones se redimensionan dinámicamente
+    y ofrecen operaciones de búsqueda, ordenación e iteración de serie.
 
-        Algunas implementaciones comunes son: ArrayList, HashSet y HashMap.
+    ¿Para qué sirve?
+    Para elegir la estructura de datos correcta según el caso de uso:
+    orden, unicidad, acceso por clave, rendimiento en inserción/búsqueda, thread-safety...
 
-        A diferencia de los arrays, las colecciones permiten un redimensionamiento dinámico.
+    Interfaces principales:
 
-        El JCF también incluye algoritmos útiles como ordenamiento, búsqueda e iteración.
-    */
+    List - colección ordenada que permite duplicados y acceso por índice.
+        ArrayList, LinkedList, Vector, Stack
 
+    Set - colección que no permite duplicados.
+        HashSet, LinkedHashSet, TreeSet, EnumSet
 
+    Queue / Deque - colección diseñada para procesamiento en orden (FIFO/LIFO/prioridad).
+        PriorityQueue, ArrayDeque, LinkedList
 
-    /*                              CORE INTERFACES                              */
+    Map - pares clave-valor. No hereda de Collection pero forma parte del framework.
+        HashMap, LinkedHashMap, TreeMap, WeakHashMap
 
-    /*
-        La base del JFC esta construido sobre interfaces como Collection, List, Set, Queue, Deque y Map
-        En cada clase de este paquete se define cada interfaz en detalle con ejemplos :)
+    Colecciones concurrentes - versiones thread-safe optimizadas.
+        ConcurrentHashMap, CopyOnWriteArrayList, BlockingQueue
 
-        - Collection interface
-        - List interface
-        - Set interface
-        - Queue interface
-        - Deque interface
-        - Map interface
-     */
-}
+    Árbol de decisión básico:
+
+    - ¿Necesitas duplicados y orden de inserción?  - List (ArrayList)
+    - ¿Necesitas unicidad?                          - Set (HashSet)
+    - ¿Necesitas buscar por clave?                  - Map (HashMap)
+    - ¿Necesitas procesar en orden/prioridad?       - Queue (PriorityQueue)
+    - ¿Necesitas orden natural o personalizado?     - TreeSet / TreeMap
+    - ¿Acceso concurrente?                          - ConcurrentHashMap / CopyOnWriteArrayList
+
+    Preguntas típicas de entrevista:
+    - ¿Cuándo usarías ArrayList vs LinkedList?
+    - ¿Cuándo usarías HashMap vs TreeMap vs LinkedHashMap?
+    - ¿Qué diferencia hay entre Comparable y Comparator?
+    - ¿Por qué HashMap no garantiza orden?
+    - ¿Qué pasa si modificas una colección mientras la iteras?
+*/

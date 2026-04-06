@@ -5,59 +5,63 @@ import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 /*
-    Ejemplos prácticos de AOP en Spring:
+    AOP - Ejemplos prácticos en Spring
 
-       1. Logging antes de ejecutar métodos (@Before)
-       2. Medir tiempo de ejecución (@Around)
-       3. Interceptar excepciones (@AfterThrowing)
-
-    Nota importante:
-      - Para que funcione, las clases interceptadas deben ser beans gestionados por Spring.
-      - Las clases con @Aspect también deben estar registradas en el contexto.
+    Para que estos aspectos funcionen:
+    - Las clases interceptadas deben ser beans gestionados por Spring (@Service, @Component...).
+    - Esta clase también debe ser un bean con @Aspect + @Component.
+    - Spring Boot activa AOP automáticamente si spring-boot-starter-aop está en el classpath.
 */
-
 @Aspect
 @Component
 public class Examples {
 
-    // ==============================================================
-    // 1. Logging básico antes de ejecutar cualquier métod0 de service
-    // ==============================================================
+    /*
+        @Before: se ejecuta ANTES del método.
+        Útil para logging de entrada, validaciones previas.
 
+        El pointcut execution(* solid.*.*(..)) intercepta cualquier método
+        de cualquier clase dentro del paquete solid.
+    */
     @Before("execution(* solid.*.*(..))")
-    public void logAntesDeMetodo() {
-        System.out.println("[AOP] Ejecutando método del servicio...");
+    public void logAntes() {
+        System.out.println("[LOG] Ejecutando método...");
     }
 
-    // ====================================================================
-    // 2. Ejemplo @Around: medir tiempo de ejecución de métodos del service
-    // ====================================================================
+    /*
+        @AfterReturning: se ejecuta después de que el método retorna correctamente.
+        Con el atributo "returning" puedes acceder al valor devuelto.
+        No se ejecuta si el método lanza una excepción.
+    */
+    @AfterReturning(pointcut = "execution(* solid.*.*(..))", returning = "resultado")
+    public void logDespues(Object resultado) {
+        System.out.println("[LOG] Método completado. Resultado: " + resultado);
+    }
 
+    /*
+        @Around: rodea la ejecución completa del método.
+        Tienes control total: puedes modificar argumentos, el resultado, o suprimir excepciones.
+        pjp.proceed() es donde se ejecuta el método original.
+    */
     @Around("execution(* solid.*.*(..))")
     public Object medirTiempo(ProceedingJoinPoint pjp) throws Throwable {
-
         long inicio = System.currentTimeMillis();
 
-        Object resultado = pjp.proceed(); // ejecuta el métod0 original
+        Object resultado = pjp.proceed(); // ejecuta el método original
 
-        long fin = System.currentTimeMillis();
-        long tiempo = fin - inicio;
-
-        System.out.println("[AOP] Tiempo de ejecución de " +
-                pjp.getSignature().getName() + ": " + tiempo + " ms");
+        long tiempo = System.currentTimeMillis() - inicio;
+        System.out.println("[METRICS] " + pjp.getSignature().getName() + ": " + tiempo + " ms");
 
         return resultado;
     }
 
-    // ==============================================================
-    // 3. Interceptar excepciones lanzadas por métodos del service
-    // ==============================================================
-
-    @AfterThrowing(
-            pointcut = "execution(* solid.*.*(..))",
-            throwing = "ex"
-    )
-    public void manejarExcepciones(Exception ex) {
-        System.out.println("[AOP] Se lanzó una excepción: " + ex.getMessage());
+    /*
+        @AfterThrowing: se ejecuta solo si el método lanza una excepción.
+        Con el atributo "throwing" accedes a la excepción lanzada.
+        No suprime la excepción: el caller la sigue recibiendo.
+    */
+    @AfterThrowing(pointcut = "execution(* solid.*.*(..))", throwing = "ex")
+    public void manejarExcepcion(Exception ex) {
+        System.out.println("[ERROR] Excepción capturada: " + ex.getMessage());
     }
 }

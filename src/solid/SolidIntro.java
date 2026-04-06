@@ -1,26 +1,38 @@
 package solid;
 
-public class SolidIntro {
+/*
+    SOLID - Introducción
 
-    /*
-       SOLID es un conjunto de 5 principios de diseño de software propuestos por
-       Robert C. Martin (Uncle Bob). Su objetivo es mejorar la mantenibilidad,
-       extensibilidad y flexibilidad del código orientado a objetos.
+    ¿Qué es?
+    Conjunto de 5 principios de diseño orientado a objetos propuestos por Robert C. Martin.
+    Su objetivo es escribir código más mantenible, flexible y fácil de extender.
 
-       Cada letra corresponde a un principio:
-         - S → Single Responsibility Principle (SRP)
-         - O → Open/Closed Principle (OCP)
-         - L → Liskov Substitution Principle (LSP)
-         - I → Interface Segregation Principle (ISP)
-         - D → Dependency Inversion Principle (DIP)
-    */
+    ¿Para qué sirve?
+    - Reduce el acoplamiento entre clases.
+    - Facilita añadir nuevas funcionalidades sin romper lo existente.
+    - Hace el código más fácil de testear.
+    - Es la base sobre la que se construyen los patrones de diseño.
 
+    Los 5 principios:
 
-    /*                             KEY FEATURES                            */
+    S - Single Responsibility Principle (SRP)
+        Una clase debe tener una sola razón para cambiar.
 
-    /*
-        - Promueven cohesión alta y bajo acoplamiento.
-        - Ayudan a escribir código más fácil de probar y mantener.
-        - Son la base de buenas prácticas de OOP y patrones de diseño.
-    */
-}
+    O - Open/Closed Principle (OCP)
+        Abierto a extensión, cerrado a modificación.
+
+    L - Liskov Substitution Principle (LSP)
+        Una subclase debe poder sustituir a su clase base sin romper el comportamiento.
+
+    I - Interface Segregation Principle (ISP)
+        Mejor muchas interfaces pequeñas que una grande con métodos que no se usan.
+
+    D - Dependency Inversion Principle (DIP)
+        Depende de abstracciones, no de implementaciones concretas.
+
+    Preguntas típicas de entrevista:
+    - ¿Cuál de los principios SOLID es el más difícil de aplicar en la práctica?
+    - ¿Cómo se relacionan SOLID con los patrones de diseño?
+    - ¿Cuándo es aceptable violar algún principio SOLID?
+    - ¿Cómo ayuda Spring Boot a aplicar DIP e ISP?
+*/
