@@ -1,4 +1,4 @@
-package base.streams.ejemplosercicios.facil.soluciones;
+package base.streams.ejercicios.facil.soluciones;
 
 import java.util.List;
 import java.util.function.Predicate;

@@ -1,4 +1,4 @@
-package base.colecciones.mapaa.implementaciones;
+package base.colecciones.mapa.implementaciones;
 
 import java.util.WeakHashMap;
 
