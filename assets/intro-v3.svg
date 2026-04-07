@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="70" viewBox="0 0 900 70">
+  <text x="450" y="20" font-family="'DM Sans', sans-serif" font-size="17" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Teoría orientada a entrevista y código real para preparar
+    <animate attributeName="opacity" from="0" to="1" dur="1s" fill="freeze"/>
+  </text>
+  <text x="450" y="44" font-family="'DM Sans', sans-serif" font-size="17" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">entrevistas técnicas de backend con Java.
+    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="0.2s" fill="freeze"/>
+  </text>
+  <text x="450" y="68" font-family="'DM Sans', sans-serif" font-size="17" font-weight="700" fill="#CCCCCC" text-anchor="middle" opacity="0">Cada sección cubre el qué, el para qué, cuándo usarlo y las preguntas que suelen salir.
+    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="0.4s" fill="freeze"/>
+  </text>
+</svg>

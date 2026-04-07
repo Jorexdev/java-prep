@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="116" viewBox="0 0 900 116">
+  <defs>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <text x="0"  y="16"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">·</text>
+  <text x="16" y="16"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Effective Java — Joshua Bloch</text>
+
+  <text x="0"  y="38"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">·</text>
+  <text x="16" y="38"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Clean Code — Robert C. Martin</text>
+
+  <text x="0"  y="60"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">·</text>
+  <text x="16" y="60"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Designing Data-Intensive Applications — Martin Kleppmann</text>
+
+  <text x="0"  y="82"  font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">·</text>
+  <text x="16" y="82"  font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Java 21 docs — docs.oracle.com</text>
+
+  <text x="0"  y="104" font-family="'Courier New', monospace" font-size="13" fill="#A3B067" filter="url(#glow)">·</text>
+  <text x="16" y="104" font-family="'Courier New', monospace" font-size="13" fill="#C5CEAB">Spring Boot reference — docs.spring.io</text>
+</svg>

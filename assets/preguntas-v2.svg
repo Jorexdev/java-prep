@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="30" viewBox="0 0 900 30">
+  <text x="450" y="20" font-family="'DM Sans', sans-serif" font-size="17" font-weight="700" font-style="italic" fill="#606C38" text-anchor="middle" opacity="0">Banco de preguntas agrupadas por tema — próximamente.
+    <animate attributeName="opacity" from="0" to="1" dur="1s" fill="freeze"/>
+  </text>
+</svg>
