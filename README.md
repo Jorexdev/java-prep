@@ -59,7 +59,7 @@
 <div align="center"><img height="20" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='20'/%3E"/></div>
 
 <div align="center">
-  <a href="https://jorex.dev/cursos/" target="_blank"><img src="assets/btn-recursos-v4.svg" alt="Ver Recursos Gratis"/></a>
+  <a href="https://jorex.dev/" target="_blank"><img src="assets/btn-recursos-v4.svg" alt="Ver Recursos Gratis"/></a>
 </div>
 
 <br/>
