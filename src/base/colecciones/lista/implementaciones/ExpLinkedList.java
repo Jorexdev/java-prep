@@ -4,58 +4,22 @@ import java.util.LinkedList;
 
 public class ExpLinkedList {
 
-    /*
-        En Java, los LinkedList implementan una lista doblemente enlazada donde los
-        elementos no se almacenan en memoria contigua.
-        Cada nodo contiene:
-            - Los datos
-            - Una referencia al nodo anterior
-            - Una referencia al nodo siguiente
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - LinkedList()
-            → Crea una lista enlazada vacía.
-
-        - LinkedList(Collection<? extends E> c)
-            → Crea una lista enlazada que contiene todos los elementos de la colección dada,
-              en el mismo orden que los retorna el iterador de esa colección.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - LinkedList es una lista doblemente enlazada (no basada en array).
-        - No ofrece acceso indexado rápido (buscar por índice es O(n)).
-        - Implementa las interfaces List, Deque y Queue → puede usarse como lista, cola o pila.
-        - Soporte de genéricos; asegura la seguridad del tipo en compilación (type-safety).
-        - No está sincronizado; para seguridad en hilos se usa Collections.synchronizedList().
-        - Permite nulos y duplicados.
-        - Mantiene orden de inserción.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Inserciones y eliminaciones rápidas en extremos (O(1)).
-        - Útil para implementar estructuras de datos como colas y pilas.
-        - Flexibilidad al poder usarse como List y como Deque.
-        - Soporta nulos y duplicados.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Acceso lento por índice (O(n)).
-        - Mayor consumo de memoria que ArrayList (referencias prev/next en cada nodo).
-        - Iterar suele ser más costoso que en un ArrayList.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -146,7 +110,6 @@ public class ExpLinkedList {
         // clear(): elimina todos los elementos de la lista
         linkedList.clear();
         System.out.println("Tras clear(): vacío=" + linkedList.isEmpty() + ", size=" + linkedList.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - descendingIterator(): devuelve un iterador en orden inverso.

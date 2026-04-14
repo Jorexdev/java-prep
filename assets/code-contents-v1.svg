@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="180" viewBox="0 0 480 180">
+  <!-- Background -->
+  <rect width="480" height="180" rx="4" fill="#0f1a0e"/>
+  <!-- Border -->
+  <rect x="0.5" y="0.5" width="479" height="179" rx="4" fill="none" stroke="#A3B067" stroke-opacity="0.25" stroke-width="1"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="3" height="180" rx="2" fill="#A3B067" opacity="0.5"/>
+
+  <!-- Line 1: public class Contents { -->
+  <text x="22" y="44" font-family="'DM Mono', monospace" font-size="14" fill="#CCCCCC">
+    <tspan fill="#A3B067">public</tspan><tspan> </tspan><tspan fill="#A3B067">class</tspan><tspan fill="#E8EDD4"> Contents</tspan><tspan> {</tspan>
+  </text>
+
+  <!-- Line 2: final boolean TUTORIALS = true; -->
+  <text x="22" y="68" font-family="'DM Mono', monospace" font-size="14" fill="#CCCCCC">
+    <tspan>    </tspan><tspan fill="#A3B067">final</tspan><tspan> </tspan><tspan fill="#A3B067">boolean</tspan><tspan fill="#C5CEAB"> TUTORIALS</tspan><tspan> = </tspan><tspan fill="#A3B067">true</tspan><tspan>;</tspan>
+  </text>
+
+  <!-- Line 3: final boolean REPOS = true; -->
+  <text x="22" y="92" font-family="'DM Mono', monospace" font-size="14" fill="#CCCCCC">
+    <tspan>    </tspan><tspan fill="#A3B067">final</tspan><tspan> </tspan><tspan fill="#A3B067">boolean</tspan><tspan fill="#C5CEAB"> REPOS</tspan><tspan> = </tspan><tspan fill="#A3B067">true</tspan><tspan>;</tspan>
+  </text>
+
+  <!-- Line 4: final boolean TIPS = true; -->
+  <text x="22" y="116" font-family="'DM Mono', monospace" font-size="14" fill="#CCCCCC">
+    <tspan>    </tspan><tspan fill="#A3B067">final</tspan><tspan> </tspan><tspan fill="#A3B067">boolean</tspan><tspan fill="#C5CEAB"> TIPS</tspan><tspan> = </tspan><tspan fill="#A3B067">true</tspan><tspan>;</tspan>
+  </text>
+
+  <!-- Line 5: final boolean LEARN_PROGRAMMING = true; -->
+  <text x="22" y="140" font-family="'DM Mono', monospace" font-size="14" fill="#CCCCCC">
+    <tspan>    </tspan><tspan fill="#A3B067">final</tspan><tspan> </tspan><tspan fill="#A3B067">boolean</tspan><tspan fill="#C5CEAB"> LEARN_PROGRAMMING</tspan><tspan> = </tspan><tspan fill="#A3B067">true</tspan><tspan>;</tspan>
+  </text>
+
+  <!-- Line 6: } -->
+  <text x="22" y="164" font-family="'DM Mono', monospace" font-size="14" fill="#CCCCCC">}</text>
+</svg>

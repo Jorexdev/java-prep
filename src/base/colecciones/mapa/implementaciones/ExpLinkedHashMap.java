@@ -4,20 +4,10 @@ import java.util.LinkedHashMap;
 
 public class ExpLinkedHashMap {
 
-    /*
-        LinkedHashMap mantiene los pares clave-valor en orden de inserción
-        (o de acceso, si se configura).
-        Útil para cachés (ej: LRU).
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Orden predecible (inserción o acceso).
-        - O(1) en operaciones básicas.
-        - Permite null (una clave y múltiples valores).
-     */
+
 
 
     public static void main(String[] args) {

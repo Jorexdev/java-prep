@@ -4,22 +4,10 @@ import java.util.*;
 
 public class ExpComparable {
 
-    /*
-        Comparable es una interfaz que define el orden natural
-        de los objetos mediante compareTo().
-        Muchas clases del JDK ya la implementan (String, Integer, etc.).
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - int compareTo(T o):
-            < 0 → this < o
-            = 0 → this == o
-            > 0 → this > o
-        - Usado por defecto en sort() y en estructuras ordenadas.
-     */
+
 
 
     // Clase ejemplo con orden natural propio

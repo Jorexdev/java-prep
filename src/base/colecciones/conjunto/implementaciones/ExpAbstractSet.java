@@ -4,54 +4,25 @@ import java.util.AbstractSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-
 public class ExpAbstractSet {
 
-    /*
-        En Java, AbstractSet es una clase abstracta que extiende AbstractCollection
-        e implementa la interfaz Set. Provee implementaciones por defecto de algunos
-        métodos de Set y sirve como base para crear Sets personalizados.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - AbstractSet no tiene constructores públicos directos (es abstracta).
-        - Para usarla se debe extender e implementar al menos:
-            → iterator()
-            → size()
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Clase abstracta base para Sets.
-        - Implementa equals() y hashCode() de forma consistente para conjuntos.
-        - No permite duplicados (heredado del contrato de Set).
-        - Facilita la implementación de conjuntos personalizados.
-        - No está sincronizada.
-        - Permite un único valor null (dependiendo de la implementación).
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Simplifica la creación de Sets personalizados.
-        - Ya incluye lógica para igualdad y hashCode de conjuntos.
-        - Evita reescribir código repetitivo de Set.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - No se puede instanciar directamente (es abstracta).
-        - Se deben implementar métodos obligatorios.
-        - Menos práctica que usar implementaciones listas como HashSet o TreeSet.
-     */
+
+
+
+
+
+
+
+
 
     // Ejemplo de implementación personalizada de AbstractSet
     static class MiSet<E> extends AbstractSet<E> {
@@ -79,7 +50,6 @@ public class ExpAbstractSet {
             return false;
         }
     }
-
 
     public static void main(String[] args) {
 
@@ -114,7 +84,6 @@ public class ExpAbstractSet {
         } catch (UnsupportedOperationException e) {
             System.out.println("clear() no soportado en nuestra implementación de MiSet");
         }
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - remove(Object o): por defecto lanza UnsupportedOperationException (sobrescribir si lo necesitas).

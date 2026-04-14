@@ -6,21 +6,22 @@ public class Ejercicio4 {
 
     public static void main(String[] args) {
 
-        List<Product> productList = List.of(
-                new Product("Lejia", 20L),
+        // Ejercicio: obtener los nombres de productos con precio mayor a 100
+        List<Product> products = List.of(
+                new Product("Lejia",     20L),
                 new Product("Chocolate", 12L),
-                new Product("Barbacoa", 120L),
-                new Product("Coche", 2000L)
+                new Product("Barbacoa",  120L),
+                new Product("Coche",     2000L)
         );
 
-        productList
+        products
                 .stream()
-                .filter(x -> x.getPrice() >= 100)
-                .forEach(System.out::println);
-
+                .filter(x -> x.getPrice() >= 100)  // descarta los baratos
+                .forEach(System.out::println);      // para obtener solo nombres: .map(Product::getName)
     }
 
     static class Product {
+
         private final String name;
         private final Long price;
 
@@ -35,10 +36,7 @@ public class Ejercicio4 {
 
         @Override
         public String toString() {
-            return "Product{" +
-                    "name='" + name + '\'' +
-                    ", price=" + price +
-                    '}';
+            return "Product{name='" + name + "', price=" + price + '}';
         }
     }
 }

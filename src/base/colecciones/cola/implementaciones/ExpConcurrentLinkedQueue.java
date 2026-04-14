@@ -4,32 +4,14 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ExpConcurrentLinkedQueue {
 
-    /*
-        ConcurrentLinkedQueue es una cola no bloqueante (lock-free) y thread-safe
-        basada en nodos enlazados. Ideal para alta concurrencia.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - ConcurrentLinkedQueue()
-            → Crea una cola vacía.
-
-        - ConcurrentLinkedQueue(Collection<? extends E> c)
-            → Crea una cola con los elementos de la colección.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Seguridad en hilos (no bloqueante).
-        - Métodos típicos de Queue: offer, poll, peek.
-        - Operaciones en tiempo amortizado O(1).
-        - Tamaño (size) es O(n) y puede ser aproximado bajo alta concurrencia.
-        - No permite null.
-     */
+
+
+
 
 
     public static void main(String[] args) {

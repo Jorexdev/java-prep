@@ -5,33 +5,14 @@ import java.util.TreeSet;
 
 public class ExpSortedSet {
 
-    /*
-        En Java, SortedSet es una interfaz que extiende Set.
-        Representa un conjunto en el que los elementos están almacenados en orden ASCENDENTE,
-        ya sea según el orden natural de los elementos (Comparable) o mediante un Comparator.
-     */
 
 
-    /*                           KEY FEATURES                            */
-
-    /*
-        - Mantiene los elementos en orden ascendente.
-        - No permite duplicados.
-        - Permite null SOLO si está vacío (de lo contrario lanza NullPointerException).
-        - Implementación más común: TreeSet.
-     */
 
 
-    /*                            MÉTODOS CLAVE                          */
 
-    /*
-        - comparator(): devuelve el Comparator usado o null si usa orden natural.
-        - first(): devuelve el primer elemento (mínimo).
-        - last(): devuelve el último elemento (máximo).
-        - headSet(E toElement): elementos menores que toElement.
-        - tailSet(E fromElement): elementos mayores o iguales que fromElement.
-        - subSet(E fromElement, E toElement): elementos en el rango [from, to).
-     */
+
+
+
 
 
     public static void main(String[] args) {

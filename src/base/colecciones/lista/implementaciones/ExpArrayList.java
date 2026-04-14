@@ -6,34 +6,14 @@ import java.util.List;
 
 public class ExpArrayList {
 
-    /*
-        En Java, los ArrayList son arrays redimensionables en los cuales, a diferencia
-        de los arrays normales, no necesitas especificar el tamaño por adelantado,
-        puede crecer o encoger dinamicamente mientras se añaden o eliminan valores
-
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - ArrayList es un array redimensionable dinamico
-        - Acceso indexado; se puede acceder a los valores mediante indices
-        - Suporte de genericos; Asegura la seguridad del tipo en el momento de compilacion (type-safety)
-        - No esta sincronizado; ArrayList usa Collections.syncronizedList() para seguridad de hilos
-        - Permite nulos y duplicados
-        - Matiene orden de insercion
-     */
 
-    /*                            VENTAJAS                                 */
 
-    /*
-        - Tamaño dinamico
-        - Facil de usar
-        - Acceso rapido
-        - Collection ordenada
-        - Soporta nulos
-     */
+
+
+
 
 
     public static void main(String[] args) {
@@ -117,7 +97,6 @@ public class ExpArrayList {
 
         // trimToSize(): ajustar capacidad al tamaño actual (0)
         arrayList.trimToSize();
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - removeAll(Collection c) / retainAll(Collection<?> c):

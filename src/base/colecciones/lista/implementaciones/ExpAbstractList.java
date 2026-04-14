@@ -3,60 +3,25 @@ package base.colecciones.lista.implementaciones;
 import java.util.AbstractList;
 import java.util.List;
 
-
 public class ExpAbstractList {
 
-    /*
-        En Java, AbstractList es una clase abstracta que implementa parcialmente
-        la interfaz List. Sirve como base para crear tus propias listas personalizadas
-        sin tener que implementar todos los métodos desde cero.
-
-        Por ejemplo, ArrayList y otros tipos de listas extienden indirectamente
-        de AbstractList.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - AbstractList no tiene constructores públicos directos,
-          ya que es una clase abstracta.
-
-        - Para usarla, debes extenderla y al menos implementar:
-            → get(int index)
-            → size()
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Clase abstracta base para listas.
-        - Implementa métodos comunes de List (add, remove, set, iterator, etc.).
-        - Solo obliga a implementar get(int index) y size().
-        - Facilita la creación de estructuras de listas personalizadas.
-        - No está sincronizada.
-        - Permite nulos y duplicados (depende de tu implementación).
-        - Mantiene orden de inserción.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Evita reescribir lógica común de List.
-        - Ideal para crear implementaciones ligeras y personalizadas.
-        - Permite reutilizar código del framework.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - No se puede instanciar directamente (es abstracta).
-        - Requiere extenderla e implementar métodos.
-        - Menos práctica que usar ArrayList o LinkedList en la mayoría de los casos.
-     */
+
+
+
+
+
+
+
+
 
     // Ejemplo de una implementación personalizada de AbstractList
     static class MiLista<E> extends AbstractList<E> {
@@ -108,7 +73,6 @@ public class ExpAbstractList {
 
         // isEmpty(): devuelve true si está vacía
         System.out.println("¿Está vacía? " + miLista.isEmpty()); // false
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - set(int index, E element): por defecto lanza UnsupportedOperationException.

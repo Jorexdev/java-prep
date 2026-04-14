@@ -4,16 +4,7 @@ import java.util.Optional;
 
 public class Examples {
 
-    /*
-        Ejemplos prácticos de Optional en Java.
 
-        Aquí verás:
-         - Cómo crear Optionals (of, ofNullable, empty)
-         - orElse / orElseGet / orElseThrow
-         - ifPresent / ifPresentOrElse
-         - map y flatMap
-         - Patrón correcto vs patrón incorrecto (isPresent + get)
-     */
 
     public static void main(String[] args) {
 
@@ -30,7 +21,6 @@ public class Examples {
 
         // Optional.empty() → Optional vacío explícito
         Optional<String> optVacio = Optional.empty();
-
 
         // ======================================
         // 2. orElse, orElseGet y orElseThrow
@@ -51,7 +41,6 @@ public class Examples {
         // orElseThrow → lanza excepción si no hay valor
         String obligatorio = optNombre.orElseThrow(() -> new IllegalStateException("Nombre obligatorio"));
 
-
         // ======================================
         // 3. ifPresent e ifPresentOrElse
         // ======================================
@@ -69,7 +58,6 @@ public class Examples {
                 valor -> System.out.println("Hay saludo: " + valor),
                 () -> System.out.println("No hay saludo definido")
         );
-
 
         // ======================================
         // 4. map y flatMap
@@ -92,7 +80,6 @@ public class Examples {
         Optional<String> optConMayus = optTexto.flatMap(Examples::aMayusOptional);
         System.out.println("flatMap: " + optConMayus.orElse("VACÍO"));
 
-
         // ======================================
         // 5. PATRÓN CORRECTO vs PATRÓN INCORRECTO
         // ======================================
@@ -112,7 +99,6 @@ public class Examples {
 
         System.out.println("Email (buena práctica): " + emailBuenaPractica);
 
-
         // ======================================
         // 6. Optional en métodos que pueden no encontrar resultado
         // ======================================
@@ -123,7 +109,6 @@ public class Examples {
         // Consumimos el Optional sin usar null
         System.out.println("Usuario 1: " + usuarioEncontrado.orElse("No existe"));
         System.out.println("Usuario 99: " + usuarioNoEncontrado.orElse("No existe"));
-
 
         // ======================================
         // 7. Optional encadenado con lógica de dominio

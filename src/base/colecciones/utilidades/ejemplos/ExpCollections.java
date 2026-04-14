@@ -4,41 +4,18 @@ import java.util.*;
 
 public class ExpCollections {
 
-    /*
-        La clase Collections es una clase de utilidades que proporciona
-        métodos estáticos para trabajar con colecciones: ordenación,
-        búsqueda, sincronización, inmutabilidad, etc.
-        Es análoga a Arrays (que trabaja con arrays primitivos/objetos).
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Métodos estáticos (no instanciable).
-        - Operaciones sobre colecciones (List, Set, Map, etc.).
-        - Ofrece colecciones inmutables, sincronizadas o singleton.
-        - Provee ordenación, búsqueda y utilidades comunes.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Amplía las funcionalidades del JCF sin necesidad de clases extra.
-        - Facilita ordenación, búsqueda y manejo seguro en concurrencia.
-        - Genera colecciones inmutables y seguras frente a modificaciones.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Algunos métodos son legacy con sobrecarga de rendimiento
-          (ej: synchronizedX()) frente a alternativas modernas (ConcurrentX).
-        - Uso excesivo de colecciones inmutables puede llevar a errores
-          si no se manejan correctamente.
-     */
+
+
+
+
+
 
 
     public static void main(String[] args) {

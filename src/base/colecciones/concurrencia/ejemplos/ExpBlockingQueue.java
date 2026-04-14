@@ -4,23 +4,11 @@ import java.util.concurrent.*;
 
 public class ExpBlockingQueue {
 
-    /*
-        BlockingQueue es una interfaz de cola que soporta operaciones BLOQUEANTES:
-        - put(E): bloquea si está llena (hasta que haya hueco)
-        - take(): bloquea si está vacía (hasta que haya elemento)
-        Implementaciones comunes:
-          * ArrayBlockingQueue   → capacidad fija, respaldo por array.
-          * LinkedBlockingQueue  → capacidad opcional (ilimitada por defecto), respaldo enlazado.
-        Útil para productor-consumidor.
-     */
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Operaciones con bloqueo (put/take) y con timeout (offer/ poll con tiempo).
-        - Thread-safe.
-        - Iteradores débilmente consistentes.
-    */
+
+
+
 
     public static void main(String[] args) throws InterruptedException {
 

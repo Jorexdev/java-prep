@@ -4,9 +4,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
-/*
-    EXECUTORSERVICE Y COMPLETABLEFUTURE - Ejemplos
-*/
 public class ExpAsync {
 
     public static void main(String[] args) throws Exception {

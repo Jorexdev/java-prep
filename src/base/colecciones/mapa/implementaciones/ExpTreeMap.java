@@ -4,21 +4,10 @@ import java.util.TreeMap;
 
 public class ExpTreeMap {
 
-    /*
-        TreeMap es una implementación de Map basada en un árbol rojo-negro.
-        Mantiene las claves ordenadas (Comparable o Comparator).
-        No permite claves null.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Claves ordenadas ascendentemente (o con Comparator).
-        - O(log n) en inserción, búsqueda y eliminación.
-        - No permite claves null.
-        - Permite múltiples valores null.
-     */
+
 
 
     public static void main(String[] args) {

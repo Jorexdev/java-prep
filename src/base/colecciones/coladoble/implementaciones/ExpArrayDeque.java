@@ -4,49 +4,22 @@ import java.util.ArrayDeque;
 
 public class ExpArrayDeque {
 
-    /*
-        ArrayDeque es una implementación de Deque (doble extremo) basada en un buffer circular.
-        Sirve como cola (FIFO) y como pila (LIFO) de alto rendimiento.
-        No permite null y suele ser más rápida que Stack y LinkedList para uso como deque/pila.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - ArrayDeque()
-            → Crea un deque vacío.
-
-        - ArrayDeque(int initialCapacity)
-            → Crea un deque con capacidad inicial.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Deque FIFO/LIFO con array circular.
-        - Operaciones O(1) amortizado en ambos extremos.
-        - No permite null.
-        - No está sincronizado.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Muy rápido para push/pop/offer/poll en extremos.
-        - Mejor alternativa a Stack (LIFO) y a LinkedList en la mayoría de casos.
-        - Sin coste de nodos enlazados.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - No es thread-safe.
-        - No permite null.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {

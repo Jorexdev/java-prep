@@ -5,39 +5,14 @@ import java.util.PriorityQueue;
 
 public class ExpPriorityQueue {
 
-    /*
-        PriorityQueue es una cola basada en un heap binario que ordena los elementos
-        por prioridad: por orden natural (Comparable) o por un Comparator.
-        No garantiza orden FIFO, sino por prioridad.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - PriorityQueue()
-            → Orden natural de los elementos.
-
-        - PriorityQueue(int initialCapacity)
-            → Capacidad inicial personalizada.
-
-        - PriorityQueue(Comparator<? super E> comparator)
-            → Orden definido por un comparador.
-
-        - PriorityQueue(Collection<? extends E> c)
-            → Construye la cola a partir de una colección (se reordena por prioridad).
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Basada en heap (min-heap por defecto).
-        - Orden natural o Comparator.
-        - O(log n) inserción/eliminación; O(1) peek.
-        - Permite duplicados; no permite null.
-        - No está sincronizada.
-     */
+
+
+
 
 
     public static void main(String[] args) {

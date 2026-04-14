@@ -4,51 +4,22 @@ import java.util.LinkedList;
 
 public class ExpLinkedListDeque {
 
-    /*
-        LinkedList implementa Deque mediante una lista doblemente enlazada.
-        Permite operaciones eficientes O(1) en extremos, y funciona como cola o pila.
-        A diferencia de ArrayDeque, sí permite nulos (aunque es desaconsejado).
-
-        Literalmente es LinkedList a secas, si ya lo viste en ExpLinkedList no hay nada nuevo
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - LinkedList()
-            → Crea una lista/deque vacía.
-
-        - LinkedList(Collection<? extends E> c)
-            → Crea una lista/deque con los elementos de la colección dada.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Deque respaldado por nodos doblemente enlazados.
-        - O(1) en add/remove/get de extremos.
-        - Permite null (no recomendado).
-        - También implementa List (acceso por índice O(n)).
-        - No está sincronizado.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Inserciones/eliminaciones muy rápidas en extremos.
-        - API completa: List + Deque (versátil).
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Overhead de memoria por referencias prev/next en cada nodo.
-        - Acceso por índice O(n) (más lento que ArrayDeque para accesos aleatorios).
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {

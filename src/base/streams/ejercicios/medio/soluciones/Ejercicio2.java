@@ -7,80 +7,34 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Ejercicio: agrupar empleados primero por departamento y luego por cargo
         List<Employee> employees = List.of(
-                new Employee("Alice", "TI", "Desarrollador"),
-                new Employee("Bob", "TI", "QA"),
+                new Employee("Alice", "TI",        "Desarrollador"),
+                new Employee("Bob",   "TI",        "QA"),
                 new Employee("Clara", "Marketing", "Analista"),
-                new Employee("Dan", "Marketing", "Jefe de Área"),
-                new Employee("Eve", "Ventas", "Ejecutivo")
+                new Employee("Dan",   "Marketing", "Jefe de Área"),
+                new Employee("Eve",   "Ventas",    "Ejecutivo")
         );
 
         employees
                 .stream()
-                .collect(
-                        Collectors.groupingBy(
-                                Employee::getDepartment,
-                                Collectors.groupingBy(Employee::getPosition)))
-
-                .entrySet()
-                .forEach(System.out::println);
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
+                .collect(Collectors.groupingBy(
+                        Employee::getDepartment,               // primer nivel: departamento
+                        Collectors.groupingBy(Employee::getPosition) // segundo nivel: cargo
+                ))
+                .forEach((dept, byCargo) -> System.out.println(dept + " -> " + byCargo));
+    }
 
     static class Employee {
+
         private final String name;
         private final String department;
         private final String position;
 
-        public Employee(String name, String department, String position) {
+        Employee(String name, String department, String position) {
             this.name = name;
             this.department = department;
             this.position = position;
-        }
-
-        public String getName() {
-            return name;
         }
 
         public String getDepartment() {
@@ -96,5 +50,4 @@ public class Ejercicio2 {
             return name;
         }
     }
-
 }

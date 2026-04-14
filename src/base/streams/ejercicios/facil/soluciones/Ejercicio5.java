@@ -1,42 +1,39 @@
 package base.streams.ejercicios.facil.soluciones;
 
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Ejercicio5 {
 
     public static void main(String[] args) {
+
+        // Ejercicio: agrupar personas por ciudad y contar cuántas hay en cada una
         List<Person> people = List.of(
-                new Person("Jorge", "Madrid"),
-                new Person("Luis", "Barcelona"),
-                new Person("Ana", "Madrid"),
+                new Person("Jorge",   "Madrid"),
+                new Person("Luis",    "Barcelona"),
+                new Person("Ana",     "Madrid"),
                 new Person("Alberto", "Salamanca"),
-                new Person("Izaro", "Pais Vasco"),
-                new Person("Jose", "Barcelona")
+                new Person("Izaro",   "Pais Vasco"),
+                new Person("Jose",    "Barcelona")
         );
 
         people
                 .stream()
-                //.map(Person::getResidence) // Cuidao que si no especificas el valor que usara
-                // Function.identity(), usara el valor hash de tod0 el objeto y la agrupacion
-                // dara valor de 1
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .entrySet()
-                .forEach(System.out::println);
-
-
+                .collect(Collectors.groupingBy(
+                        Person::getResidence,  // clave de agrupación: la ciudad
+                        Collectors.counting()  // valor: número de personas en esa ciudad
+                ))
+                .forEach((city, count) -> System.out.println(city + " -> " + count));
     }
-
 
     static class Person {
 
         private final String name;
         private final String residence;
 
-        Person(String name, String age) {
+        Person(String name, String residence) {
             this.name = name;
-            this.residence = age;
+            this.residence = residence;
         }
 
         public String getResidence() {
@@ -45,11 +42,7 @@ public class Ejercicio5 {
 
         @Override
         public String toString() {
-            return "Person{" +
-                    "name='" + name + '\'' +
-                    ", residence=" + residence +
-                    '}';
+            return "Person{name='" + name + "', residence=" + residence + '}';
         }
     }
-
 }

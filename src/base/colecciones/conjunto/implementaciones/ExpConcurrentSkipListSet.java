@@ -4,36 +4,14 @@ import java.util.concurrent.ConcurrentSkipListSet;
 
 public class ExpConcurrentSkipListSet {
 
-    /*
-        En Java, ConcurrentSkipListSet es una implementación concurrente de NavigableSet.
-        Está basada en un Skip List (lista con saltos), lo que permite operaciones
-        eficientes en orden O(log n) y es segura para múltiples hilos (thread-safe).
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - ConcurrentSkipListSet()
-            → Crea un conjunto vacío en orden natural.
-
-        - ConcurrentSkipListSet(Comparator<? super E> comparator)
-            → Crea un conjunto vacío con el comparador dado.
-
-        - ConcurrentSkipListSet(Collection<? extends E> c)
-            → Crea un conjunto con los elementos de la colección.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Implementa NavigableSet.
-        - Basado en Skip List → operaciones O(log n).
-        - Orden natural o definido por Comparator.
-        - Thread-safe (sincronización eficiente, no bloquea como synchronized).
-        - No permite null.
-     */
+
+
+
 
 
     public static void main(String[] args) {
