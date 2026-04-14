@@ -1,67 +1,32 @@
 package base.abstractas.curiosidades;
 
-public class AbstractVsInterface {
+/*
+    ABSTRACT CLASS VS INTERFACE
 
-    /*
-       En Java, tanto las clases abstractas como las interfaces permiten definir contratos
-       para que otras clases los implementen, pero existen diferencias importantes entre ellas.
+    Clase abstracta:
+      - Plantilla base con estado (atributos de instancia) y comportamiento parcial.
+      - Puede tener métodos implementados (reutilizables) y abstractos (obligatorios).
+      - Permite constructores, atributos con cualquier modificador de acceso.
+      - Una clase solo puede extender UNA clase abstracta (herencia simple).
+      - Ideal cuando necesitas base común con lógica parcial.
 
-       Una clase abstracta en Java funciona como una plantilla inicial: puede tener atributos normales
-       (con cualquier modificador de acceso), métodos ya implementados que serán reutilizados por
-       todas las subclases, y métodos abstractos que obligan a las subclases a dar su propia
-       implementación. De esta forma, la clase abstracta define la base común (estado y
-       comportamiento compartido), mientras que deja abiertas ciertas partes para que cada
-       subclase concrete los detalles.
+    Interface:
+      - Contrato puro: define qué debe hacer una clase, no cómo.
+      - Todos los atributos son public static final (constantes).
+      - Sin constructores, sin estado de instancia.
+      - Desde Java 8: métodos default y static (con implementación).
+      - Desde Java 9: métodos privados.
+      - Una clase puede implementar múltiples interfaces (herencia múltiple de comportamiento).
+      - Ideal para polimorfismo flexible entre jerarquías distintas.
 
+    ¿Cuándo elegir cada uno?
+      - Clase abstracta: cuando las subclases comparten estado o implementación base.
+      - Interface: cuando solo defines un contrato y las clases pueden venir de jerarquías distintas.
 
-       Una interfaz en Java actúa como un contrato: define un conjunto de métodos que las clases
-       que la implementen deben cumplir. A diferencia de las clases abstractas, no pueden tener
-       estado (todos sus atributos son public static final, es decir, constantes) ni constructores.
-       Su objetivo es marcar capacidades o comportamientos comunes que pueden aplicarse a clases de
-       jerarquías distintas. Desde Java 8, las interfaces también permiten métodos default y
-       static (con implementación), y desde Java 9 incluso métodos privados, pero siempre sin
-       perder su naturaleza principal: ser un contrato flexible que una clase puede implementa
-       junto a otras interfaces.
-    */
-
-
-    /*                             KEY FEATURES                            */
-
-    /*
-        ► Clase abstracta:
-        - Puede tener métodos abstractos y métodos implementados.
-        - Puede tener atributos (variables de instancia).
-        - Puede tener constructores.
-        - Una clase solo puede extender de UNA clase abstracta (herencia simple).
-
-        ► Interface:
-        - Hasta Java 8, solo métodos abstractos.
-        - Desde Java 8: puede tener métodos default y static.
-        - Desde Java 9: puede tener métodos privados.
-        - No puede tener constructores.
-        - Todos los atributos son public static final (constantes).
-        - Una clase puede implementar varias interfaces (herencia múltiple de comportamiento).
-    */
-
-
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Clase abstracta:
-            * Ideal cuando necesitas una base común con lógica parcial.
-            * Reutilización de código en subclases.
-        - Interface:
-            * Ideal para contratos puros y polimorfismo flexible.
-            * Permiten herencia múltiple de comportamiento.
-    */
-
-
-    /*                            EJEMPLOS                                 */
-
-    /*
+    Ejemplo:
         abstract class Animal {
-            abstract void hacerSonido();
-            void dormir() { System.out.println("Zzz..."); }
+            abstract void hacerSonido();       // obligatorio en subclases
+            void dormir() { System.out.println("Zzz..."); }  // compartido
         }
 
         interface Volador {
@@ -69,10 +34,15 @@ public class AbstractVsInterface {
         }
 
         class Pajaro extends Animal implements Volador {
-            @Override
-            void hacerSonido() { System.out.println("Pío"); }
-            @Override
-            public void volar() { System.out.println("Estoy volando"); }
+            @Override void hacerSonido() { System.out.println("Pío"); }
+            @Override public void volar() { System.out.println("Volando"); }
         }
-    */
-}
+
+    Preguntas típicas de entrevista:
+      - ¿Una clase abstracta puede implementar interfaces? (sí)
+      - ¿Una interface puede extender otra interface? (sí, con extends)
+      - ¿Qué pasa si dos interfaces tienen un método default con el mismo nombre?
+        (la clase que las implementa debe sobreescribir el método)
+      - ¿Pueden tener constructores las interfaces? (no)
+*/
+public class AbstractVsInterface {}

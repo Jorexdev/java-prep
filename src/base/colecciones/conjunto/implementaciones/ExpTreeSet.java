@@ -4,58 +4,22 @@ import java.util.TreeSet;
 
 public class ExpTreeSet {
 
-    /*
-        En Java, los TreeSet son una implementación de Set basada en un árbol rojo-negro
-        (Red-Black Tree). Mantiene los elementos en orden ascendente de forma natural
-        o según un comparador definido.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - TreeSet()
-            → Crea un TreeSet vacío que ordena los elementos por orden natural.
-
-        - TreeSet(Collection<? extends E> c)
-            → Crea un TreeSet que contiene los elementos de la colección dada,
-              ordenados naturalmente.
-
-        - TreeSet(Comparator<? super E> comparator)
-            → Crea un TreeSet que usará un comparador personalizado para ordenar.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Basado en un árbol rojo-negro (balanced binary search tree).
-        - No permite duplicados.
-        - No permite null si hay más de un elemento (NullPointerException en comparación).
-        - Mantiene los elementos ordenados:
-            → Por orden natural (Comparable).
-            → O por un Comparator proporcionado.
-        - Operaciones logarítmicas: búsqueda, inserción y eliminación O(log n).
-        - No está sincronizado.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Mantiene elementos siempre ordenados.
-        - Ideal para operaciones de rango y búsqueda por orden.
-        - Permite comparadores personalizados.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Más lento que HashSet/LinkedHashSet (O(log n) vs O(1)).
-        - No permite nulls si se requiere comparación.
-        - No está sincronizado.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -95,7 +59,6 @@ public class ExpTreeSet {
         // clear(): elimina todos los elementos
         treeSet.clear();
         System.out.println("Tras clear(): vacío=" + treeSet.isEmpty() + ", size=" + treeSet.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - headSet(E toElement): devuelve todos los elementos menores a toElement.

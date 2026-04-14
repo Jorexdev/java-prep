@@ -4,25 +4,10 @@ import java.util.WeakHashMap;
 
 public class ExpWeakHashMap {
 
-    /*
-        WeakHashMap usa referencias débiles para las claves.
-        Cuando una clave ya no tiene referencias fuertes, el recolector de basura
-        puede eliminar su entrada automáticamente.
-        Útil para cachés y estructuras de memoria temporales.
-     */
-
-
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Claves almacenadas como referencias débiles.
-        - Elementos eliminados automáticamente por el GC.
-        - No sincronizado.
-     */
-
-
     public static void main(String[] args) {
 
+        // WeakHashMap almacena claves como referencias débiles
+        // cuando una clave ya no tiene referencias fuertes, el GC puede eliminar su entrada
         WeakHashMap<Object, String> map = new WeakHashMap<>();
 
         Object clave1 = new Object();
@@ -30,13 +15,12 @@ public class ExpWeakHashMap {
 
         map.put(clave1, "valor1");
         map.put(clave2, "valor2");
-        System.out.println("WeakHashMap inicial: " + map);
+        System.out.println("WeakHashMap inicial: " + map.size() + " entradas");
 
-        // Liberamos una referencia
-        clave1 = null;
-        System.gc(); // sugerencia al GC
+        clave1 = null; // eliminamos la única referencia fuerte a clave1
+        System.gc();   // sugerencia al GC — puede eliminar la entrada de clave1
 
-        // Entrada con clave sin referencias puede ser eliminada
-        System.out.println("Tras GC: " + map);
+        // tras el GC la entrada con clave1 puede haber desaparecido del mapa
+        System.out.println("Tras GC: " + map.size() + " entradas (puede ser 1)");
     }
 }

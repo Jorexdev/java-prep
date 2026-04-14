@@ -9,71 +9,22 @@ public class ExpEnumSet {
         LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
     }
 
-    /*
-        En Java, los EnumSet son una implementación de Set especializada para tipos enum.
-        Internamente usa una representación muy eficiente (bitset), lo que hace que
-        sea extremadamente rápido en memoria y tiempo para operaciones de conjuntos.
-
-        Reglas importantes:
-        - Solo admite elementos de un MISMO tipo enum.
-        - No permite null (NullPointerException).
-        - Mantiene el orden natural del enum (el orden de declaración de las constantes).
-        - No está sincronizado.
-     */
 
 
-    /*                           "CONSTRUCTORES"                            */
-
-    /*
-        EnumSet no tiene constructores públicos → se crea mediante métodos de fábrica:
-
-        - EnumSet.noneOf(Class<E> elementType)
-            → Crea un EnumSet vacío para el tipo enum indicado.
-
-        - EnumSet.allOf(Class<E> elementType)
-            → Crea un EnumSet con TODAS las constantes del enum.
-
-        - EnumSet.of(E e, E... others)
-            → Crea un EnumSet con los elementos especificados.
-
-        - EnumSet.range(E from, E to)
-            → Crea un EnumSet con todas las constantes en el rango [from, to].
-
-        - EnumSet.copyOf(Collection<E> c)
-            → Crea un EnumSet a partir de otra colección de elementos del mismo enum.
-
-        - EnumSet.complementOf(EnumSet<E> s)
-            → Crea un EnumSet con el complemento (todos los elementos que NO están en s).
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Especializado para enums (un único tipo enum por conjunto).
-        - Muy eficiente en memoria y operaciones (bitset).
-        - Orden natural por declaración del enum.
-        - No permite null.
-        - No está sincronizado (usar Collections.synchronizedSet si necesitas seguridad de hilos).
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Rendimiento excelente (operaciones de conjunto muy rápidas).
-        - Sintaxis clara con métodos de fábrica.
-        - Ideal para flags/roles/estados representados por enums.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Solo funciona con enums.
-        - No permite null.
-        - No está sincronizado.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -130,7 +81,6 @@ public class ExpEnumSet {
         // clear(): elimina todos los elementos
         noLaborables.clear();
         System.out.println("clear() → vacío=" + noLaborables.isEmpty() + ", size=" + noLaborables.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - removeAll(Collection c): elimina todos los que estén en 'c'.

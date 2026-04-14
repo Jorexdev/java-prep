@@ -1,32 +1,8 @@
 package solid.sustitucionliskov;
 
-/*
-    L - Liskov Substitution Principle (LSP)
-
-    ¿Qué es?
-    Los objetos de una subclase deben poder sustituir a los de su superclase
-    sin alterar el comportamiento esperado del programa.
-
-    ¿Para qué sirve?
-    Garantiza que la herencia se usa correctamente. Una subclase no debe
-    debilitar precondiciones, fortalecer postcondiciones ni lanzar excepciones
-    que la clase base no lanza.
-
-    ¿Cuándo aplicarlo?
-    - Antes de usar herencia, pregúntate: ¿puede esta subclase sustituir a la base en todos los contextos?
-    - Si la respuesta es no, considera composición en lugar de herencia.
-
-    Preguntas típicas de entrevista:
-    - ¿Cuál es el ejemplo clásico de violación de LSP? (Rectangle/Square)
-    - ¿Qué diferencia hay entre LSP e ISP?
-    - ¿Cómo te ayuda LSP a diseñar jerarquías de herencia?
-*/
-
-/*
-    MAL - Violación clásica: Rectangle/Square.
-    Square hereda de Rectangle pero rompe el contrato porque en un cuadrado
-    al cambiar el ancho también cambia el alto, lo que no se espera de un Rectangle.
-*/
+// MAL - Violación clásica: Rectangle/Square.
+// Square hereda de Rectangle pero rompe el contrato porque en un cuadrado
+// al cambiar el ancho también cambia el alto, lo que no se espera de un Rectangle.
 class Rectangle {
     protected int width, height;
     public void setWidth(int w)  { this.width = w; }
@@ -40,10 +16,8 @@ class Square extends Rectangle {
     @Override public void setHeight(int h) { this.width = h; this.height = h; }
 }
 
-/*
-    BIEN - Separar jerarquías cuando el comportamiento no es sustituible.
-    Ave y AvesVoladoras son jerarquías distintas, cada una sustituible en su contexto.
-*/
+// BIEN - Separar jerarquías cuando el comportamiento no es sustituible.
+// Ave y AvesVoladoras son jerarquías distintas, cada una sustituible en su contexto.
 class Bird {
     void eat() { System.out.println("El ave está comiendo"); }
 }

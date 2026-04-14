@@ -4,58 +4,22 @@ import java.util.LinkedHashSet;
 
 public class ExpLinkedHashSet {
 
-    /*
-        En Java, los LinkedHashSet son una implementación de Set que combina una
-        tabla hash con una lista doblemente enlazada. Esto permite mantener el
-        orden de inserción de los elementos.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - LinkedHashSet()
-            → Crea un LinkedHashSet vacío con capacidad inicial de 16 y factor de carga 0.75.
-
-        - LinkedHashSet(int initialCapacity)
-            → Crea un LinkedHashSet con la capacidad inicial especificada.
-
-        - LinkedHashSet(int initialCapacity, float loadFactor)
-            → Crea un LinkedHashSet con capacidad y factor de carga personalizados.
-
-        - LinkedHashSet(Collection<? extends E> c)
-            → Crea un LinkedHashSet que contiene los elementos de la colección dada,
-              eliminando duplicados y manteniendo el orden de inserción.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Basado en tabla hash + lista doblemente enlazada.
-        - No permite duplicados.
-        - Permite un único valor null.
-        - Mantiene el orden de inserción.
-        - Rendimiento similar a HashSet (inserción/búsqueda O(1)).
-        - No está sincronizado.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Mantiene el orden en que se insertaron los elementos.
-        - Operaciones rápidas de búsqueda, inserción y eliminación (O(1)).
-        - Permite un null.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Uso extra de memoria por la lista doblemente enlazada.
-        - No está sincronizado.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -90,7 +54,6 @@ public class ExpLinkedHashSet {
         // clear(): elimina todos los elementos
         linkedHashSet.clear();
         System.out.println("Tras clear(): vacío=" + linkedHashSet.isEmpty() + ", size=" + linkedHashSet.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - addAll(Collection c): añadir todos los elementos de otra colección.

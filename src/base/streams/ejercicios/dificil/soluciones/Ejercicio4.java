@@ -8,15 +8,16 @@ public class Ejercicio4 {
 
     public static void main(String[] args) {
 
+        // Ejercicio: mapeo inverso — texto -> lista de idiomas en que aparece esa palabra
         List<Word> words = List.of(
-                new Word("casa", "ES"),
-                new Word("house", "EN"),
+                new Word("casa",   "ES"),
+                new Word("house",  "EN"),
                 new Word("maison", "FR"),
-                new Word("casa", "PT"),
-                new Word("casa", "IT"),
-                new Word("house", "AU"),
-                new Word("haus", "DE"),
-                new Word("casa", "ES")
+                new Word("casa",   "PT"),
+                new Word("casa",   "IT"),
+                new Word("house",  "AU"),
+                new Word("haus",   "DE"),
+                new Word("casa",   "ES")
         );
 
         Map<String, List<String>> languagesByText = words.stream()
@@ -25,37 +26,26 @@ public class Ejercicio4 {
                         Collectors.mapping(
                                 Word::getLanguage,
                                 Collectors.collectingAndThen(
-                                        Collectors.toSet(),
-                                        set -> set.stream().sorted().collect(Collectors.toList())
+                                        Collectors.toSet(),                                      // elimina idiomas repetidos
+                                        set -> set.stream().sorted().collect(Collectors.toList()) // ordena alfabéticamente
                                 )
                         )
                 ));
 
-        languagesByText.forEach((text, langs) ->
-                System.out.println(text + " -> " + langs)
-        );
+        languagesByText.forEach((text, langs) -> System.out.println(text + " -> " + langs));
     }
 
     static class Word {
+
         private final String text;
         private final String language;
 
-        public Word(String text, String language) {
+        Word(String text, String language) {
             this.text = text;
             this.language = language;
         }
 
-        public String getText() {
-            return text;
-        }
-
-        public String getLanguage() {
-            return language;
-        }
-
-        @Override
-        public String toString() {
-            return text + " (" + language + ")";
-        }
+        public String getText() { return text; }
+        public String getLanguage() { return language; }
     }
 }

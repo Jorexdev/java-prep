@@ -3,12 +3,6 @@ package base.streams.ejemplos;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/*
-    STREAMS - Operaciones principales
-
-    Ejemplos de las operaciones más usadas y preguntadas en entrevistas.
-    Cada bloque muestra una operación con su comentario explicativo.
-*/
 public class ExpStreams {
 
     public static void main(String[] args) {

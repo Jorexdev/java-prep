@@ -4,50 +4,22 @@ import java.util.Stack;
 
 public class ExpStack {
 
-    /*
-        En Java, los Stack representan una estructura de datos tipo "pila" (LIFO: Last-In, First-Out).
-        Están implementados como una subclase de Vector y heredan todos sus métodos, 
-        pero añaden operaciones específicas de pila como push, pop, peek y search.
-
-        Aunque es funcional, en la práctica muchas veces se recomienda usar 
-        Deque (ejemplo: ArrayDeque) para implementar pilas, ya que ofrece mejor rendimiento.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - Stack()
-            → Crea una pila vacía.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Stack sigue el principio LIFO (el último en entrar es el primero en salir).
-        - Hereda de Vector → sincronizado por defecto (thread-safe).
-        - Permite nulos y duplicados.
-        - Soporta genéricos (type-safety).
-        - Mantiene orden de inserción, pero las operaciones típicas son sobre la "cima".
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Fácil de usar para implementar comportamiento LIFO.
-        - Métodos específicos: push, pop, peek, search.
-        - Seguridad en hilos (synchronized).
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Al heredar de Vector, puede ser menos eficiente que Deque (ej. ArrayDeque).
-        - Considerada clase "legacy" → mejor usar implementaciones modernas.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -82,7 +54,6 @@ public class ExpStack {
         // clear(): elimina todos los elementos
         stack.clear();
         System.out.println("Tras clear(): vacío=" + stack.empty() + ", size=" + stack.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - add(E e), add(int index, E e): heredados de Vector (no típicos de una pila).

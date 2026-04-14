@@ -4,20 +4,10 @@ import java.util.Hashtable;
 
 public class ExpHashtable {
 
-    /*
-        Hashtable es una implementación sincronizada de Map.
-        Es considerada "legacy" (anterior a Collections Framework).
-        Similar a HashMap, pero más lenta por sincronización en cada operación.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Sincronizado (thread-safe).
-        - No permite claves ni valores null.
-        - Rendimiento inferior a HashMap en entornos single-thread.
-     */
+
 
 
     public static void main(String[] args) {

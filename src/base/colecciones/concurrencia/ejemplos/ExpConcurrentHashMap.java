@@ -4,34 +4,19 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ExpConcurrentHashMap {
 
-    /*
-        ConcurrentHashMap es un Map concurrente de alto rendimiento.
-        Permite accesos y actualizaciones simultáneas sin bloquear toda la tabla.
-        Usa segmentación interna/locks finos y operaciones atómicas en algunas APIs.
-     */
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Thread-safe con alto rendimiento (mejor que Hashtable/synchronizedMap).
-        - No permite claves ni valores null.
-        - Operaciones atómicas útiles: putIfAbsent, computeIfAbsent, merge, etc.
-        - Iteradores "débilmente consistentes": no lanzan ConcurrentModificationException.
-     */
 
-    /*                            VENTAJAS                                 */
 
-    /*
-        - Excelente rendimiento en lectura/escritura concurrente.
-        - Métodos compuestos atómicos que evitan race conditions comunes.
-     */
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - No ordena las claves (como HashMap).
-        - No es una estructura transaccional (operaciones compuestas deben ser atómicas).
-     */
+
+
+
+
+
+
+
 
     public static void main(String[] args) {
 

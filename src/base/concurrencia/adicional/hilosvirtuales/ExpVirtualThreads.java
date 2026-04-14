@@ -2,9 +2,6 @@ package base.concurrencia.adicional.hilosvirtuales;
 
 import java.util.concurrent.*;
 
-/*
-    VIRTUAL THREADS - Ejemplos (Java 21+)
-*/
 public class ExpVirtualThreads {
 
     public static void main(String[] args) throws Exception {

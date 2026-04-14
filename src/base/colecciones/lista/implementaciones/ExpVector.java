@@ -4,66 +4,22 @@ import java.util.Vector;
 
 public class ExpVector {
 
-    /*
-        En Java, los Vector son arrays dinámicos que crecen automáticamente cuando
-        alcanzan su capacidad. Fueron introducidos en las primeras versiones de Java
-        (antes de Collections Framework) y más tarde fueron adaptados para implementar
-        la interfaz List.
-
-        A diferencia de ArrayList, los métodos de Vector están sincronizados, lo cual
-        hace que sean seguros en entornos multi-hilo, aunque en la práctica suelen ser
-        más lentos que ArrayList en entornos de un solo hilo.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - Vector()
-            → Crea un vector vacío con capacidad inicial de 10.
-
-        - Vector(int initialCapacity)
-            → Crea un vector con la capacidad inicial especificada.
-
-        - Vector(int initialCapacity, int capacityIncrement)
-            → Crea un vector con capacidad inicial y un incremento definido
-              (cuánto crecerá al llenarse).
-
-        - Vector(Collection<? extends E> c)
-            → Crea un vector que contiene todos los elementos de la colección dada.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Vector es un array dinámico redimensionable.
-        - Acceso indexado (se puede acceder por índice).
-        - Soporte de genéricos (type-safety en compilación).
-        - Está sincronizado → seguro para hilos.
-        - Permite nulos y duplicados.
-        - Mantiene el orden de inserción.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Tamaño dinámico.
-        - Seguridad en entornos multi-hilo (synchronized).
-        - Acceso indexado rápido (O(1)).
-        - Collection ordenada.
-        - Soporta nulos y duplicados.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - Menor rendimiento en entornos de un solo hilo (por sincronización).
-        - Considerado "legacy" (se prefiere ArrayList en la mayoría de casos).
-        - Iterar suele ser más lento que en ArrayList.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -118,7 +74,6 @@ public class ExpVector {
         // clear(): elimina todos los elementos
         vector.clear();
         System.out.println("Tras clear(): vacío=" + vector.isEmpty() + ", size=" + vector.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - addAll(Collection c): añadir todos los elementos de otra colección.

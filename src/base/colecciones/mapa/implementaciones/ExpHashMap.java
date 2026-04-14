@@ -4,20 +4,10 @@ import java.util.HashMap;
 
 public class ExpHashMap {
 
-    /*
-        HashMap almacena pares clave-valor en una tabla hash.
-        No garantiza orden de inserción ni orden natural.
-        Permite una clave null y múltiples valores null.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - O(1) promedio en inserción/búsqueda/eliminación.
-        - No sincronizado.
-        - Permite null en una clave y múltiples valores.
-     */
+
 
 
     public static void main(String[] args) {

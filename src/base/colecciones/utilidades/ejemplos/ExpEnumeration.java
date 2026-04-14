@@ -5,33 +5,19 @@ import java.util.Vector;
 
 public class ExpEnumeration {
 
-    /*
-        Enumeration es una interfaz anterior a Iterator (legacy).
-        Usada con colecciones antiguas como Vector o Hashtable.
-     */
-
-
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Métodos: hasMoreElements(), nextElement().
-        - Solo permite iterar hacia adelante.
-        - No tiene remove() (a diferencia de Iterator).
-        - Todavía usado en código legacy.
-     */
-
-
     public static void main(String[] args) {
 
+        // Enumeration es la interfaz de iteración legacy (anterior a Iterator)
+        // todavía aparece en Vector, Hashtable y APIs antiguas como Properties
         Vector<String> vector = new Vector<>();
         vector.add("Java");
         vector.add("Spring");
         vector.add("Hibernate");
 
-        Enumeration<String> e = vector.elements();
+        Enumeration<String> e = vector.elements(); // equivalente moderno: list.iterator()
 
-        while (e.hasMoreElements()) {
-            System.out.println("Enumeration → " + e.nextElement());
+        while (e.hasMoreElements()) {               // hasMoreElements() = hasNext()
+            System.out.println(e.nextElement());    // nextElement() = next() — no tiene remove()
         }
     }
 }

@@ -4,58 +4,22 @@ import java.util.HashSet;
 
 public class ExpHashSet {
 
-    /*
-        En Java, los HashSet son una implementación de Set que almacenan los elementos
-        en una tabla hash. No permiten duplicados y no garantizan el orden de los elementos.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - HashSet()
-            → Crea un HashSet vacío con capacidad inicial de 16 y factor de carga 0.75.
-
-        - HashSet(int initialCapacity)
-            → Crea un HashSet con capacidad inicial especificada y factor de carga 0.75.
-
-        - HashSet(int initialCapacity, float loadFactor)
-            → Crea un HashSet con capacidad y factor de carga personalizados.
-
-        - HashSet(Collection<? extends E> c)
-            → Crea un HashSet que contiene los elementos de la colección dada
-              (elimina duplicados automáticamente).
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Basado en tabla hash.
-        - No permite elementos duplicados.
-        - Permite un único valor null.
-        - No garantiza el orden de los elementos.
-        - Acceso e inserción promedio en O(1).
-        - No está sincronizado (usar Collections.synchronizedSet() para seguridad en hilos).
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Operaciones de búsqueda, inserción y eliminación muy rápidas (O(1) promedio).
-        - Ideal para cuando necesitas garantizar que no haya duplicados.
-        - Permite un null.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - No mantiene orden de inserción.
-        - Iteración puede ser más lenta que en listas si necesitas acceso posicional.
-        - No está sincronizado.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -93,7 +57,6 @@ public class ExpHashSet {
         // clear(): elimina todos los elementos
         hashSet.clear();
         System.out.println("Tras clear(): vacío=" + hashSet.isEmpty() + ", size=" + hashSet.size());
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - addAll(Collection c): añade todos los elementos de otra colección.

@@ -5,24 +5,10 @@ import java.util.TreeSet;
 
 public class ExpNavigableSet {
 
-    /*
-        En Java, NavigableSet es una interfaz que extiende SortedSet.
-        Añade métodos para obtener elementos cercanos a un valor dado y vistas en orden inverso.
-        Implementación más común: TreeSet.
-     */
 
 
-    /*                             MÉTODOS EXTRA                          */
 
-    /*
-        - lower(E e): elemento < e (inmediatamente menor).
-        - floor(E e): elemento <= e.
-        - higher(E e): elemento > e (inmediatamente mayor).
-        - ceiling(E e): elemento >= e.
-        - descendingSet(): vista en orden inverso.
-        - pollFirst(): obtiene y elimina el primer elemento.
-        - pollLast(): obtiene y elimina el último elemento.
-     */
+
 
 
     public static void main(String[] args) {

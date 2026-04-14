@@ -4,60 +4,24 @@ import java.util.AbstractSequentialList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-
 public class ExpAbstractSequentialList {
 
-    /*
-        En Java, AbstractSequentialList es una clase abstracta que extiende AbstractList.
-        Está diseñada para listas que no soportan acceso aleatorio eficiente
-        (ej: LinkedList), sino que funcionan mejor con recorridos secuenciales.
-
-        Su implementación obliga a definir:
-            - size()
-            - listIterator(int index)
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - AbstractSequentialList no tiene constructores públicos directos,
-          ya que es abstracta.
-        - Para usarla, debes extenderla e implementar al menos:
-            → size()
-            → listIterator(int index)
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Clase abstracta base para listas secuenciales.
-        - Extiende AbstractList.
-        - Pensada para implementaciones donde acceder por índice es O(n).
-        - Implementa muchos métodos de List usando listIterator().
-        - No está sincronizada.
-        - Permite nulos y duplicados (depende de la implementación).
-        - Mantiene orden de inserción.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Ideal para listas enlazadas o estructuras donde el recorrido secuencial es natural.
-        - Evita tener que reimplementar lógica de List.
-        - Se adapta fácilmente a estructuras personalizadas.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - No se puede instanciar directamente (es abstracta).
-        - Acceso lento por índice (O(n)).
-        - Requiere implementar métodos con iteradores.
-     */
+
+
+
+
+
+
+
 
 
     // Ejemplo mínimo de implementación de AbstractSequentialList
@@ -106,7 +70,6 @@ public class ExpAbstractSequentialList {
 
         // isEmpty(): retorna true si no hay elementos
         System.out.println("¿Está vacía? " + miLista.isEmpty()); // false
-
 
         // ========= MÉTODOS QUE SOLO MENCIONO / MATICES IMPORTANTES =========
         // - add(int index, E element): por defecto implementado usando listIterator().

@@ -4,47 +4,22 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ExpConcurrentLinkedDeque {
 
-    /*
-        ConcurrentLinkedDeque es una Deque concurrente, no bloqueante (lock-free),
-        segura para múltiples hilos. Basada en nodos enlazados con punteros atómicos.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - ConcurrentLinkedDeque()
-            → Crea una deque vacía.
-
-        - ConcurrentLinkedDeque(Collection<? extends E> c)
-            → Crea una deque con los elementos de la colección.
-     */
 
 
-    /*                             KEY FEATURES                            */
-
-    /*
-        - Thread-safe sin bloqueos (alto rendimiento en concurrencia).
-        - Operaciones en extremos: offerFirst/offerLast, pollFirst/pollLast, peekFirst/peekLast.
-        - Iterador débilmente consistente (no lanza ConcurrentModificationException).
-        - No permite null.
-     */
 
 
-    /*                            VENTAJAS                                 */
-
-    /*
-        - Excelente para productores/consumidores concurrentes no bloqueantes.
-        - Rendimiento estable bajo alta contención.
-     */
 
 
-    /*                           DESVENTAJAS                               */
 
-    /*
-        - size() es O(n) y puede ser aproximado bajo concurrencia.
-        - Menor rendimiento que estructuras sin sincronización en single-thread.
-     */
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {

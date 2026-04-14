@@ -6,22 +6,10 @@ import java.util.ListIterator;
 
 public class ExpIteratorAndListIterator {
 
-    /*
-        Iterator: interfaz para recorrer colecciones de forma segura.
-        ListIterator: extensión de Iterator con recorrido bidireccional
-        y capacidad de modificar la lista durante la iteración.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Iterator: hasNext(), next(), remove().
-        - ListIterator: además tiene hasPrevious(), previous(),
-          add(E), set(E), nextIndex(), previousIndex().
-        - Evita ConcurrentModificationException si se modifica
-          con sus propios métodos.
-     */
+
 
 
     public static void main(String[] args) {

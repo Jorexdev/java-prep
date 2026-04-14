@@ -1,17 +1,18 @@
 package base.streams.ejercicios.facil.soluciones;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Ejercicio9 {
+
     public static void main(String[] args) {
-        List<String> wordList = List.of("A", "Ay", "Ayu", "Ayud", "Ayuda");
 
-        Predicate<String> predicate = x-> x.length() >= 3;
+        // Ejercicio: verificar si TODOS los strings tienen longitud mayor que 3
+        List<String> words = List.of("A", "Ay", "Ayu", "Ayud", "Ayuda");
 
-        wordList
+        boolean todos = words
                 .stream()
-                .filter(predicate)
-                .forEach(System.out::println);
+                .allMatch(x -> x.length() > 3); // true solo si todos los elementos cumplen la condición
+
+        System.out.println("Todos tienen longitud > 3: " + todos); // false — "A", "Ay", "Ayu" no la cumplen
     }
 }

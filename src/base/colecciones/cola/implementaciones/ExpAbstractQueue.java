@@ -4,42 +4,19 @@ import java.util.AbstractQueue;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-
 public class ExpAbstractQueue {
 
-    /*
-        En Java, AbstractQueue es una clase abstracta que proporciona implementaciones
-        base para la interfaz Queue. Se usa para crear colas personalizadas sin tener
-        que implementar toda la lógica desde cero.
-    */
-
-    /*
-        AbstractQueue define el contrato de Queue con dos familias de métodos:
-        - "Excepciones": add, remove, element → fallan con excepción si no es posible.
-        - "Retornos especiales": offer, poll, peek → devuelven false/null si no es posible.
-     */
 
 
-    /*                           CONSTRUCTORES                             */
-
-    /*
-        - AbstractQueue no tiene constructores públicos (es abstracta).
-        - Para usarla, debes extenderla e implementar al menos:
-            → offer(E)
-            → poll()
-            → peek()
-            → iterator()
-            → size()
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - Base para colas FIFO u otras políticas de orden.
-        - Proporciona implementaciones por defecto coherentes con Queue.
-        - No está sincronizada.
-     */
+
+
+
+
+
+
 
     // Ejemplo mínimo: una cola respaldada por LinkedList
     static class MiQueue<E> extends AbstractQueue<E> {

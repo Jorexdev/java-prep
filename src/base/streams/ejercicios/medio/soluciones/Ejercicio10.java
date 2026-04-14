@@ -8,38 +8,40 @@ import java.util.stream.Collectors;
 public class Ejercicio10 {
 
     public static void main(String[] args) {
+
+        // Ejercicio: lista ordenada por edad descendente de nombres únicos de mayores de 30
         List<Person> people = List.of(
-                new Person("Ana", 28),
-                new Person("Luis", 35),
+                new Person("Ana",   28),
+                new Person("Luis",  35),
                 new Person("Clara", 40),
                 new Person("Pedro", 30),
                 new Person("Marta", 45),
-                new Person("Luis", 50),
+                new Person("Luis",  50), // nombre duplicado con edad distinta
                 new Person("Lucía", 38)
         );
 
+        // cuando hay nombres duplicados, groupingBy + maxBy conserva la instancia con mayor edad
         people
                 .stream()
-                .filter(p -> p.getAge() >= 30)
+                .filter(p -> p.getAge() >= 30)                        // descartar menores de 30
                 .collect(Collectors.groupingBy(
                         Person::getName,
-                        Collectors.maxBy(Comparator.comparing(Person::getAge))
+                        Collectors.maxBy(Comparator.comparing(Person::getAge)) // mayor edad si hay duplicados
                 ))
                 .values()
                 .stream()
                 .filter(Optional::isPresent)
                 .map(Optional::get)
-                .sorted(Comparator.comparing(Person::getAge).reversed())
+                .sorted(Comparator.comparing(Person::getAge).reversed()) // ordenar por edad desc
                 .forEach(System.out::println);
-
-
     }
 
-    static  class Person {
+    static class Person {
+
         private final String name;
         private final int age;
 
-        public Person(String name, int age) {
+        Person(String name, int age) {
             this.name = name;
             this.age = age;
         }
@@ -57,5 +59,4 @@ public class Ejercicio10 {
             return name + " (" + age + ")";
         }
     }
-
 }

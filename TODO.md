@@ -25,18 +25,18 @@
 - [x] Git (branching, conflictos, GitFlow, PRs)
 
 ## 4. CI/CD y DevOps
-- [ ] Pipelines: Jenkins, GitHub Actions, GitLab CI
+- [x] Pipelines: Jenkins, GitHub Actions, GitLab CI
 - [x] Docker (imágenes, redes, volúmenes)
-- [ ] Kubernetes (pods, deployments, services, config maps, secrets)
-- [ ] Terraform / Ansible (infra as code – básico)
+- [x] Kubernetes (pods, deployments, services, config maps, secrets)
+- [x] Terraform / Ansible (infra as code – básico)
 
 ## 5. Spring Core & Boot
-- [ ] IoC y DI
-- [ ] Beans (ciclo de vida, scopes)
-- [ ] Starters y autoconfiguración
-- [ ] Configuración externalizada (properties / YAML)
-- [ ] Perfiles de entorno
-- [ ] Logging con SLF4J / Logback
+- [x] IoC y DI
+- [x] Beans (ciclo de vida, scopes)
+- [x] Starters y autoconfiguración
+- [x] Configuración externalizada (properties / YAML)
+- [x] Perfiles de entorno
+- [x] Logging con SLF4J / Logback
 
 ## 6. Desarrollo Web
 - [ ] Spring MVC (controllers, mappings, ResponseEntity)

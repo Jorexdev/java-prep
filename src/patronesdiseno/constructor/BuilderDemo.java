@@ -1,33 +1,9 @@
 package patronesdiseno.constructor;
 
-/*
-    PATRÓN BUILDER - Creacional
-
-    ¿Qué es?
-    Separa la construcción de un objeto complejo de su representación final.
-    Permite crear el objeto paso a paso eligiendo solo los campos que necesitas.
-
-    ¿Para qué sirve?
-    Para evitar los "telescoping constructors": constructores con 5, 6, 7 parámetros
-    donde no sabes qué va en cada posición. Builder hace la construcción legible
-    y permite objetos inmutables con parámetros opcionales.
-
-    ¿Cuándo usarlo?
-    - Cuando un objeto tiene muchos parámetros, especialmente opcionales.
-    - Cuando quieres que el objeto sea inmutable tras la construcción.
-    - Cuando necesitas validar el estado antes de crear el objeto (en build()).
-
-    Preguntas típicas de entrevista:
-    - ¿En qué se diferencia Builder de un constructor con muchos parámetros?
-    - ¿Cómo harías que Builder lance excepción si falta un campo obligatorio?
-    - ¿Qué librerías usan este patrón? (Lombok @Builder, StringBuilder, HttpClient)
-*/
 public class BuilderDemo {
 
-    /*
-        El objeto final es inmutable: todos los campos son final y solo
-        se asignan una vez en el constructor privado que recibe el Builder.
-    */
+    // El objeto final es inmutable: todos los campos son final y solo
+    // se asignan una vez en el constructor privado que recibe el Builder.
     static class User {
         private final String username;    // obligatorio
         private final String email;       // opcional
@@ -41,10 +17,8 @@ public class BuilderDemo {
             this.newsletter = b.newsletter;
         }
 
-        /*
-            El Builder acumula los valores y construye el objeto en build().
-            Cada setter devuelve "this" para encadenar llamadas (fluent API).
-        */
+        // El Builder acumula los valores y construye el objeto en build().
+        // Cada setter devuelve "this" para encadenar llamadas (fluent API).
         public static class Builder {
             private final String username;
             private String email;

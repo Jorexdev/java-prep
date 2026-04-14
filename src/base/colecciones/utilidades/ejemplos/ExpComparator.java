@@ -4,19 +4,10 @@ import java.util.*;
 
 public class ExpComparator {
 
-    /*
-        Comparator es una interfaz funcional usada para definir
-        ordenaciones personalizadas.
-     */
 
 
-    /*                             KEY FEATURES                            */
 
-    /*
-        - compare(T o1, T o2): define el criterio de ordenación.
-        - Se usa en métodos como sort() y en TreeSet/TreeMap.
-        - Puede implementarse con clases anónimas o lambdas.
-     */
+
 
 
     public static void main(String[] args) {
