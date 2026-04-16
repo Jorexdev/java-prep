@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/springboot/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/springboot/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-    </content>
+    </content> 
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
