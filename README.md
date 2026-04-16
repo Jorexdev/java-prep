@@ -3,7 +3,7 @@
 </div>
 
 <div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
-
+  
 <div align="center">
   <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
 </div>
