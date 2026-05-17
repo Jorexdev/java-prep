@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 160" width="900" height="160">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" result="blur">
+        <animate attributeName="stdDeviation" values="2;9;2" dur="2.4s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      @keyframes borderPulse {
+        0%, 100% { opacity: 0.25; }
+        50%       { opacity: 0.6;  }
+      }
+      .border-anim { animation: borderPulse 2.4s ease-in-out infinite; }
+    </style>
+  </defs>
+  <rect width="900" height="160" rx="4" fill="#0f1a0e"/>
+  <rect class="border-anim" width="900" height="160" rx="4" fill="none" stroke="#A3B067" stroke-width="1"/>
+  <rect x="48" y="20" width="44" height="22" rx="11" fill="#1C2B1A" stroke="#606C38" stroke-width="0.5"/>
+  <text x="70" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#A3B067" letter-spacing="1">13</text>
+  <text x="48" y="120" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#E8EDD4">//</text>
+  <text x="130" y="120" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#A3B067" filter="url(#glow)">Utilidades</text>
+  <text x="852" y="140" text-anchor="end" font-family="'Courier New', monospace" font-size="12" font-weight="700" fill="#8a9e52" filter="url(#glow)">jorex.dev</text>
+</svg>

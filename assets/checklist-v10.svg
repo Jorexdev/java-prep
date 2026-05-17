@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="370" viewBox="0 0 900 370">
+  <defs>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ── COMPLETADOS ─────────────────────────────────────────────────────── -->
+
+  <text x="0"  y="22"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+  <text x="16" y="22"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Fundamentos: Lambdas · Streams (30 ejercicios) · Optional · Genéricos · Excepciones · Clases Abstractas<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.0s" fill="freeze"/></text>
+
+  <text x="0"  y="46"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.08s" fill="freeze"/></text>
+  <text x="16" y="46"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Colecciones: Lista · Mapa · Conjunto · Cola · Deque · Concurrentes · Utilidades<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.08s" fill="freeze"/></text>
+
+  <text x="0"  y="70"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.16s" fill="freeze"/></text>
+  <text x="16" y="70"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Concurrencia · Async · Virtual Threads · Recolector de Basura<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.16s" fill="freeze"/></text>
+
+  <text x="0"  y="94"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.24s" fill="freeze"/></text>
+  <text x="16" y="94"  font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">SOLID · Patrones de Diseño · AOP<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.24s" fill="freeze"/></text>
+
+  <text x="0"  y="118" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.32s" fill="freeze"/></text>
+  <text x="16" y="118" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Spring Core: IoC · Beans<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.32s" fill="freeze"/></text>
+
+  <text x="0"  y="142" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.40s" fill="freeze"/></text>
+  <text x="16" y="142" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Spring Boot: Configuración · Starters · Perfiles · Logging<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.40s" fill="freeze"/></text>
+
+  <text x="0"  y="166" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.48s" fill="freeze"/></text>
+  <text x="16" y="166" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">DevOps: Docker · Kubernetes · IaC · Pipelines<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.48s" fill="freeze"/></text>
+
+  <text x="0"  y="190" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#A3B067" filter="url(#glow)" opacity="0">+<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.56s" fill="freeze"/></text>
+  <text x="16" y="190" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#CCCCCC" opacity="0">Herramientas: Git · Maven · Gradle<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.56s" fill="freeze"/></text>
+
+  <!-- ── EN CONSTRUCCIÓN ────────────────────────────────────────────────── -->
+
+  <text x="0"  y="226" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.72s" fill="freeze"/></text>
+  <text x="16" y="226" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">Spring MVC + REST API<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.72s" fill="freeze"/></text>
+
+  <text x="0"  y="250" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.80s" fill="freeze"/></text>
+  <text x="16" y="250" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">JPA / Hibernate + transacciones<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.80s" fill="freeze"/></text>
+
+  <text x="0"  y="274" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.88s" fill="freeze"/></text>
+  <text x="16" y="274" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">Testing: JUnit 5 · Mockito · Testcontainers<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.88s" fill="freeze"/></text>
+
+  <text x="0"  y="298" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.96s" fill="freeze"/></text>
+  <text x="16" y="298" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">Spring Security + JWT + OAuth2<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.96s" fill="freeze"/></text>
+
+  <text x="0"  y="322" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.04s" fill="freeze"/></text>
+  <text x="16" y="322" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">Kafka + WebClient + Resilience4j<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.04s" fill="freeze"/></text>
+
+  <text x="0"  y="346" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.12s" fill="freeze"/></text>
+  <text x="16" y="346" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">Microservicios + Observabilidad<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.12s" fill="freeze"/></text>
+
+  <text x="0"  y="370" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#606C38" opacity="0">·<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.20s" fill="freeze"/></text>
+  <text x="16" y="370" font-family="'DM Sans', sans-serif" font-size="15" font-weight="700" fill="#888888" opacity="0">Arquitecturas: Clean · DDD · Hexagonal<animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.20s" fill="freeze"/></text>
+</svg>
