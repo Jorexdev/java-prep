@@ -1,0 +1,95 @@
+# Roadmap de estudio
+
+Orden recomendado para sacarle el máximo partido al repo. Cada módulo tiene `README.md` (teoría), `Entrevista.md` (preguntas de entrevista) y archivos Java ejecutables donde aplica.
+
+---
+
+## Fase 1 — Fundamentos del lenguaje
+
+Empieza aquí si preparas una entrevista técnica Java desde cero o quieres refrescar los conceptos base.
+
+1. [01 · Lambdas](src/01-Lambdas/) — interfaces funcionales, sintaxis, referencias a métodos
+2. [02 · Streams](src/02-Streams/) — pipeline lazy, operaciones intermedias/terminales, 30 ejercicios
+3. [03 · Optional](src/03-Opcional/) — evitar NPE, map/flatMap, orElseGet
+4. [04 · Genéricos](src/04-Genericos/) — wildcards, PECS, type erasure
+5. [05 · Excepciones](src/05-Excepciones/) — checked/unchecked, try-with-resources, excepciones custom
+6. [06 · Clases Abstractas](src/06-Clases-Abstractas/) — abstract vs interface, cuándo usar cada una
+
+---
+
+## Fase 2 — Colecciones
+
+Bloque muy frecuente en entrevistas. Estudia primero las implementaciones base y luego las variantes.
+
+7. [07 · Lista](src/07-Colecciones-Lista/) — ArrayList vs LinkedList, complejidades
+8. [08 · Mapa](src/08-Colecciones-Mapa/) — HashMap, TreeMap, LinkedHashMap, hashCode/equals
+9. [09 · Conjunto](src/09-Colecciones-Conjunto/) — HashSet, TreeSet, EnumSet
+10. [10 · Cola](src/10-Colecciones-Cola/) — Queue, PriorityQueue, BlockingQueue
+11. [11 · Deque](src/11-Colecciones-Deque/) — ArrayDeque como stack y queue
+12. [12 · Colecciones Concurrentes](src/12-Colecciones-Concurrentes/) — ConcurrentHashMap, CopyOnWriteArrayList
+13. [13 · Utilidades](src/13-Colecciones-Utilidades/) — Collections, Comparable, Comparator, Iterator
+
+---
+
+## Fase 3 — Concurrencia
+
+Una de las áreas con más profundidad en entrevistas senior. Sigue este orden estrictamente.
+
+14. [14 · Concurrencia](src/14-Concurrencia/) — synchronized, volatile, ReentrantLock, race condition, deadlock
+15. [15 · Async](src/15-Concurrencia-Asincrona/) — ExecutorService, CompletableFuture
+16. [16 · Virtual Threads](src/16-Hilos-Virtuales/) — Java 21, I/O-bound vs CPU-bound, pinning
+17. [17 · Recolector de Basura](src/17-Recolector-de-Basura/) — generaciones, G1GC, ZGC, JVM flags
+
+---
+
+## Fase 4 — Principios y Patrones
+
+Antes de entrar en Spring, asegúrate de tener estos sólidos. Son la base de las preguntas de diseño.
+
+18. [18 · SOLID](src/18-SOLID/) — los 5 principios con ejemplos de violación y corrección
+19. [19 · Patrones de Diseño](src/19-Patrones-de-Diseno/) — Singleton, Factory, Builder, Adapter, Decorator, Strategy, Observer
+20. [20 · AOP](src/20-AOP/) — aspectos, pointcut, @Before, @Around, weaving con proxies
+
+---
+
+## Fase 5 — Spring
+
+Sigue el orden: primero Core (contenedor), luego Boot (configuración y autoconfiguración).
+
+21. [21 · Spring Core: IoC](src/21-Spring-Core-IoC/) — inversión de control, DI por constructor, @Qualifier
+22. [22 · Spring Core: Beans](src/22-Spring-Core-Beans/) — ciclo de vida, @PostConstruct, scopes
+23. [23 · Spring Boot: Config](src/23-Spring-Boot-Config/) — application.yml, @ConfigurationProperties, precedencia
+24. [24 · Spring Boot: Starters](src/24-Spring-Boot-Starters/) — autoconfiguración, @SpringBootApplication, @Conditional
+25. [25 · Spring Boot: Perfiles](src/25-Spring-Boot-Perfiles/) — @Profile, application-{env}.yml
+26. [26 · Spring Boot: Logging](src/26-Spring-Boot-Logging/) — SLF4J, Logback, MDC, logging estructurado
+
+---
+
+## Fase 6 — DevOps y Herramientas
+
+Bloques de conocimiento operacional. Puedes estudiarlos en paralelo con las fases anteriores.
+
+27. [27 · Docker](src/27-DevOps-Docker/) — imagen, contenedor, Dockerfile, docker-compose
+28. [28 · Kubernetes](src/28-DevOps-Kubernetes/) — Pod, Deployment, Service, HPA, ConfigMap
+29. [29 · IaC](src/29-DevOps-IaC/) — Terraform vs Ansible, state file, idempotencia
+30. [30 · Pipelines](src/30-DevOps-Pipelines/) — GitHub Actions, Jenkins, GitLab CI
+
+31. [31 · Git](src/31-Herramientas-Git/) — merge vs rebase, cherry-pick, stash
+32. [32 · Maven](src/32-Herramientas-Maven/) — ciclo de vida, dependencias transitivas, perfiles
+33. [33 · Gradle](src/33-Herramientas-Gradle/) — Wrapper, compilación incremental, Groovy vs Kotlin DSL
+
+---
+
+## Próximos módulos
+
+En construcción, por orden de prioridad:
+
+| Módulo | Por qué importa |
+|---|---|
+| Spring MVC + REST | Preguntas en casi cualquier entrevista backend |
+| JPA / Hibernate | Bloque entero de preguntas sobre persistencia |
+| Testing | JUnit 5, Mockito, Testcontainers — diferenciador en entrevistas |
+| Spring Security + JWT | Básico para cualquier app con autenticación |
+| Kafka + WebClient | Mensajería y comunicación entre servicios |
+| Microservicios + Observabilidad | Micrometer, tracing distribuido, Prometheus |
+| Arquitecturas | Clean Architecture, DDD, Hexagonal |
