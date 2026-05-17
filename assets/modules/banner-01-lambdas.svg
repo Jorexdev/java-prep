@@ -26,10 +26,6 @@
   <rect x="48" y="20" width="44" height="22" rx="11" fill="#1C2B1A" stroke="#606C38" stroke-width="0.5"/>
   <text x="70" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#A3B067" letter-spacing="1">01</text>
 
-  <!-- topic tags badge -->
-  <rect x="102" y="20" width="450" height="22" rx="11" fill="#1C2B1A" stroke="#606C38" stroke-width="0.5"/>
-  <text x="327" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#A3B067" letter-spacing="0.6">interfaces funcionales · method references · programación funcional</text>
-
   <!-- title: // Lambdas -->
   <text x="48" y="120" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#E8EDD4">//</text>
   <text x="130" y="120" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#A3B067" filter="url(#glow)">Lambdas</text>
