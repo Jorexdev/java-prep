@@ -1,5 +1,3 @@
-package base.lambdas.ejemplos;
-
 import java.util.*;
 import java.util.function.*;
 
