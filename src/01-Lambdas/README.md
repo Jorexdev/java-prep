@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="#"><img src="../../assets/modules/banner-01-lambdas.svg" width="100%" alt="01 - Lambdas"/></a>
+  <a href="#"><img src="../../assets/modules/banner-01-lambdas-v2.svg" width="100%" alt="01 - Lambdas"/></a>
 </div>
 
 <div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
@@ -11,7 +11,7 @@
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 <div align="center">
-  <a href="#"><img src="../../assets/shared/section-concepto.svg" width="100%" alt="// concepto"/></a>
+  <a href="#"><img src="../../assets/shared/section-concepto-v2.svg" width="100%" alt="// concepto"/></a>
 </div>
 
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
@@ -47,7 +47,7 @@ s -> s.length()
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 <div align="center">
-  <a href="#"><img src="../../assets/shared/section-key-features.svg" width="100%" alt="// key features"/></a>
+  <a href="#"><img src="../../assets/shared/section-key-features-v2.svg" width="100%" alt="// key features"/></a>
 </div>
 
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
@@ -90,7 +90,7 @@ El compilador acepta la sustitución porque `toUpperCase()` tiene exactamente la
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 <div align="center">
-  <a href="#"><img src="../../assets/shared/section-ventajas.svg" width="100%" alt="// ventajas"/></a>
+  <a href="#"><img src="../../assets/shared/section-ventajas-v2.svg" width="100%" alt="// ventajas"/></a>
 </div>
 
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
