@@ -20,23 +20,23 @@
 - [x] Patrones: Singleton, Factory, Builder, Strategy, Observer, Adapter, Decorator
 
 ## 3. Herramientas de build y control de versiones
-- [x] Maven (dependencias, profiles, plugins)
-- [x] Gradle
-- [x] Git (branching, conflictos, GitFlow, PRs)
+- [x] Maven (dependencias, profiles, plugins) → 32-Herramientas-Maven
+- [x] Gradle → 33-Herramientas-Gradle
+- [x] Git (branching, conflictos, GitFlow, PRs) → 31-Herramientas-Git
 
 ## 4. CI/CD y DevOps
-- [x] Pipelines: Jenkins, GitHub Actions, GitLab CI
-- [x] Docker (imágenes, redes, volúmenes)
-- [x] Kubernetes (pods, deployments, services, config maps, secrets)
-- [x] Terraform / Ansible (infra as code – básico)
+- [x] Pipelines: Jenkins, GitHub Actions, GitLab CI → 30-DevOps-Pipelines
+- [x] Docker (imágenes, redes, volúmenes) → 27-DevOps-Docker
+- [x] Kubernetes (pods, deployments, services, config maps, secrets) → 28-DevOps-Kubernetes
+- [x] Terraform / Ansible (infra as code – básico) → 29-DevOps-IaC
 
 ## 5. Spring Core & Boot
-- [x] IoC y DI
-- [x] Beans (ciclo de vida, scopes)
-- [x] Starters y autoconfiguración
-- [x] Configuración externalizada (properties / YAML)
-- [x] Perfiles de entorno
-- [x] Logging con SLF4J / Logback
+- [x] IoC y DI → 21-Spring-Core-IoC
+- [x] Beans (ciclo de vida, scopes) → 22-Spring-Core-Beans
+- [x] Starters y autoconfiguración → 24-Spring-Boot-Starters
+- [x] Configuración externalizada (properties / YAML) → 23-Spring-Boot-Config
+- [x] Perfiles de entorno → 25-Spring-Boot-Perfiles
+- [x] Logging con SLF4J / Logback → 26-Spring-Boot-Logging
 
 ## 6. Desarrollo Web
 - [ ] Spring MVC (controllers, mappings, ResponseEntity)
