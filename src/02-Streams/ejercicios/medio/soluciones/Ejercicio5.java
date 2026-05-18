@@ -2,40 +2,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Ejercicio5 {
+    record Pedido(String cliente, double importe) {}
 
     public static void main(String[] args) {
-
-        // Ejercicio: mapa libro -> número de personas que lo han leído
-        List<Person> people = List.of(
-                new Person("Alice", List.of("1984", "El Principito", "Dune")),
-                new Person("Bob",   List.of("Dune", "Fundación", "1984")),
-                new Person("Clara", List.of("Dune", "El Hobbit")),
-                new Person("David", List.of("El Hobbit", "Fundación")),
-                new Person("Eva",   List.of("El Principito", "1984"))
+        List<Pedido> pedidos = List.of(
+            new Pedido("Ana",    150.0),
+            new Pedido("Luis",   320.0),
+            new Pedido("Marta",   80.0),
+            new Pedido("Carlos", 450.0),
+            new Pedido("Ana",    200.0)
         );
 
-        people
-                .stream()
-                .flatMap(p -> p.getBooksRead().stream()) // aplana a Stream<String> de títulos
-                .collect(Collectors.groupingBy(
-                        title -> title,        // clave: título del libro
-                        Collectors.counting()  // valor: cuántas personas lo han leído
-                ))
-                .forEach((book, count) -> System.out.println(book + " -> " + count));
-    }
+        long total    = pedidos.stream().collect(Collectors.counting());
+        double suma   = pedidos.stream().collect(Collectors.summingDouble(Pedido::importe));
+        double media  = pedidos.stream().collect(Collectors.averagingDouble(Pedido::importe));
 
-    static class Person {
-
-        private final String name;
-        private final List<String> booksRead;
-
-        Person(String name, List<String> booksRead) {
-            this.name = name;
-            this.booksRead = booksRead;
-        }
-
-        public List<String> getBooksRead() {
-            return booksRead;
-        }
+        System.out.println("Total pedidos: " + total);
+        System.out.printf("Suma importes: %.2f€%n", suma);
+        System.out.printf("Media importe: %.2f€%n", media);
     }
 }

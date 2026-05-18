@@ -1,52 +1,21 @@
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.*;
 
 public class Ejercicio1 {
 
-    public static void main(String[] args) {
-
-        // Ejercicio: ordenar empleados por salario desc, en empate por edad asc, top 10
-        List<Employee> employees = List.of(
-                new Employee("Ana",   30, 50000),
-                new Employee("Luis",  45, 75000),
-                new Employee("Clara", 28, 50000),
-                new Employee("Pedro", 50, 75000),
-                new Employee("Marta", 35, 60000),
-                new Employee("Jorge", 40, 60000),
-                new Employee("Lucía", 32, 75000),
-                new Employee("Raúl",  29, 50000),
-                new Employee("Sofía", 45, 60000),
-                new Employee("Diego", 38, 75000),
-                new Employee("Elena", 33, 50000)
+    static Collector<String, ?, Map<Integer, List<String>>> agruparPorLongitud() {
+        return Collector.of(
+            HashMap::new,
+            (map, s) -> map.computeIfAbsent(s.length(), k -> new ArrayList<>()).add(s),
+            (m1, m2) -> { m2.forEach((k, v) -> m1.merge(k, v, (l1, l2) -> { l1.addAll(l2); return l1; })); return m1; },
+            map -> map
         );
-
-        employees
-                .stream()
-                // thenComparing añade criterio secundario cuando el primario empata
-                .sorted(Comparator.comparing(Employee::getSalary).reversed()
-                        .thenComparing(Employee::getAge))
-                .limit(10)
-                .forEach(System.out::println);
     }
 
-    static class Employee {
-
-        private final String name;
-        private final int age;
-        private final double salary;
-
-        Employee(String name, int age, double salary) {
-            this.name = name;
-            this.age = age;
-            this.salary = salary;
-        }
-
-        public int getAge() { return age; }
-        public double getSalary() { return salary; }
-
-        @Override
-        public String toString() {
-            return name + " (edad=" + age + ", salario=" + salary + ")";
-        }
+    public static void main(String[] args) {
+        List<String> palabras = List.of("hi", "hola", "hey", "adios", "bye", "java", "go", "python", "c");
+        Map<Integer, List<String>> agrupadas = palabras.stream().collect(agruparPorLongitud());
+        new TreeMap<>(agrupadas).forEach((len, lista) ->
+            System.out.println("longitud " + len + ": " + lista));
     }
 }

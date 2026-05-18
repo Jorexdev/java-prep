@@ -1,42 +1,21 @@
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Ejercicio7 {
-
     public static void main(String[] args) {
+        List<Long> fibonacci = Stream.iterate(new long[]{0, 1}, f -> new long[]{f[1], f[0] + f[1]})
+            .limit(10)
+            .map(f -> f[0])
+            .collect(Collectors.toList());
+        System.out.println("Fibonacci(10): " + fibonacci);
 
-        // Ejercicio: concatenar los nombres de departamentos únicos separados por coma
-        List<Employee> employees = List.of(
-                new Employee("Ana",   "TI"),
-                new Employee("Luis",  "Recursos Humanos"),
-                new Employee("Clara", "Ventas"),
-                new Employee("Pedro", "TI"),
-                new Employee("Marta", "Marketing"),
-                new Employee("Jorge", "Ventas"),
-                new Employee("Lucía", "Marketing")
-        );
-
-        String resultado = employees
-                .stream()
-                .map(Employee::getDepartment)  // extrae solo el nombre del departamento
-                .distinct()                    // elimina duplicados
-                .collect(Collectors.joining(",")); // une en un String separado por coma
-
-        System.out.println(resultado);
-    }
-
-    static class Employee {
-
-        private final String name;
-        private final String department;
-
-        Employee(String name, String department) {
-            this.name = name;
-            this.department = department;
-        }
-
-        public String getDepartment() {
-            return department;
-        }
+        Random rnd = new Random(42);
+        List<Integer> aleatorios = Stream.generate(() -> rnd.nextInt(100) + 1)
+            .distinct()
+            .limit(5)
+            .collect(Collectors.toList());
+        System.out.println("Aleatorios distintos: " + aleatorios);
     }
 }

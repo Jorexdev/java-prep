@@ -2,21 +2,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Ejercicio4 {
+    record Persona(String nombre, int edad) {}
 
     public static void main(String[] args) {
+        List<String> tecnologias = List.of("Java", "Spring", "Kafka", "Docker", "Kubernetes");
 
-        // Ejercicio: detectar números que aparecen más de una vez en la lista
-        List<Integer> numbers = List.of(1, 23, 1, 57, 3, 12, 23, 121);
+        String unido = tecnologias.stream()
+            .collect(Collectors.joining(", ", "[", "]"));
+        System.out.println(unido);
 
-        numbers
-                .stream()
-                .collect(Collectors.groupingBy(
-                        Integer::intValue,   // clave: el número
-                        Collectors.counting() // valor: cuántas veces aparece
-                ))
-                .entrySet()
-                .stream()
-                .filter(x -> x.getValue() >= 2) // solo los que aparecen más de una vez
-                .forEach(System.out::println);
+        List<Persona> personas = List.of(
+            new Persona("Ana", 30),
+            new Persona("Luis", 25),
+            new Persona("Marta", 35)
+        );
+        String csv = personas.stream()
+            .map(p -> p.nombre() + "," + p.edad())
+            .collect(Collectors.joining("\n", "nombre,edad\n", ""));
+        System.out.println(csv);
     }
 }

@@ -1,16 +1,11 @@
 import java.util.List;
 
 public class Ejercicio3 {
-
     public static void main(String[] args) {
-
-        // Ejercicio: calcular la suma de todos los números de la lista
-        // nota: el enunciado pide pares, pero reduce suma todos — añade .filter(n -> n % 2 == 0) para pares
-        List<Integer> numbers = List.of(2131, 123, 42, 1, 9);
-
-        numbers
-                .stream()
-                .reduce(Integer::sum)   // reduce acumula aplicando la función — devuelve Optional
-                .ifPresent(System.out::println);
+        List<Integer> nums = List.of(4, 8, 15, 16, 23, 42, 2, 6);
+        System.out.println("Pares:          " + nums.stream().filter(n -> n % 2 == 0).count());
+        System.out.println("Alguno > 100:   " + nums.stream().anyMatch(n -> n > 100));
+        System.out.println("Todos positivos:" + nums.stream().allMatch(n -> n > 0));
+        System.out.println("Ninguno cero:   " + nums.stream().noneMatch(n -> n == 0));
     }
 }

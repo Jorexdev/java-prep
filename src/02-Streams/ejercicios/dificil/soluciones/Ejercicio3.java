@@ -1,54 +1,27 @@
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Ejercicio3 {
-
     public static void main(String[] args) {
-
-        // Ejercicio: obtener el conjunto plano de todas las etiquetas por categoría
-        List<Product> products = List.of(
-                new Product("Laptop",       "Electronics",      List.of("Portable", "High-end", "Work")),
-                new Product("Smartphone",   "Electronics",      List.of("Portable", "Touchscreen")),
-                new Product("Tablet",       "Electronics",      List.of("Portable", "Budget")),
-                new Product("Jeans",        "Clothing",         List.of("Denim", "Casual")),
-                new Product("T-Shirt",      "Clothing",         List.of("Cotton", "Casual")),
-                new Product("Blender",      "Home Appliances",  List.of("Kitchen", "Electric")),
-                new Product("Microwave",    "Home Appliances",  List.of("Kitchen", "Electric")),
-                new Product("Refrigerator", "Home Appliances",  List.of("Kitchen", "Large")),
-                new Product("Sofa",         "Furniture",        List.of("Living Room", "Comfortable")),
-                new Product("Desk Chair",   "Furniture",        List.of("Office", "Ergonomic"))
+        List<List<Integer>> matriz = List.of(
+            List.of(1, 2, 3),
+            List.of(4, 5, 6),
+            List.of(7, 8, 9)
         );
 
-        products
-                .stream()
-                .collect(Collectors.groupingBy(
-                        Product::getCategory,
-                        Collectors.flatMapping(           // aplana las listas de tags dentro del collector
-                                p -> p.getTags().stream(),
-                                Collectors.toSet()        // elimina duplicados por categoría
-                        )
-                ))
-                .forEach((cat, tags) -> System.out.println(cat + " -> " + tags));
-    }
+        int filas = matriz.size();
+        int cols  = matriz.get(0).size();
 
-    static class Product {
+        List<List<Integer>> transpuesta = IntStream.range(0, cols)
+            .mapToObj(col -> IntStream.range(0, filas)
+                .mapToObj(fila -> matriz.get(fila).get(col))
+                .collect(Collectors.toList()))
+            .collect(Collectors.toList());
 
-        private final String name;
-        private final String category;
-        private final List<String> tags;
-
-        Product(String name, String category, List<String> tags) {
-            this.name = name;
-            this.category = category;
-            this.tags = tags;
-        }
-
-        public String getCategory() { return category; }
-        public List<String> getTags() { return tags; }
-
-        @Override
-        public String toString() {
-            return name + " (" + category + ")";
-        }
+        System.out.println("Original:");
+        matriz.forEach(System.out::println);
+        System.out.println("Transpuesta:");
+        transpuesta.forEach(System.out::println);
     }
 }

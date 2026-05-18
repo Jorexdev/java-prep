@@ -1,49 +1,32 @@
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Ejercicio4 {
+    record Transaccion(String tipo, double importe) {}
 
     public static void main(String[] args) {
-
-        // Ejercicio: mapeo inverso — texto -> lista de idiomas en que aparece esa palabra
-        List<Word> words = List.of(
-                new Word("casa",   "ES"),
-                new Word("house",  "EN"),
-                new Word("maison", "FR"),
-                new Word("casa",   "PT"),
-                new Word("casa",   "IT"),
-                new Word("house",  "AU"),
-                new Word("haus",   "DE"),
-                new Word("casa",   "ES")
+        List<Transaccion> txs = List.of(
+            new Transaccion("COMPRA",   150.0),
+            new Transaccion("VENTA",    320.0),
+            new Transaccion("COMPRA",    80.0),
+            new Transaccion("DEVOLUCION", 50.0),
+            new Transaccion("VENTA",    450.0),
+            new Transaccion("COMPRA",   200.0)
         );
 
-        Map<String, List<String>> languagesByText = words.stream()
-                .collect(Collectors.groupingBy(
-                        Word::getText,
-                        Collectors.mapping(
-                                Word::getLanguage,
-                                Collectors.collectingAndThen(
-                                        Collectors.toSet(),                                      // elimina idiomas repetidos
-                                        set -> set.stream().sorted().collect(Collectors.toList()) // ordena alfabéticamente
-                                )
-                        )
-                ));
+        DoubleSummaryStatistics stats = txs.stream()
+            .collect(Collectors.summarizingDouble(Transaccion::importe));
+        System.out.println("Global — count:" + stats.getCount() + " sum:" + stats.getSum()
+            + " min:" + stats.getMin() + " max:" + stats.getMax()
+            + String.format(" avg:%.2f", stats.getAverage()));
 
-        languagesByText.forEach((text, langs) -> System.out.println(text + " -> " + langs));
-    }
-
-    static class Word {
-
-        private final String text;
-        private final String language;
-
-        Word(String text, String language) {
-            this.text = text;
-            this.language = language;
-        }
-
-        public String getText() { return text; }
-        public String getLanguage() { return language; }
+        Map<String, DoubleSummaryStatistics> porTipo = txs.stream()
+            .collect(Collectors.groupingBy(Transaccion::tipo,
+                     Collectors.summarizingDouble(Transaccion::importe)));
+        porTipo.forEach((tipo, s) ->
+            System.out.printf("%-12s count:%d sum:%.0f avg:%.2f%n",
+                tipo, s.getCount(), s.getSum(), s.getAverage()));
     }
 }
