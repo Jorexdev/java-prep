@@ -2,18 +2,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Ejercicio6 {
-
     public static void main(String[] args) {
+        List<Integer> nums = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        // Ejercicio: resumen estadístico de una lista de decimales (media, suma, min, max, count)
-        List<Double> numbers = List.of(12.5, 7.3, 18.9, 4.0, 15.6, 9.1, 21.4);
+        List<Integer> resultado = nums.stream()
+            .peek(n -> System.out.println("  [entrada] " + n))
+            .filter(n -> n % 2 == 0)
+            .peek(n -> System.out.println("  [par] " + n))
+            .map(n -> n * 2)
+            .peek(n -> System.out.println("  [*2] " + n))
+            .filter(n -> n > 10)
+            .peek(n -> System.out.println("  [>10] " + n))
+            .collect(Collectors.toList());
 
-        // summarizingDouble devuelve DoubleSummaryStatistics con count, sum, min, avg, max
-        String summary = numbers
-                .stream()
-                .collect(Collectors.summarizingDouble(Double::doubleValue))
-                .toString();
-
-        System.out.println(summary);
+        System.out.println("Resultado: " + resultado);
     }
 }

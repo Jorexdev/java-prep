@@ -1,41 +1,17 @@
-import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalDouble;
+import java.util.stream.IntStream;
 
 public class Ejercicio8 {
-
     public static void main(String[] args) {
+        List<String> palabras = List.of("hola", "mundo", "java", "streams", "api");
+        int sumaLongitudes = palabras.stream().mapToInt(String::length).sum();
+        OptionalDouble media = palabras.stream().mapToInt(String::length).average();
+        System.out.println("Suma longitudes: " + sumaLongitudes);
+        System.out.printf("Media longitud:  %.2f%n", media.orElse(0));
 
-        // Ejercicio: encontrar al empleado con el salario más alto
-        List<Employee> employees = List.of(
-                new Employee("Luis",  20L),
-                new Employee("Jorge", 122L),
-                new Employee("Juan",  120L),
-                new Employee("Ana",   2000L)
-        );
-
-        employees
-                .stream()
-                .max(Comparator.comparing(Employee::getSalary)) // devuelve Optional<Employee>
-                .ifPresent(System.out::println);                // imprime solo si existe
-    }
-
-    static class Employee {
-
-        private final String name;
-        private final Long salary;
-
-        Employee(String name, Long salary) {
-            this.name = name;
-            this.salary = salary;
-        }
-
-        public Long getSalary() {
-            return salary;
-        }
-
-        @Override
-        public String toString() {
-            return "Employee{name='" + name + "', salary=" + salary + '}';
-        }
+        System.out.print("Range 1-10: ");
+        IntStream.rangeClosed(1, 10).forEach(n -> System.out.print(n + " "));
+        System.out.println();
     }
 }

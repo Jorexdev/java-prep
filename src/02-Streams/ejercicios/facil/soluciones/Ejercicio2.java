@@ -1,17 +1,12 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ejercicio2 {
-
     public static void main(String[] args) {
-
-        // Ejercicio: transformar todas las palabras a mayúsculas
-        List<String> words = List.of("hey", "teXTo", "LOREM IPSUM", "prueba123");
-
-        List<String> upperCaseWords = words
-                .stream()
-                .map(String::toUpperCase) // transforma cada elemento sin modificar la lista original
-                .toList();                // recoge en una nueva lista inmutable
-
-        upperCaseWords.forEach(System.out::println);
+        List<String> nombres = List.of("ana", "luis", "carlos", "marta", "jorge");
+        List<String> mayusculas = nombres.stream()
+            .map(String::toUpperCase)
+            .collect(Collectors.toList());
+        System.out.println(mayusculas);
     }
 }

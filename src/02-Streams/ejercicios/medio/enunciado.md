@@ -1,52 +1,27 @@
-# Streams — Ejercicios Nivel Medio
-
-Ejercicios de nivel intermedio que combinan varias operaciones de Streams:
-`groupingBy` anidado, `partitioningBy`, `toMap`, `reducing`, `DoubleSummaryStatistics`...
+# Ejercicios — Streams (Medio)
 
 Las soluciones están en [soluciones/](soluciones/).
 
----
+## Ejercicio 1 — flatMap
+Dada una lista de listas de strings, aplana todas en una sola lista usando flatMap. También aplana una lista de frases en palabras individuales.
 
-## Ejercicio 1 — Agrupamiento y promedio por categoría
+## Ejercicio 2 — Collectors.groupingBy
+Agrupa una lista de personas (nombre, ciudad) por ciudad. Muestra cuántas personas hay por ciudad y los nombres de cada ciudad.
 
-Dada una lista de productos con nombre, categoría y precio, agrupa los productos por categoría y calcula el precio promedio de cada categoría.
+## Ejercicio 3 — Collectors.toMap
+Convierte una lista de productos (nombre, precio) en un Map<String, Double> nombre→precio. Maneja el caso de claves duplicadas con mergeFunction.
 
-## Ejercicio 2 — Agrupamiento anidado
+## Ejercicio 4 — Collectors.joining
+Une una lista de strings con separador ", " y con prefijo/sufijo "[" y "]". También genera un CSV de una lista de personas (nombre, edad).
 
-Dada una lista de empleados con nombre, departamento y cargo, agrupa a los empleados primero por departamento y luego por cargo.
+## Ejercicio 5 — Collectors.counting + summingInt + averagingInt
+Sobre una lista de pedidos (cliente, importe), calcula: número total de pedidos, suma de importes, media de importes, todo usando colectores.
 
-## Ejercicio 3 — Top N elementos por grupo
+## Ejercicio 6 — peek para debugging
+Usa peek() para loggear el estado intermedio de un pipeline: filtra números pares, duplica, filtra > 10. Muestra los valores en cada etapa.
 
-Dada una lista de estudiantes con nombre, curso y nota, obtén los 3 estudiantes con mayor nota por cada curso.
+## Ejercicio 7 — Stream.of + Stream.iterate + Stream.generate
+Crea streams infinitos: Stream.iterate para Fibonacci (primeros 10), Stream.generate para números aleatorios (5 distintos entre 1-100).
 
-## Ejercicio 4 — Detectar duplicados
-
-Dada una lista de enteros, encuentra todos los números que aparecen más de una vez usando Streams.
-
-## Ejercicio 5 — Aplanar estructura anidada y agrupar
-
-Dada una lista de personas donde cada una tiene una lista de libros leídos, genera un mapa con cada libro y la cantidad de personas que lo han leído.
-
-## Ejercicio 6 — Resumen estadístico
-
-Dada una lista de números decimales, genera un resumen con la media, suma, mínimo, máximo y cantidad total de elementos.
-
-## Ejercicio 7 — Concatenar campos únicos
-
-Dada una lista de empleados, concatena en un solo String los nombres de los departamentos únicos, separados por coma.
-
-## Ejercicio 8 — Agrupación con condición
-
-Dada una lista de personas con edad, agrúpalas en dos grupos: mayores de edad y menores de edad.
-
-## Ejercicio 9 — Transformación de mapa con recolección avanzada
-
-Dada una lista de pedidos con cliente y monto, construye un mapa donde la clave sea el nombre del cliente y el valor sea el total acumulado de sus pedidos.
-
-## Ejercicio 10 — Lista ordenada de elementos únicos por campo
-
-Dada una lista de personas con nombre y edad, obtén una lista ordenada (por edad descendente) de nombres únicos de las personas mayores de 30 años.
-
-## Ejercicio 11 — Producto más caro por categoría
-
-Dada una lista de productos con nombre, categoría y precio, encuentra el producto más caro de cada categoría. Si una categoría no tiene productos, debe reflejarse como ausente (usa Optional).
+## Ejercicio 8 — Comparator con Streams
+Ordena una lista de empleados (nombre, salario, departamento) por salario descendente, luego por nombre. Extrae top-3. Encuentra el empleado con mayor salario de cada departamento.

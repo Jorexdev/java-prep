@@ -1,51 +1,28 @@
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Ejercicio2 {
+    record Persona(String nombre, String ciudad) {}
 
     public static void main(String[] args) {
-
-        // Ejercicio: agrupar empleados primero por departamento y luego por cargo
-        List<Employee> employees = List.of(
-                new Employee("Alice", "TI",        "Desarrollador"),
-                new Employee("Bob",   "TI",        "QA"),
-                new Employee("Clara", "Marketing", "Analista"),
-                new Employee("Dan",   "Marketing", "Jefe de Área"),
-                new Employee("Eve",   "Ventas",    "Ejecutivo")
+        List<Persona> personas = List.of(
+            new Persona("Ana",    "Madrid"),
+            new Persona("Luis",   "Barcelona"),
+            new Persona("Marta",  "Madrid"),
+            new Persona("Carlos", "Valencia"),
+            new Persona("Jorge",  "Barcelona"),
+            new Persona("Bea",    "Madrid")
         );
 
-        employees
-                .stream()
-                .collect(Collectors.groupingBy(
-                        Employee::getDepartment,               // primer nivel: departamento
-                        Collectors.groupingBy(Employee::getPosition) // segundo nivel: cargo
-                ))
-                .forEach((dept, byCargo) -> System.out.println(dept + " -> " + byCargo));
-    }
+        Map<String, Long> conteo = personas.stream()
+            .collect(Collectors.groupingBy(Persona::ciudad, Collectors.counting()));
+        System.out.println("Conteo por ciudad: " + conteo);
 
-    static class Employee {
-
-        private final String name;
-        private final String department;
-        private final String position;
-
-        Employee(String name, String department, String position) {
-            this.name = name;
-            this.department = department;
-            this.position = position;
-        }
-
-        public String getDepartment() {
-            return department;
-        }
-
-        public String getPosition() {
-            return position;
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
+        Map<String, List<String>> nombresPorCiudad = personas.stream()
+            .collect(Collectors.groupingBy(Persona::ciudad,
+                     Collectors.mapping(Persona::nombre, Collectors.toList())));
+        nombresPorCiudad.forEach((ciudad, nombres) ->
+            System.out.println(ciudad + ": " + nombres));
     }
 }

@@ -1,48 +1,27 @@
-# Streams — Ejercicios Fácil
-
-Ejercicios de nivel básico para practicar las operaciones fundamentales de Streams:
-`filter`, `map`, `reduce`, `collect`, `sorted`, `groupingBy`, `anyMatch`, `findFirst`...
+# Ejercicios — Streams (Fácil)
 
 Las soluciones están en [soluciones/](soluciones/).
 
----
+## Ejercicio 1 — filter + forEach
+Dada una lista de enteros, filtra los mayores de 10 y muéstralos por consola con forEach.
 
-## Ejercicio 1 — Filtrado y conteo
+## Ejercicio 2 — map + collect
+Dada una lista de strings con nombres en minúsculas, conviértelos a mayúsculas con map y recógelos en una nueva lista.
 
-Dada una lista de personas con sus edades, usa Streams para contar cuántas personas tienen más de 18 años.
+## Ejercicio 3 — count + anyMatch + allMatch + noneMatch
+Dada una lista de números, cuenta cuántos son pares, verifica si alguno es mayor de 100, si todos son positivos, si ninguno es cero.
 
-## Ejercicio 2 — Transformación y listado
+## Ejercicio 4 — sorted + limit + skip
+Ordena una lista de enteros, salta los 2 primeros y toma los 3 siguientes.
 
-Dada una lista de cadenas, transforma todas las palabras a mayúsculas y recoge los resultados en una nueva lista.
+## Ejercicio 5 — reduce
+Suma todos los elementos de una lista de enteros con reduce. También calcula el producto.
 
-## Ejercicio 3 — Suma y reducción
+## Ejercicio 6 — min + max + findFirst
+Encuentra el mínimo, máximo y primer elemento mayor de 5 en una lista de enteros.
 
-Dada una lista de números enteros, calcula la suma de todos los números pares usando Streams.
+## Ejercicio 7 — distinct + sorted + collect
+Dada una lista con duplicados, elimina repeticiones, ordena y recoge en lista.
 
-## Ejercicio 4 — Mapeo y filtrado
-
-Dada una lista de objetos `Producto` con nombre y precio, obtén una lista solo con los nombres de productos cuyo precio sea mayor a 100.
-
-## Ejercicio 5 — Agrupamiento
-
-Dada una lista de personas con su ciudad de residencia, agrupa las personas por ciudad y cuenta cuántas personas hay en cada una.
-
-## Ejercicio 6 — Ordenamiento
-
-Dada una lista de empleados con nombre y salario, ordena la lista por salario en orden descendente y muestra los primeros 5 empleados mejor pagados.
-
-## Ejercicio 7 — Flattening (aplanar)
-
-Dada una lista de objetos `Persona` con listas de habilidades, genera una lista plana de todas las habilidades distintas sin repetir ninguna.
-
-## Ejercicio 8 — Encontrar máximo
-
-Dada una lista de estudiantes con sus notas, encuentra al estudiante con la nota más alta usando Streams.
-
-## Ejercicio 9 — Validación
-
-Dada una lista de strings, verifica si todos los elementos tienen longitud mayor que 3.
-
-## Ejercicio 10 — Construcción de mapa
-
-Dada una lista de objetos `Persona` con nombre y edad, construye un `Map<String, Integer>` donde la clave sea el nombre y el valor la edad.
+## Ejercicio 8 — mapToInt + sum + average + IntStream.range
+Dada una lista de strings, calcula la suma de longitudes y la longitud media. Usa IntStream.range para generar números del 1 al 10.
