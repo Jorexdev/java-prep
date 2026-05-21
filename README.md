@@ -29,7 +29,7 @@
 <div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 <div align="center">
-  <a href="#"><img src="assets/checklist-v10.svg" width="100%" alt=""/></a>
+  <a href="#"><img src="assets/checklist-v11.svg" width="100%" alt=""/></a>
 </div>
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
@@ -114,17 +114,22 @@
 | 32 | [Maven](src/32-Herramientas-Maven/) | pom.xml, ciclo de vida, dependencias transitivas, perfiles |
 | 33 | [Gradle](src/33-Herramientas-Gradle/) | DSL Kotlin/Groovy, Wrapper, compilación incremental |
 
-**Próximamente**
+**Spring Avanzado**
 
-| Módulo | Contenido |
-|---|---|
-| Spring MVC + REST | Controllers, ResponseEntity, @ControllerAdvice, validación |
-| JPA / Hibernate | Entidades, relaciones, fetch types, @Transactional, N+1 |
-| Testing | JUnit 5, Mockito, @SpringBootTest, Testcontainers |
-| Spring Security + JWT | SecurityFilterChain, JWT, @PreAuthorize, OAuth2 |
-| Kafka + WebClient | Producers, consumers, offsets, Resilience4j |
-| Microservicios + Observabilidad | Micrometer, tracing distribuido, Prometheus |
-| Arquitecturas | Clean Architecture, DDD, Hexagonal |
+| # | Módulo | Contenido |
+|---|---|---|
+| 34 | [Spring MVC](src/34-Spring-MVC/) | DispatcherServlet, @RestController, @ControllerAdvice, @Valid, @ExceptionHandler |
+| 35 | [JPA / Hibernate](src/35-JPA-Hibernate/) | Entidades, relaciones, fetch types, @Transactional, N+1, caché L2 |
+| 36 | [Testing](src/36-Testing/) | JUnit 5, Mockito, @SpringBootTest, TDD, test doubles |
+| 37 | [Spring Security](src/37-Spring-Security/) | SecurityFilterChain, JWT, BCrypt, @PreAuthorize, OAuth2 |
+
+**Kafka y Arquitecturas**
+
+| # | Módulo | Contenido |
+|---|---|---|
+| 38 | [Kafka](src/38-Kafka/) | Topics, particiones, producers, consumers, offsets, DLT, Saga |
+| 39 | [Microservicios](src/39-Microservicios/) | Circuit Breaker, Saga, API Gateway, Outbox Pattern, Two-Phase Commit |
+| 40 | [Arquitecturas](src/40-Arquitecturas/) | Hexagonal, Clean Architecture, CQRS, Event Sourcing, DDD |
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
