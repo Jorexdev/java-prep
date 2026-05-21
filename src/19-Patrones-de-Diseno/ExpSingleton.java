@@ -2,7 +2,7 @@
 //  PATRÓN SINGLETON — Creacional
 // ═══════════════════════════════════════════════════════════════
 
-public class SingletonDemo {
+public class ExpSingleton {
 
     // ── 1. IMPLEMENTACIÓN CON HOLDER IDIOM (recomendada) ────────────────────
 

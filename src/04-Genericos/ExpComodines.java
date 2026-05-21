@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comodines {
+public class ExpComodines {
     public static void main(String[] args) {
         List<? super Integer> lista = new ArrayList<>();
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 // Spring Boot activa AOP automáticamente si spring-boot-starter-aop está en el classpath.
 @Aspect
 @Component
-public class Examples {
+public class ExpAOP {
 
     // @Before: se ejecuta ANTES del método.
     // Útil para logging de entrada, validaciones previas.

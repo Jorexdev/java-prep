@@ -39,7 +39,7 @@ class Triangle implements Shape {
     public double area() { return (base * height) / 2; }
 }
 
-public class OpenClosed {
+public class ExpOpenClosed {
     public static void main(String[] args) {
         Shape[] shapes = { new Circle(5), new Square(4), new Triangle(6, 3) };
 

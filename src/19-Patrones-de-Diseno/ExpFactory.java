@@ -1,4 +1,4 @@
-public class FactoryDemo {
+public class ExpFactory {
 
     // Interfaz común para todos los productos.
     // El cliente solo conoce esta abstracción, nunca las clases concretas.

@@ -33,7 +33,7 @@ class Switch {
     public void toggle() { device.turnOn(); }
 }
 
-public class DependencyInversion {
+public class ExpDependencyInversion {
     public static void main(String[] args) {
         // Podemos pasar cualquier Switchable sin tocar Switch
         new Switch(new Lamp()).toggle();

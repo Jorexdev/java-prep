@@ -1,6 +1,6 @@
 import java.util.Optional;
 
-public class Examples {
+public class ExpOptional {
 
 
 
@@ -75,7 +75,7 @@ public class Examples {
         System.out.println("Transformado: " + mayus.orElse("VACÍO"));
 
         // flatMap(Function) → se usa cuando la función ya devuelve un Optional
-        Optional<String> optConMayus = optTexto.flatMap(Examples::aMayusOptional);
+        Optional<String> optConMayus = optTexto.flatMap(ExpOptional::aMayusOptional);
         System.out.println("flatMap: " + optConMayus.orElse("VACÍO"));
 
         // ======================================
@@ -113,7 +113,7 @@ public class Examples {
         // ======================================
 
         Optional<String> optRol = findUserById(1)
-                .flatMap(Examples::findRoleByUserName); // la función ya devuelve Optional
+                .flatMap(ExpOptional::findRoleByUserName); // la función ya devuelve Optional
 
         String rol = optRol.orElse("ROLE_GUEST");
         System.out.println("Rol de usuario 1: " + rol);

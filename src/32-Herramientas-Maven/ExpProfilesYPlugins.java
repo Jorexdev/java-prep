@@ -1,4 +1,4 @@
-public class ProfilesYPlugins {
+public class ExpProfilesYPlugins {
 
 /*
     MAVEN — Profiles y Plugins

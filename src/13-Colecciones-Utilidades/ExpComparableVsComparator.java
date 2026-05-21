@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class ComparableVsComparator {
+public class ExpComparableVsComparator {
 
     // Comparable: la propia clase define su orden natural implementando compareTo
     // permite usar Collections.sort() y TreeSet/TreeMap sin Comparator externo

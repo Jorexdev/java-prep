@@ -26,7 +26,7 @@ class ReportRepository {
     }
 }
 
-public class SingleResponsibility {
+public class ExpSingleResponsibility {
     public static void main(String[] args) {
         Report report = new Report();
         String contenido = report.generate();

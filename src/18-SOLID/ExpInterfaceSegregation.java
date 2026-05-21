@@ -27,7 +27,7 @@ class Robot implements Workable {
     public void work() { System.out.println("El robot trabaja"); }
 }
 
-public class InterfaceSegregation {
+public class ExpInterfaceSegregation {
     public static void main(String[] args) {
         Human h = new Human();
         h.work();

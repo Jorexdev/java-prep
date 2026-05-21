@@ -1,4 +1,4 @@
-public class DecoratorDemo {
+public class ExpDecorator {
 
     interface Notifier {
         void send(String msg);

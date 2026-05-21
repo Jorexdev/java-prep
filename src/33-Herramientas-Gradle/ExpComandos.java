@@ -1,7 +1,7 @@
-public class Comandos {
+public class ExpComandos {
 
 /*
-    GRADLE — Comandos y Flags
+    GRADLE — ExpComandos y Flags
 
     ► ¿Qué son?
       Gradle se controla mediante comandos de consola, igual que Maven.
