@@ -80,16 +80,21 @@ Bloques de conocimiento operacional. Puedes estudiarlos en paralelo con las fase
 
 ---
 
-## Próximos módulos
+## Fase 7 — Spring Avanzado
 
-En construcción, por orden de prioridad:
+Capa web, persistencia, seguridad y testing. Imprescindibles para cualquier entrevista backend con Spring.
 
-| Módulo | Por qué importa |
-|---|---|
-| Spring MVC + REST | Preguntas en casi cualquier entrevista backend |
-| JPA / Hibernate | Bloque entero de preguntas sobre persistencia |
-| Testing | JUnit 5, Mockito, Testcontainers — diferenciador en entrevistas |
-| Spring Security + JWT | Básico para cualquier app con autenticación |
-| Kafka + WebClient | Mensajería y comunicación entre servicios |
-| Microservicios + Observabilidad | Micrometer, tracing distribuido, Prometheus |
-| Arquitecturas | Clean Architecture, DDD, Hexagonal |
+34. [34 · Spring MVC](src/34-Spring-MVC/) — DispatcherServlet, @RestController, @ControllerAdvice, @Valid
+35. [35 · JPA / Hibernate](src/35-JPA-Hibernate/) — entidades, relaciones, fetch types, @Transactional, N+1, caché L2
+36. [36 · Testing](src/36-Testing/) — JUnit 5, Mockito, @SpringBootTest, TDD, test doubles
+37. [37 · Spring Security](src/37-Spring-Security/) — SecurityFilterChain, JWT, BCrypt, @PreAuthorize, OAuth2
+
+---
+
+## Fase 8 — Kafka y Arquitecturas
+
+Los temas que diferencian un perfil senior. Estudia en este orden.
+
+38. [38 · Kafka](src/38-Kafka/) — topics, particiones, producers, consumers, offsets, DLT, Saga coreografiada
+39. [39 · Microservicios](src/39-Microservicios/) — Circuit Breaker, Saga, API Gateway, Outbox Pattern, Two-Phase Commit
+40. [40 · Arquitecturas](src/40-Arquitecturas/) — Hexagonal, Clean Architecture, CQRS, Event Sourcing, DDD
