@@ -43,4 +43,4 @@
         (la clase que las implementa debe sobreescribir el método)
       - ¿Pueden tener constructores las interfaces? (no)
 */
-public class AbstractVsInterface {}
+public class ExpAbstractVsInterface {}

@@ -14,7 +14,7 @@ class OperacionInvalidaException extends RuntimeException {
     }
 }
 
-public class CustomExceptions {
+public class ExpCustomExceptions {
 
     // Métod0 que lanza una checked exception
     public static void autenticar(String user, String pass) throws CredencialesInvalidasException {

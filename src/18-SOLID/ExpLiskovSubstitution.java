@@ -31,7 +31,7 @@ class Sparrow extends FlyingBird { }
 // No tiene fly() porque no vuela: no viola el contrato de Bird
 class Penguin extends Bird { }
 
-public class LiskovSubstitution {
+public class ExpLiskovSubstitution {
     public static void main(String[] args) {
         // Violación: si un método espera Rectangle y recibe Square, area() se comporta diferente
         Rectangle rect = new Square();

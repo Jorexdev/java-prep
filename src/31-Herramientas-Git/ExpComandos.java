@@ -1,7 +1,7 @@
-public class Comandos {
+public class ExpComandos {
 
 /*
-    GIT — Comandos, flags y flujos de trabajo
+    GIT — ExpComandos, flags y flujos de trabajo
 
     ► Git se basa en tres zonas:
         1. Working Directory (tu carpeta actual)

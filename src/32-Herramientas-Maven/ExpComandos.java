@@ -1,7 +1,7 @@
-public class Comandos {
+public class ExpComandos {
 
 /*
-    MAVEN — Comandos y Flags
+    MAVEN — ExpComandos y Flags
 
     ► Maven se controla mediante comandos ejecutados desde la terminal, aunque si
       tienes el plugin instalado, puedes hacerlo mediante la interfaz :)

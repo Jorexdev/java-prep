@@ -1,4 +1,4 @@
-public class ExceptionsHierarchy {
+public class ExpExceptionsHierarchy {
 
     public static void main(String[] args) {
 

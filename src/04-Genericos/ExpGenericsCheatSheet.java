@@ -45,4 +45,4 @@
         class Ejemplo<T extends Number & Comparable<T>> { ... }
         Si hay clase, debe ir primero; luego interfaces.
 */
-public class GenericsCheatSheet {}
+public class ExpGenericsCheatSheet {}

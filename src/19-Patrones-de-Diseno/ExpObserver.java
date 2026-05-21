@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObserverDemo {
+public class ExpObserver {
 
     // Contrato del observador.
     // El sujeto solo conoce esta abstracción, nunca la implementación concreta.

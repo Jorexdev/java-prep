@@ -1,4 +1,4 @@
-public class StrategyDemo {
+public class ExpStrategy {
 
     // La interfaz define el contrato del algoritmo.
     // Al ser funcional (@FunctionalInterface implícita), se puede usar con lambdas.

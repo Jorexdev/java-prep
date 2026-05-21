@@ -1,4 +1,4 @@
-public class AdapterDemo {
+public class ExpAdapter {
 
     // Target: la interfaz que el cliente conoce y espera usar.
     interface MediaPlayer {
