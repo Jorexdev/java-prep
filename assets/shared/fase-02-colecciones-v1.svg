@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="36" viewBox="0 0 900 36">
+  <rect width="900" height="36" rx="6" fill="#1C2B1A"/>
+  <!-- phase number -->
+  <text x="20" y="24" font-family="'DM Mono', monospace" font-size="14" font-weight="700" fill="#A3B067">02</text>
+  <!-- phase name -->
+  <text x="60" y="24" font-family="'DM Mono', monospace" font-size="14" font-weight="700" fill="#E8EDD4">Colecciones</text>
+  <!-- module count -->
+  <text x="880" y="24" text-anchor="end" font-family="'DM Mono', monospace" font-size="13" font-weight="700" fill="#606C38">7 módulos</text>
+</svg>

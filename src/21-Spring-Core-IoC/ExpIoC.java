@@ -1,11 +1,12 @@
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import java.util.HashMap;
+import java.util.Map;
 
+// IoC (Inversión de Control) simulado con un contenedor Java plano
+// En Spring: AnnotationConfigApplicationContext + @Configuration + @Bean + @Qualifier
+// Aquí: SimpleContainer — Map<String,Object> que actúa como ApplicationContext
 public class ExpIoC {
 
-    // Interfaz — el servicio depende de la abstracción, no de la implementación concreta
+    // --- Interfaz — el servicio depende de la abstracción, no de la implementación concreta ---
     interface Notificador {
         void enviar(String mensaje);
     }
@@ -24,7 +25,7 @@ public class ExpIoC {
         }
     }
 
-    // DI por constructor — Spring inyecta Notificador sin que ServicioAlertas sepa cuál
+    // DI por constructor — el contenedor inyecta Notificador; ServicioAlertas no sabe cuál
     static class ServicioAlertas {
         private final Notificador notificador;
 
@@ -37,32 +38,65 @@ public class ExpIoC {
         }
     }
 
-    @Configuration
+    // --- Contenedor simple (equivale a ApplicationContext) ---
+    // En Spring: @Configuration
+    static class SimpleContainer {
+
+        private final Map<String, Object> beans = new HashMap<>();
+
+        // Registra un bean con nombre explícito — equivale a @Bean("nombre")
+        void register(String name, Object bean) {
+            beans.put(name, bean);
+        }
+
+        // Recupera un bean por nombre — equivale a ctx.getBean("nombre", Tipo.class)
+        <T> T getBean(String name, Class<T> type) {
+            Object bean = beans.get(name);
+            if (bean == null) throw new RuntimeException("Bean no encontrado: " + name);
+            return type.cast(bean);
+        }
+
+        // Recupera el primer bean del tipo indicado — equivale a ctx.getBean(Tipo.class)
+        <T> T getBean(Class<T> type) {
+            return beans.values().stream()
+                    .filter(type::isInstance)
+                    .map(type::cast)
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("Bean de tipo " + type.getSimpleName() + " no encontrado"));
+        }
+    }
+
+    // --- Configuración de beans (equivale a la clase @Configuration) ---
+    // En Spring: @Configuration
     static class AppConfig {
 
-        @Bean("email")
-        Notificador notificadorEmail() { return new NotificadorEmail(); }
+        static SimpleContainer crearContexto() {
+            SimpleContainer ctx = new SimpleContainer();
 
-        @Bean("sms")
-        Notificador notificadorSMS() { return new NotificadorSMS(); }
+            // En Spring: @Bean("email")
+            ctx.register("email", new NotificadorEmail());
 
-        // @Qualifier resuelve la ambigüedad cuando hay múltiples beans del mismo tipo
-        @Bean
-        ServicioAlertas servicioAlertas(@Qualifier("email") Notificador notificador) {
-            return new ServicioAlertas(notificador);
+            // En Spring: @Bean("sms")
+            ctx.register("sms", new NotificadorSMS());
+
+            // @Qualifier("email") resuelve la ambigüedad cuando hay múltiples beans del mismo tipo
+            // En Spring: @Bean + @Qualifier("email") Notificador notificador
+            Notificador notificadorEmail = ctx.getBean("email", Notificador.class);
+            ctx.register("servicioAlertas", new ServicioAlertas(notificadorEmail));
+
+            return ctx;
         }
     }
 
     public static void main(String[] args) {
-        try (var ctx = new AnnotationConfigApplicationContext(AppConfig.class)) {
+        SimpleContainer ctx = AppConfig.crearContexto();
 
-            ServicioAlertas servicio = ctx.getBean(ServicioAlertas.class);
-            servicio.alertar("Temperatura crítica detectada");
+        ServicioAlertas servicio = ctx.getBean(ServicioAlertas.class);
+        servicio.alertar("Temperatura crítica detectada");
 
-            // Cambiar "email" por "sms" en @Qualifier → mismo servicio, distinto canal
-            // ServicioAlertas no cambia — eso es IoC
-            Notificador sms = ctx.getBean("sms", Notificador.class);
-            sms.enviar("Mensaje directo al bean por nombre");
-        }
+        // Cambiar "email" por "sms" en @Qualifier → mismo servicio, distinto canal
+        // ServicioAlertas no cambia — eso es IoC
+        Notificador sms = ctx.getBean("sms", Notificador.class);
+        sms.enviar("Mensaje directo al bean por nombre");
     }
 }

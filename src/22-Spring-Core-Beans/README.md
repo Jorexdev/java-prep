@@ -85,7 +85,7 @@ Si un bean `singleton` inyecta un bean `prototype`, el prototype solo se crea un
 - `@PostConstruct` para inicialización después de DI (conexiones, caché inicial).
 - `@PreDestroy` para limpieza ordenada (cerrar conexiones, flush de recursos).
 
-Este módulo es solo teoría — ver los ejemplos de configuración en Spring Boot.
+Ver [ExpBeans.java](ExpBeans.java), [ExpBeanPostProcessor.java](ExpBeanPostProcessor.java), [ExpFactoryBean.java](ExpFactoryBean.java) y [ExpConditional.java](ExpConditional.java) para ejemplos ejecutables con ciclo de vida de beans, scopes, `@PostConstruct` y configuración condicional.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

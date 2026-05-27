@@ -99,7 +99,7 @@ class MiServicioTest { ... }
 - `@ActiveProfiles` en tests para configuración específica de testing.
 - Soporte para perfiles anidados y acumulativos.
 
-Este módulo es solo teoría — los perfiles se activan en tiempo de despliegue.
+Ver [ExpPerfiles.java](ExpPerfiles.java), [ExpConditionalOnProfile.java](ExpConditionalOnProfile.java), [ExpProfileGroups.java](ExpProfileGroups.java) y [ExpEnvironmentAbstraction.java](ExpEnvironmentAbstraction.java) para ejemplos ejecutables con `@Profile`, activación de perfiles y configuración por entorno.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

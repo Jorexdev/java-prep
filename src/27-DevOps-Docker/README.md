@@ -98,7 +98,7 @@ services:
 - docker-compose para levantar entornos completos (app + DB + Redis) con un comando.
 - Base de cualquier pipeline CI/CD moderno y despliegue en Kubernetes.
 
-Ver [Dockerfile](Dockerfile) para un ejemplo de contenedorización de aplicación Java/Spring Boot.
+Ver [ExpImageLayers.java](ExpImageLayers.java), [ExpMultistageBuilder.java](ExpMultistageBuilder.java), [ExpDockerCompose.java](ExpDockerCompose.java) y [ExpContainerLifecycle.java](ExpContainerLifecycle.java) para ejemplos ejecutables con capas de imagen, builds multistage, Docker Compose y ciclo de vida de contenedores.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

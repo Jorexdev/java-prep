@@ -97,7 +97,7 @@ test-job:
 - Trazabilidad: cada despliegue está vinculado a un commit específico.
 - Rollback rápido: pipelines con aprobación manual y rollback automatizado.
 
-Este módulo es solo teoría — los pipelines se configuran en el repositorio del proyecto.
+Ver [ExpPipelineStages.java](ExpPipelineStages.java), [ExpGitOps.java](ExpGitOps.java), [ExpBlueGreen.java](ExpBlueGreen.java) y [ExpCanary.java](ExpCanary.java) para ejemplos ejecutables con etapas de pipeline CI/CD, GitOps y estrategias de despliegue blue-green y canary.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

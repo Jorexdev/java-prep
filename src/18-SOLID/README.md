@@ -90,7 +90,7 @@
 - Testabilidad: interfaces + DIP permiten mocking.
 - Bajo acoplamiento: cambiar una implementación no afecta a quien la usa.
 
-Ver [SingleResponsibility.java](SingleResponsibility.java), [OpenClosed.java](OpenClosed.java), [LiskovSubstitution.java](LiskovSubstitution.java), [InterfaceSegregation.java](InterfaceSegregation.java) y [DependencyInversion.java](DependencyInversion.java).
+Ver [ExpSingleResponsibility.java](ExpSingleResponsibility.java), [ExpOpenClosed.java](ExpOpenClosed.java), [ExpLiskovSubstitution.java](ExpLiskovSubstitution.java), [ExpInterfaceSegregation.java](ExpInterfaceSegregation.java) y [ExpDependencyInversion.java](ExpDependencyInversion.java) para ejemplos ejecutables de cada principio SOLID.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

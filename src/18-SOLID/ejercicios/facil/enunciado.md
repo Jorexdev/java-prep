@@ -24,3 +24,6 @@ Aplica ISP: separa en `Trabajable`, `Descansable`. Implementa `Humano` y `Robot`
 Crea un `Notificador` que depende directamente de `EmailService`.
 Refactorízalo: define interfaz `ServicioNotificacion`, implementa `EmailService` y `SmsService`.
 `Notificador` recibe la implementación por constructor. Demuestra intercambiabilidad.
+
+## Ejercicio 6 — Composición: todos los principios juntos
+Diseña un sistema de notificaciones que aplique los 5 principios simultáneamente: `Notificacion` (SRP: solo datos), `EnviadorNotificacion` interface (DIP), `EnviadorEmail`/`EnviadorSMS` (OCP: extendible), `Destinatario` interface con solo `obtenerContacto()` (ISP), `Usuario`/`Empresa` (LSP: intercambiables). Demo que demuestre que añadir un nuevo canal (Push) no requiere modificar nada existente.

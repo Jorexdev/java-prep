@@ -50,6 +50,11 @@ Estrategias de idempotencia en el consumer: (1) **Idempotency key en base de dat
 
 El Schema Registry (Confluent) es un servicio centralizado que almacena los esquemas Avro/Protobuf/JSON Schema de los mensajes Kafka. El producer registra el esquema la primera vez y solo envía el **schema ID** (4 bytes) + payload binario, no el esquema completo. El consumer descarga el esquema del Registry por ID. Ventajas: (1) **Validación en tiempo de producción**: si el producer intenta enviar un mensaje incompatible con el esquema registrado, el `KafkaAvroSerializer` lanza excepción antes de enviar. (2) **Evolución de esquemas**: el Registry valida que los cambios sean compatibles (backwards/forwards). (3) **Mensajes más pequeños**: Avro binario sin nombres de campo. Sin Schema Registry, Avro no tiene sentido ya que el consumer no sabría cómo deserializar el payload.
 
+---
+
+**¿Cómo garantiza Kafka la semántica exactamente-una-vez (exactly-once) con transacciones?**
+
+Exactly-once en Kafka se construye sobre dos capas. La primera es el **producer idempotente** (`enable.idempotence=true`): el broker asigna un `ProducerID` y un número de secuencia a cada mensaje; si el producer reintenta por un timeout de red, el broker detecta el duplicado por el número de secuencia y lo descarta sin errores. La segunda capa son las **transacciones Kafka**: el producer abre una transacción con `beginTransaction()`, escribe en uno o varios topics y, si todo va bien, llama `commitTransaction()`; si falla, `abortTransaction()`. Los mensajes transaccionales solo son visibles para consumers configurados con `isolation.level=read_committed` una vez que la transacción está comprometida — los mensajes abortados nunca son visibles. Para el caso producer → Kafka → consumer → sink (Kafka Streams, por ejemplo), la garantía exactly-once se extiende combinando la transacción del producer con el commit del offset del consumer en la misma transacción atómica de Kafka. El coste es mayor latencia de escritura y complejidad de configuración, por lo que solo se activa cuando duplicados o pérdidas son inaceptables (pagos, inventario).
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 <div align="center"><a href="#"><img src="../../assets/separator-v2.svg" width="100%" alt=""/></a></div>

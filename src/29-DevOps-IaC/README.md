@@ -94,7 +94,7 @@ El **state file** (`terraform.tfstate`) registra el estado real de la infraestru
 - Colaboración: pull requests para cambios de infraestructura.
 - Terraform para cloud (AWS/GCP/Azure); Ansible para configuración y despliegue.
 
-Este módulo es solo teoría — IaC se ejecuta contra entornos cloud reales.
+Ver [ExpIdempotency.java](ExpIdempotency.java), [ExpTerraformState.java](ExpTerraformState.java), [ExpModuleComposition.java](ExpModuleComposition.java) y [ExpDriftDetection.java](ExpDriftDetection.java) para ejemplos ejecutables con idempotencia, gestión de estado, composición de módulos Terraform y detección de drift.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

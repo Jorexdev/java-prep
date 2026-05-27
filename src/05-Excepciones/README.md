@@ -94,7 +94,7 @@ public class NegocioException extends RuntimeException {
 - Las excepciones personalizadas documentan los contratos del dominio.
 - Las excepciones checked fuerzan el tratamiento explícito de condiciones esperadas.
 
-Ver [ExceptionsHierarchy.java](ExceptionsHierarchy.java) y [CustomExceptions.java](CustomExceptions.java) para la jerarquía y ejemplos de excepciones custom.
+Ver [ExpExceptionsHierarchy.java](ExpExceptionsHierarchy.java) y [ExpCustomExceptions.java](ExpCustomExceptions.java) para ejemplos ejecutables con la jerarquía de excepciones, `try-with-resources` y excepciones personalizadas.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

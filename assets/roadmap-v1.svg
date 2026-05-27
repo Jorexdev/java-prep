@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="80" viewBox="0 0 900 80">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" result="blur">
+        <animate attributeName="stdDeviation" values="2;9;2" dur="2.4s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="900" height="80" fill="#0f1a0e"/>
+
+  <!-- left: // roadmap with glow -->
+  <text x="32" y="48" font-family="'DM Mono', monospace" font-size="28" font-weight="700" fill="#A3B067" filter="url(#glow)">//&#160;roadmap</text>
+
+  <!-- right: 40 módulos · 8 fases -->
+  <text x="868" y="48" text-anchor="end" font-family="'DM Mono', monospace" font-size="13" font-weight="700" fill="#606C38">40 módulos · 8 fases</text>
+
+  <!-- bottom separator line -->
+  <line x1="0" y1="79" x2="900" y2="79" stroke="#A3B067" stroke-width="1" opacity="0.3"/>
+</svg>

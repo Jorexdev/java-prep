@@ -99,7 +99,7 @@ logging:
 - MDC para correlacionar logs de una misma request (requestId, userId...).
 - Logging estructurado JSON para ingesta en ELK, Splunk, Datadog.
 
-Este módulo es solo teoría — el logging se configura en application.yml/logback-spring.xml.
+Ver [ExpLogging.java](ExpLogging.java), [ExpLogLevels.java](ExpLogLevels.java), [ExpMDC.java](ExpMDC.java) y [ExpStructuredLogging.java](ExpStructuredLogging.java) para ejemplos ejecutables con SLF4J, niveles de log, MDC y logging estructurado JSON.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

@@ -99,7 +99,7 @@ dependencies {
 - Gradle Wrapper: mismo resultado en cualquier entorno sin instalación manual.
 - Es el estándar de facto en proyectos Android y Kotlin.
 
-Ver [Comandos.java](Comandos.java) para el cheatsheet de tareas Gradle y [GradleVsMaven.java](GradleVsMaven.java) para la comparativa detallada.
+Ver [ExpComandos.java](ExpComandos.java) y [ExpGradleVsMaven.java](ExpGradleVsMaven.java) para ejemplos ejecutables con tareas Gradle, Gradle Wrapper y comparativa detallada con Maven.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

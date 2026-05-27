@@ -1,10 +1,24 @@
-# Roadmap de estudio
+<div align="center">
+  <a href="#"><img src="assets/roadmap-v1.svg" width="100%" alt="Roadmap"/></a>
+</div>
+
+<div align="center"><img height="12" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='12'/%3E"/></div>
 
 Orden recomendado para sacarle el máximo partido al repo. Cada módulo tiene `README.md` (teoría), `Entrevista.md` (preguntas de entrevista) y archivos Java ejecutables donde aplica.
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 1 — Fundamentos del lenguaje
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-01-fundamentos-v1.svg" width="100%" alt="Fase 01 — Fundamentos del lenguaje"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Empieza aquí si preparas una entrevista técnica Java desde cero o quieres refrescar los conceptos base.
 
@@ -15,9 +29,19 @@ Empieza aquí si preparas una entrevista técnica Java desde cero o quieres refr
 5. [05 · Excepciones](src/05-Excepciones/) — checked/unchecked, try-with-resources, excepciones custom
 6. [06 · Clases Abstractas](src/06-Clases-Abstractas/) — abstract vs interface, cuándo usar cada una
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 2 — Colecciones
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-02-colecciones-v1.svg" width="100%" alt="Fase 02 — Colecciones"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Bloque muy frecuente en entrevistas. Estudia primero las implementaciones base y luego las variantes.
 
@@ -29,9 +53,19 @@ Bloque muy frecuente en entrevistas. Estudia primero las implementaciones base y
 12. [12 · Colecciones Concurrentes](src/12-Colecciones-Concurrentes/) — ConcurrentHashMap, CopyOnWriteArrayList
 13. [13 · Utilidades](src/13-Colecciones-Utilidades/) — Collections, Comparable, Comparator, Iterator
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 3 — Concurrencia
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-03-concurrencia-v1.svg" width="100%" alt="Fase 03 — Concurrencia"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Una de las áreas con más profundidad en entrevistas senior. Sigue este orden estrictamente.
 
@@ -40,9 +74,19 @@ Una de las áreas con más profundidad en entrevistas senior. Sigue este orden e
 16. [16 · Virtual Threads](src/16-Hilos-Virtuales/) — Java 21, I/O-bound vs CPU-bound, pinning
 17. [17 · Recolector de Basura](src/17-Recolector-de-Basura/) — generaciones, G1GC, ZGC, JVM flags
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 4 — Principios y Patrones
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-04-principios-v1.svg" width="100%" alt="Fase 04 — Principios y Patrones"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Antes de entrar en Spring, asegúrate de tener estos sólidos. Son la base de las preguntas de diseño.
 
@@ -50,9 +94,19 @@ Antes de entrar en Spring, asegúrate de tener estos sólidos. Son la base de la
 19. [19 · Patrones de Diseño](src/19-Patrones-de-Diseno/) — Singleton, Factory, Builder, Adapter, Decorator, Strategy, Observer
 20. [20 · AOP](src/20-AOP/) — aspectos, pointcut, @Before, @Around, weaving con proxies
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 5 — Spring
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-05-spring-v1.svg" width="100%" alt="Fase 05 — Spring"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Sigue el orden: primero Core (contenedor), luego Boot (configuración y autoconfiguración).
 
@@ -63,9 +117,19 @@ Sigue el orden: primero Core (contenedor), luego Boot (configuración y autoconf
 25. [25 · Spring Boot: Perfiles](src/25-Spring-Boot-Perfiles/) — @Profile, application-{env}.yml
 26. [26 · Spring Boot: Logging](src/26-Spring-Boot-Logging/) — SLF4J, Logback, MDC, logging estructurado
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 6 — DevOps y Herramientas
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-06-devops-v1.svg" width="100%" alt="Fase 06 — DevOps y Herramientas"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Bloques de conocimiento operacional. Puedes estudiarlos en paralelo con las fases anteriores.
 
@@ -78,9 +142,19 @@ Bloques de conocimiento operacional. Puedes estudiarlos en paralelo con las fase
 32. [32 · Maven](src/32-Herramientas-Maven/) — ciclo de vida, dependencias transitivas, perfiles
 33. [33 · Gradle](src/33-Herramientas-Gradle/) — Wrapper, compilación incremental, Groovy vs Kotlin DSL
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 7 — Spring Avanzado
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-07-spring-avanzado-v1.svg" width="100%" alt="Fase 07 — Spring Avanzado"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Capa web, persistencia, seguridad y testing. Imprescindibles para cualquier entrevista backend con Spring.
 
@@ -89,9 +163,19 @@ Capa web, persistencia, seguridad y testing. Imprescindibles para cualquier entr
 36. [36 · Testing](src/36-Testing/) — JUnit 5, Mockito, @SpringBootTest, TDD, test doubles
 37. [37 · Spring Security](src/37-Spring-Security/) — SecurityFilterChain, JWT, BCrypt, @PreAuthorize, OAuth2
 
----
+<div align="center"><img height="24" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='24'/%3E"/></div>
 
-## Fase 8 — Kafka y Arquitecturas
+<div align="center">
+  <a href="#"><img src="assets/separator-v2.svg" width="100%" alt=""/></a>
+</div>
+
+<div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
+
+<div align="center">
+  <a href="#"><img src="assets/shared/fase-08-kafka-v1.svg" width="100%" alt="Fase 08 — Kafka y Arquitecturas"/></a>
+</div>
+
+<div align="center"><img height="16" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='16'/%3E"/></div>
 
 Los temas que diferencian un perfil senior. Estudia en este orden.
 

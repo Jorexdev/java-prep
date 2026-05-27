@@ -81,6 +81,24 @@ Con `@ValueSource` para un solo parámetro: `@ValueSource(strings = {"", " ", nu
 
 Testcontainers es una librería Java que levanta contenedores Docker reales durante los tests de integración. En lugar de usar H2 (que tiene diferencias de comportamiento con PostgreSQL), arranca un contenedor de la BD real y lo destruye al terminar. Úsalos cuando: (1) la lógica depende de características específicas de la BD (tipos JSON, funciones específicas, índices); (2) quieres tener confianza real de que las queries JPA funcionan en producción; (3) tests de integración con Kafka, Redis, o cualquier servicio externo. El coste es un startup más lento, compensado por la fidelidad con producción.
 
+---
+
+**¿Qué hace `@DataJpaTest` y en qué se diferencia de `@SpringBootTest` y `@WebMvcTest`?**
+
+`@DataJpaTest` levanta únicamente la capa de persistencia: configura Hibernate, Spring Data y una BD embebida (H2 por defecto), pero no carga controllers, services ni el resto del contexto. Es la opción más rápida para probar repositorios y queries JPA de forma aislada. `@WebMvcTest` levanta solo la capa web (controllers, filtros, `MockMvc`) sin persistencia — los servicios se reemplazan con `@MockBean`. `@SpringBootTest` levanta el contexto completo (todas las capas), ideal para tests de integración end-to-end pero es el más lento de los tres. La elección correcta depende de qué quieres probar: usa `@DataJpaTest` para queries complejas y restricciones de BD, `@WebMvcTest` para routing y validación de entrada, y `@SpringBootTest` solo cuando necesitas verificar la colaboración entre capas.
+
+---
+
+**¿Cuál es la diferencia entre `@MockBean` de Spring y `@Mock` de Mockito?**
+
+`@Mock` (Mockito puro) crea un mock que vive únicamente en el contexto del test JUnit — no interactúa con el contexto de Spring en absoluto. `@MockBean` (Spring Test) crea un mock de Mockito **y además lo registra en el ApplicationContext de Spring**, reemplazando cualquier bean existente de ese tipo. Si usas `@WebMvcTest` o `@SpringBootTest`, los controllers se autocablean con los beans del contexto Spring, por lo que necesitas `@MockBean` para sustituir las dependencias del controller. Si escribes un test unitario puro sin contexto Spring (con `@ExtendWith(MockitoExtension.class)`), usa `@Mock` — es más rápido porque no hay contexto que arrancar ni reemplazar. La regla práctica: `@Mock` en tests unitarios, `@MockBean` cuando hay contexto Spring.
+
+---
+
+**¿Cuáles son los inconvenientes principales de TDD en la práctica?**
+
+TDD tiene fricciones reales que conviene conocer: (1) **Curva de aprendizaje** — escribir el test primero requiere tener clara la API antes de implementarla, lo que es difícil cuando el diseño es exploratorio; (2) **Coste de mantenimiento** — los tests se acoplan a la implementación; refactorizaciones internas que no cambian el comportamiento observable pueden romper muchos tests si están mal diseñados; (3) **Código difícil de testear primero** — integraciones con sistemas externos (bases de datos, colas) complican el ciclo red-green porque requieren infraestructura para que el test falle correctamente; (4) **Velocidad inicial percibida** — los equipos sin experiencia sienten que TDD ralentiza el desarrollo, aunque el beneficio real se ve a medio plazo en el menor coste de debug y regresiones. La solución a la mayoría de estos problemas es diseñar tests que prueben comportamiento observable, no detalles de implementación.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

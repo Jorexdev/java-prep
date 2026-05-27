@@ -88,7 +88,7 @@ git remote -v       # lista remotos
 - Colaboración: pull requests, code review, CI integrada.
 - `git stash` para cambiar de contexto sin perder trabajo en progreso.
 
-Ver [Comandos.java](Comandos.java) para el cheatsheet completo de comandos, flags y flujos de trabajo con Git.
+Ver [ExpComandos.java](ExpComandos.java), [ExpMergeVsRebase.java](ExpMergeVsRebase.java), [ExpInteractiveRebase.java](ExpInteractiveRebase.java), [ExpCommitGraph.java](ExpCommitGraph.java) y [ExpGitInternals.java](ExpGitInternals.java) para ejemplos ejecutables con comandos Git, merge vs rebase, rebase interactivo e internos del objeto store.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
