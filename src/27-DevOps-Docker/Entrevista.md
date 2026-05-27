@@ -39,6 +39,16 @@ Cuando los datos deben persistir más allá del ciclo de vida del contenedor: ba
 **¿Qué es docker-compose?**
 Una herramienta para definir y ejecutar aplicaciones multi-contenedor mediante un archivo YAML (`docker-compose.yml`). Permite levantar toda la infraestructura local (app + DB + cache + message broker) con `docker compose up`. Ideal para desarrollo local y CI, no para producción (donde se usa Kubernetes).
 
+---
+
+**¿Qué es un multi-stage build y qué ventaja tiene?**
+Un multi-stage build usa varias instrucciones `FROM` en el mismo Dockerfile, cada una define una etapa. La etapa final solo copia los artefactos necesarios (el JAR, el binario compilado) de etapas anteriores, sin incluir el compilador ni las dependencias de build. El resultado es una imagen final mucho más pequeña y con menor superficie de ataque. Para una app Java: primera etapa con JDK para compilar, segunda etapa con JRE solo para ejecutar.
+
+---
+
+**¿Qué son los health checks en Docker y cómo los defines?**
+El `HEALTHCHECK` en el Dockerfile define el comando que Docker ejecuta periódicamente para saber si el contenedor está sano. Docker marca el contenedor como `healthy`, `unhealthy` o `starting` según el resultado. En docker-compose y Kubernetes se usa para controlar cuándo el contenedor está listo para recibir tráfico. Ejemplo: `HEALTHCHECK CMD curl -f http://localhost:8080/actuator/health || exit 1`.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

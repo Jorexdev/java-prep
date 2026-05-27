@@ -39,6 +39,16 @@ Funcionalmente son equivalentes — todos declaran un bean Spring. La diferencia
 **¿Qué es BeanFactory vs ApplicationContext?**
 `BeanFactory` es la interfaz base: carga y gestiona beans (lazy initialization). `ApplicationContext` extiende BeanFactory con: event publishing, internacionalización (MessageSource), AOP integration, inicialización eager de singletons. En aplicaciones Spring Boot siempre se usa ApplicationContext.
 
+---
+
+**¿Qué es un `FactoryBean<T>` y cuándo lo usarías?**
+`FactoryBean<T>` es una interfaz que permite a Spring obtener el bean del método `getObject()` en vez de instanciar la clase directamente. Se usa para crear objetos cuya construcción es compleja (conexiones, proxies, objetos de terceros sin constructor público). Accedes a la propia factory con `&nombreBean` en el contexto. Internamente, `ProxyFactoryBean` de Spring AOP es un `FactoryBean`.
+
+---
+
+**¿Qué problema resuelve `@Scope("request")` y qué infraestructura necesita?**
+El scope `request` crea una instancia nueva del bean por cada petición HTTP, destruyéndola al finalizarla. Resuelve el problema de compartir estado mutable entre peticiones en un bean singleton. Requiere que el contexto web esté activo (un `DispatcherServlet` o un `RequestContextListener`). En beans singleton que inyectan un bean request-scoped, Spring inyecta un proxy ScopedProxyMode para que cada llamada resuelva el bean correcto del hilo actual.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

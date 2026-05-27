@@ -51,6 +51,16 @@ Con `<exclusions>` dentro de la dependencia:
 </dependency>
 ```
 
+---
+
+**¿Qué es un BOM (Bill of Materials) en Maven y para qué sirve?**
+Un BOM es un POM especial con `<packaging>pom</packaging>` que declara versiones de dependencias en `<dependencyManagement>` sin añadirlas como dependencias directas. Se importa con `<scope>import</scope>` en tu `<dependencyManagement>`. Permite que varios módulos de un proyecto usen versiones consistentes sin repetirlas en cada POM. Spring Boot publica su propio BOM (`spring-boot-dependencies`) que gestiona las versiones de todas sus dependencias.
+
+---
+
+**¿Qué es el Maven Enforcer Plugin y qué problemas resuelve?**
+El Enforcer Plugin añade reglas que se validan durante el build y lo abortan si no se cumplen. Reglas comunes: versión mínima de Java o Maven, ausencia de dependencias en conflicto (`dependencyConvergence`), prohibición de dependencias SNAPSHOT en releases. Evita que el proyecto compile localmente con JDK 17 pero falle en CI con JDK 11, o que versiones distintas de la misma dependencia coexistan en el classpath causando `NoSuchMethodError`.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

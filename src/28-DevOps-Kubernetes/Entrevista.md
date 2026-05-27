@@ -39,6 +39,16 @@ Con Secrets — codificados en base64 (no cifrados por defecto). Se inyectan com
 **¿Qué diferencia hay entre ConfigMap y Secret?**
 ConfigMap para configuración no sensible (URLs, feature flags, configuración de la app). Secret para datos sensibles (passwords, tokens, certificados) — almacenados codificados en base64 y con acceso más restringido. Ambos se inyectan en pods como env vars o archivos montados.
 
+---
+
+**¿Cuál es la diferencia entre liveness probe y readiness probe?**
+La liveness probe comprueba si el proceso está vivo: si falla, Kubernetes reinicia el contenedor. La readiness probe comprueba si el contenedor está listo para recibir tráfico: si falla, Kubernetes lo elimina del endpoint del Service pero no lo reinicia. Un pod puede estar vivo (liveness OK) pero no listo (readiness KO) durante el calentamiento de la JVM o mientras carga datos. Confundirlas puede provocar reinicios en bucle o tráfico enviado a pods no preparados.
+
+---
+
+**¿Qué son los resource requests y limits y por qué son importantes?**
+Los `requests` son los recursos que el scheduler garantiza al pod (se usan para decidir en qué nodo colocarlo). Los `limits` son el máximo que puede consumir; si los supera (memoria), el proceso es terminado por OOMKiller; si supera CPU, se throttlea. Sin limits, un pod puede consumir todos los recursos del nodo y afectar a otros pods. La recomendación es igualar requests y limits en producción (Guaranteed QoS) para comportamiento predecible.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">
