@@ -39,6 +39,16 @@ No. Para CPU-bound, el límite es el número de cores físicos. Tener más hilos
 **¿Cómo crearías un ExecutorService con Virtual Threads?**
 `Executors.newVirtualThreadPerTaskExecutor()` — crea un virtual thread nuevo por cada tarea enviada. No es un pool en el sentido tradicional (no reutiliza hilos); el costo de crear virtual threads es tan bajo que no hace falta pool.
 
+---
+
+**¿Qué es Structured Concurrency y qué problema resuelve en Java 21?**
+Structured Concurrency (JEP 453, preview en Java 21) organiza las tareas concurrentes jerárquicamente: un scope padre no termina hasta que todas sus subtareas hayan terminado, y si una falla puede cancelar las demás automáticamente. Resuelve el problema de "thread leaks" y errores difíciles de propagar de `CompletableFuture`. Con `StructuredTaskScope.ShutdownOnFailure`, si cualquier subtarea falla el scope cancela el resto y propaga el primer error al padre.
+
+---
+
+**¿Por qué los virtual threads no mejoran las tareas CPU-bound?**
+Los virtual threads mejoran el throughput desacoplando la concurrencia lógica del número de hilos del OS — son útiles cuando los hilos pasan tiempo bloqueados (I/O) y liberan el carrier thread para otras tareas. En tareas CPU-bound el hilo nunca se bloquea: ocupa el carrier thread continuamente. Añadir más virtual threads que cores físicos solo aumenta el context-switching del scheduler sin incrementar la capacidad de cómputo real. Para CPU-bound, `ForkJoinPool` con paralelismo ajustado a los cores sigue siendo la mejor opción.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

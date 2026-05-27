@@ -44,6 +44,11 @@ Dos hilos esperan indefinidamente porque cada uno tiene el lock que el otro nece
 **¿Cuándo usarías `ExecutorService` en lugar de crear hilos manualmente?**
 Siempre. Crear `new Thread()` repetidamente es costoso y sin control. `ExecutorService` gestiona pools reutilizables, tiene shutdown ordenado y maneja excepciones. Tipos: `newFixedThreadPool`, `newCachedThreadPool`, `newScheduledThreadPool`, `newVirtualThreadPerTaskExecutor`.
 
+---
+
+**¿Qué es `LockSupport.park/unpark` y cómo lo usa internamente AQS?**
+`LockSupport.park()` suspende el hilo actual sin requerir un monitor — es más ligero que `Object.wait()`. `LockSupport.unpark(thread)` lo despierta. `AbstractQueuedSynchronizer` (la base de `ReentrantLock`, `Semaphore`, `CountDownLatch`) usa estas primitivas para gestionar su cola de hilos bloqueados (CLH queue): cuando un hilo no puede adquirir el lock, se encola y se pone en park; cuando el lock se libera, el AQS hace unpark al sucesor de la cola.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

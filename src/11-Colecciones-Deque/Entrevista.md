@@ -39,6 +39,16 @@ Como stack cuando el orden de procesamiento es LIFO: historial de navegación, u
 **¿Qué diferencia hay entre `offerFirst()` y `push()`?**
 `push(e)` es equivalente a `offerFirst(e)` — ambos insertan al frente. La diferencia semántica: `push` viene del vocabulario de stack (LIFO), `offerFirst` viene del vocabulario de deque (doble extremo). `push` lanza excepción si falla (capacidad); en ArrayDeque son equivalentes.
 
+---
+
+**¿Por qué ArrayDeque reemplaza a Stack en Java moderno?**
+`Stack` extiende `Vector` (sincronizado), lo que introduce un overhead innecesario en contextos single-thread. Además hereda métodos de `Vector` como `get(int index)` que no tienen sentido semántico en una pila. `ArrayDeque` es la alternativa recomendada: más rápida, sin sincronización implícita y con API cohesionada. Solo si necesitas thread-safety usa `Deque` con un `LinkedBlockingDeque`.
+
+---
+
+**¿Cómo se implementa el patrón sliding window con un Deque?**
+En problemas de ventana deslizante (ej. máximo/mínimo en ventana de tamaño k), el deque almacena índices del array manteniendo un orden útil. Al avanzar la ventana: se elimina del frente si el índice quedó fuera del rango, y se elimina del fondo mientras el elemento actual sea mayor/menor que el del fondo — garantizando O(n) total en vez de O(n*k). Ejemplo: `deque.offerLast(i)` para añadir, `deque.pollFirst()` para el máximo.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

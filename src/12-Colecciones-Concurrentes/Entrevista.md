@@ -39,6 +39,16 @@ No en el sentido de atomicidad compuesta. Operaciones individuales (put, get) so
 **¿Qué pasa con null en ConcurrentHashMap?**
 Ni las claves ni los valores pueden ser null — lanza NullPointerException. La razón: `get()` devuelve null cuando la clave no existe, y si los valores también pudieran ser null, no podrías distinguir "clave ausente" de "clave con valor null". HashMap acepta este trade-off; ConcurrentHashMap no.
 
+---
+
+**¿Qué garantía de atomicidad ofrece `ConcurrentHashMap.compute()`?**
+`compute(key, remappingFn)` ejecuta la función de remapeo de forma atómica sobre la clave: la lectura del valor actual, la aplicación de la función y la escritura del nuevo valor ocurren como una operación indivisible. Esto elimina el patrón no seguro de "get + lógica + put". Si la función devuelve null, la clave se elimina. Útil para contadores: `map.compute("k", (k, v) -> v == null ? 1 : v + 1)`.
+
+---
+
+**¿Cuándo es apropiado usar CopyOnWriteArrayList y cuándo no?**
+Es apropiada cuando las lecturas son muy frecuentes y las escrituras son raras y no críticas en latencia: listas de listeners, configuraciones dinámicas, registros de suscriptores. No es apropiada si las escrituras son frecuentes porque cada mutación copia el array completo (O(n) memoria y tiempo). Tampoco garantiza consistencia fuerte entre iteradores y escrituras concurrentes posteriores.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

@@ -39,6 +39,18 @@ Técnicamente sí, pero no se recomienda. No es `Serializable`, lo que puede cau
 **¿Qué diferencia hay entre `map()` y `flatMap()` en Optional?**
 `map()` aplica una función que devuelve un valor normal y lo envuelve en Optional. `flatMap()` aplica una función que ya devuelve un Optional, evitando `Optional<Optional<T>>`. Se usa cuando la transformación en sí puede devolver Optional.
 
+---
+
+**¿Por qué no deberías usar Optional como campo de una clase o como parámetro de método?**
+
+Optional no implementa `Serializable`, por lo que usarlo como campo rompe la serialización de JPA/Hibernate y otros mecanismos. Como parámetro de método genera una API confusa: el llamador puede pasar `null` en lugar de `Optional.empty()`, añadiendo un doble nivel de ausencia. La intención original del diseño (Brian Goetz) es exclusivamente que Optional sea tipo de retorno para señalar que un método puede no producir resultado. Para parámetros opcionales, usa sobrecarga de métodos o `@Nullable`.
+
+---
+
+**¿Qué ventaja ofrece `Optional.ifPresentOrElse()` frente a un `if/else` clásico en Java 9+?**
+
+`ifPresentOrElse(Consumer, Runnable)` expresa de forma declarativa las dos ramas sin necesidad de extraer el valor con `get()` o `isPresent()`. Es especialmente útil en pipelines funcionales donde ya trabajas con Optional y quieres evitar romper el estilo declarativo. Disponible desde Java 9: `opt.ifPresentOrElse(v -> procesar(v), () -> manejarAusencia())`.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

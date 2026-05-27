@@ -44,6 +44,11 @@ Pausas en las que la JVM detiene todos los hilos de aplicación para realizar tr
 **¿Qué diferencia hay entre heap y metaspace?**
 El heap almacena instancias de objetos y arrays. Metaspace (Java 8+, reemplaza al PermGen) almacena metadata de clases: bytecode, descriptores de métodos, constant pool. Metaspace está fuera del heap Java y su tamaño por defecto es ilimitado (limitado por la memoria del OS).
 
+---
+
+**¿Cuándo elegirías ZGC en lugar de G1GC en producción?**
+G1GC es el mejor punto de partida para la mayoría de aplicaciones: buen balance entre throughput y latencia, pausas predecibles y bien soportado. ZGC (Java 15+ stable) se elige cuando los requisitos de latencia son extremos: pausas por debajo de 1ms incluso con heaps de cientos de GB. Usa ZGC en servicios donde el p99 de latencia es crítico (APIs real-time, gaming, trading) y el heap es grande. En heaps pequeños o si el throughput es prioritario sobre la latencia, G1GC suele ganar.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

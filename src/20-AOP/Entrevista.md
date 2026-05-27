@@ -39,6 +39,16 @@ Si el bean implementa al menos una interfaz, usa JDK dynamic proxy (proxy de la 
 **¿Puede AOP interceptar llamadas a métodos privados?**
 No en Spring AOP (basado en proxies). Al llamar `this.metodoPrivado()` dentro de un bean, la llamada va directamente al objeto, no pasa por el proxy. Para interceptar métodos privados o llamadas internas se necesita AspectJ con weaving en compilación o en carga de clases.
 
+---
+
+**¿Cuál es la diferencia entre JDK proxy y CGLIB en cuanto a limitaciones prácticas?**
+JDK proxy solo puede proxear interfaces: si el bean no implementa ninguna, falla. CGLIB genera una subclase, por lo que no puede proxear clases `final` ni métodos `final`. Además, CGLIB requiere un constructor sin argumentos (o un constructor accesible) y tiene overhead de creación ligeramente mayor. El problema de self-invocation (`this.metodo()`) afecta a ambos por igual: la llamada interna no pasa por el proxy.
+
+---
+
+**¿Qué es el weaving y en qué momento puede ocurrir?**
+Weaving es el proceso de aplicar los aspectos al código destino. Puede ocurrir en tres momentos: en compilación (compile-time weaving con AspectJ — el bytecode ya sale modificado), en carga de clases (load-time weaving — el ClassLoader transforma el bytecode al cargarlo), o en ejecución (runtime weaving — el enfoque de Spring AOP con proxies JDK/CGLIB). El weaving en compilación es el más potente (intercepta métodos privados, estáticos, constructores) pero requiere el compilador AspectJ.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

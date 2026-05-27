@@ -39,6 +39,18 @@ HashMap no es thread-safe. ConcurrentHashMap es thread-safe sin bloquear todo el
 **¿Qué hace `computeIfAbsent()`?**
 Si la clave no existe (o su valor es null), calcula el valor con el Supplier/Function y lo inserta. Si la clave existe, no hace nada. Patrón ideal para cachés: `cache.computeIfAbsent(key, k -> calcularValorCostoso(k))`.
 
+---
+
+**¿Cuál es la diferencia entre `computeIfAbsent()` y `merge()` en HashMap?**
+
+`computeIfAbsent(key, fn)` inserta un valor calculado solo si la clave no existe; si ya existe, no hace nada. `merge(key, value, remappingFn)` es más versátil: si la clave no existe, inserta `value` directamente; si existe, aplica la función de combinación entre el valor actual y el nuevo. Es el patrón idiomático para acumuladores: `map.merge(palabra, 1, Integer::sum)` construye un conteo sin condicionales. En Java 21 ambos métodos son atómicos en `ConcurrentHashMap`.
+
+---
+
+**¿Cómo afecta el load factor y el resize al rendimiento de un HashMap?**
+
+El load factor (por defecto 0.75) determina cuándo se produce el resize: cuando los elementos superan `capacidad × loadFactor`, el array interno se duplica y todos los pares se rehashean. El rehashing es una operación O(n) que puede causar picos de latencia. Si conoces de antemano el número aproximado de entradas, pasa la capacidad inicial al constructor (`new HashMap<>(expectedSize / 0.75 + 1)`) para evitar resizes. Un load factor menor reduce colisiones pero consume más memoria; mayor ahorra memoria a costa de más colisiones.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

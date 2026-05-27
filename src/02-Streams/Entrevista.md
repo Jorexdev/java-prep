@@ -44,6 +44,12 @@ Cuando el dataset es grande, la operación es CPU-bound y no hay estado comparti
 **¿Cuándo NO usarías Streams?**
 Cuando necesitas modificar el estado externo (los Streams deben ser sin efectos secundarios), cuando el problema requiere acceso por índice, cuando la colección es muy pequeña (el overhead no merece), o cuando la lógica es más clara con un bucle tradicional.
 
+---
+
+**¿Cuándo evitarías `parallelStream()` aunque el dataset sea grande?**
+
+Evítalo cuando: la fuente no es divisible eficientemente (ej. `LinkedList`), las operaciones tienen efectos secundarios o estado compartido, el trabajo por elemento es muy ligero (el overhead del `ForkJoinPool` supera el beneficio), o el orden importa y no puedes garantizar `forEachOrdered`. También hay que tener cuidado en entornos con pool de hilos contendido (ej. servidores de aplicaciones), ya que `parallelStream()` usa el `ForkJoinPool.commonPool()` compartido y puede causar inanición de otros hilos.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">
