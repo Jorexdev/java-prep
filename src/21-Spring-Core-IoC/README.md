@@ -90,7 +90,7 @@ public class UserService {
 - Configuración centralizada: Spring gestiona el ciclo de vida.
 - Menos boilerplate: no hay `new SomeService(new SomeRepo(new DataSource(...)))`.
 
-Este módulo es solo teoría — ver los módulos de Spring Boot para ejemplos ejecutables.
+Ver [ExpIoC.java](ExpIoC.java), [ExpDependencyInjection.java](ExpDependencyInjection.java), [ExpQualifier.java](ExpQualifier.java), [ExpBeanScopes.java](ExpBeanScopes.java) y [ExpEventPublisher.java](ExpEventPublisher.java) para ejemplos ejecutables con IoC, inyección de dependencias y configuración del contenedor Spring.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

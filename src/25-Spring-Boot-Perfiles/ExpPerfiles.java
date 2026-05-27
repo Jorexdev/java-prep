@@ -1,16 +1,16 @@
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import java.util.HashMap;
+import java.util.Map;
 
+// En Spring Boot, @Profile filtra qué beans se registran según el perfil activo.
+// SPRING_PROFILES_ACTIVE=prod o --spring.profiles.active=prod activan el perfil.
+// Aquí se replica la misma lógica con una variable String activeProfile.
 public class ExpPerfiles {
 
     interface ServicioEmail {
         void enviar(String destinatario, String asunto);
     }
 
-    // Solo se registra cuando el perfil activo es "dev"
-    @Profile("dev")
+    // @Profile("dev") — Solo activo cuando el perfil activo es "dev"
     static class EmailFalso implements ServicioEmail {
         @Override
         public void enviar(String destinatario, String asunto) {
@@ -18,8 +18,7 @@ public class ExpPerfiles {
         }
     }
 
-    // Solo se registra cuando el perfil activo es "prod"
-    @Profile("prod")
+    // @Profile("prod") — Solo activo cuando el perfil activo es "prod"
     static class EmailSMTP implements ServicioEmail {
         @Override
         public void enviar(String destinatario, String asunto) {
@@ -27,31 +26,54 @@ public class ExpPerfiles {
         }
     }
 
-    @Configuration
+    // Registro de beans que respeta perfiles — equivalente al contenedor de Spring Boot
+    static class ProfileRegistry {
+        private final String activeProfile;  // equivale a SPRING_PROFILES_ACTIVE
+        private final Map<Class<?>, Object> beans = new HashMap<>();
+
+        ProfileRegistry(String activeProfile) {
+            this.activeProfile = activeProfile;
+        }
+
+        // Registra el bean solo si el perfil declarado coincide con el activo.
+        // Equivale a anotar un @Bean con @Profile("dev") / @Profile("prod").
+        <T> void registerForProfile(Class<T> type, String profile, java.util.function.Supplier<T> factory) {
+            if (profile.equals(activeProfile)) {   // @Profile("dev") / @Profile("prod")
+                beans.put(type, factory.get());
+            }
+        }
+
+        @SuppressWarnings("unchecked")
+        <T> T getBean(Class<T> type) {
+            Object bean = beans.get(type);
+            if (bean == null) throw new IllegalStateException(
+                "Bean no encontrado para el tipo " + type.getSimpleName() +
+                " con perfil activo: " + activeProfile);
+            return (T) bean;
+        }
+    }
+
+    // Equivalente a @Configuration — declara qué beans existen y bajo qué perfil
     static class AppConfig {
 
-        @Bean
-        @Profile("dev")
-        ServicioEmail emailDev() { return new EmailFalso(); }
+        static void configure(ProfileRegistry registry) {
+            // @Bean @Profile("dev")
+            registry.registerForProfile(ServicioEmail.class, "dev",  EmailFalso::new);
 
-        @Bean
-        @Profile("prod")
-        ServicioEmail emailProd() { return new EmailSMTP(); }
+            // @Bean @Profile("prod")
+            registry.registerForProfile(ServicioEmail.class, "prod", EmailSMTP::new);
+        }
     }
 
     static void ejecutarConPerfil(String perfil) {
         // En Spring Boot: SPRING_PROFILES_ACTIVE=prod o --spring.profiles.active=prod
-        // Aquí lo activamos programáticamente antes del refresh
-        var ctx = new AnnotationConfigApplicationContext();
-        ctx.getEnvironment().setActiveProfiles(perfil);
-        ctx.register(AppConfig.class);
-        ctx.refresh();
+        // Aquí lo establecemos directamente en el ProfileRegistry antes del refresh
+        ProfileRegistry registry = new ProfileRegistry(perfil);
+        AppConfig.configure(registry);
 
         System.out.println("Perfil activo: " + perfil);
-        ServicioEmail email = ctx.getBean(ServicioEmail.class);
+        ServicioEmail email = registry.getBean(ServicioEmail.class);
         email.enviar("jorex@example.com", "Bienvenido a java-prep");
-
-        ctx.close();
     }
 
     public static void main(String[] args) {

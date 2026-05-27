@@ -159,5 +159,7 @@ Problema: publicar a Kafka y escribir en BD en la misma "transacción" sin Two-P
 
 **Resiliencia** — Un fallo en el Servicio de Recomendaciones no impide hacer pedidos. Con Circuit Breaker y fallbacks, los servicios degradan graciosamente en lugar de propagarse el fallo en cascada. En un monolito, un hilo bloqueado puede agotar el pool de threads y derribar todo el proceso.
 
+Ver [ExpCircuitBreaker.java](ExpCircuitBreaker.java), [ExpAPIGateway.java](ExpAPIGateway.java), [ExpServiceMesh.java](ExpServiceMesh.java), [ExpSagaPattern.java](ExpSagaPattern.java), [ExpCQRS.java](ExpCQRS.java) y [ExpDistributedTracing.java](ExpDistributedTracing.java) para ejemplos ejecutables con circuit breaker, API gateway, saga, CQRS y trazado distribuido.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 <div align="center"><a href="#"><img src="../../assets/separator-v2.svg" width="100%" alt=""/></a></div>

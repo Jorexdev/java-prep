@@ -114,5 +114,7 @@ Ventajas: audit trail completo gratuito, replay para debugging, posibilidad de r
 
 **Separación de conceptos** — Cada capa tiene una responsabilidad clara. Los cambios en la capa HTTP no afectan al dominio. Los cambios en la BD no afectan a los use cases. El código de negocio no está mezclado con código de infraestructura — es legible por sí solo.
 
+Ver [ExpHexagonal.java](ExpHexagonal.java), [ExpCleanArchitecture.java](ExpCleanArchitecture.java), [ExpCQRSEventSourcing.java](ExpCQRSEventSourcing.java), [ExpEventSourcing.java](ExpEventSourcing.java), [ExpDDD.java](ExpDDD.java) y [ExpMicrokernel.java](ExpMicrokernel.java) para ejemplos ejecutables con arquitectura hexagonal, clean architecture, CQRS+Event Sourcing y DDD.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 <div align="center"><a href="#"><img src="../../assets/separator-v2.svg" width="100%" alt=""/></a></div>

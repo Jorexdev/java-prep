@@ -87,7 +87,7 @@ Spring Boot usa `@Conditional` para activar configuración solo cuando se cumple
 - `@ConditionalOnMissingBean`: define tu propio bean para sobrescribir el por defecto.
 - `spring-boot-actuator` para observabilidad con mínima configuración.
 
-Este módulo es solo teoría — la autoconfiguración ocurre en el classpath al arrancar la aplicación.
+Ver [ExpAutoConfig.java](ExpAutoConfig.java), [ExpConditionalOnMissing.java](ExpConditionalOnMissing.java), [ExpStarterComposition.java](ExpStarterComposition.java) y [ExpSpringFactories.java](ExpSpringFactories.java) para ejemplos ejecutables con autoconfiguración, starters y condiciones `@Conditional`.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

@@ -107,7 +107,7 @@ mvn deploy         # todo el ciclo + publica en repositorio remoto
 - `mvn clean install` reproducible: el mismo pom.xml genera siempre el mismo JAR.
 - Integración directa con Spring Initializr, Jenkins, GitHub Actions.
 
-Ver [Comandos.java](Comandos.java) y [ProfilesYPlugins.java](ProfilesYPlugins.java) para el cheatsheet de comandos y configuración de perfiles y plugins.
+Ver [ExpComandos.java](ExpComandos.java) y [ExpProfilesYPlugins.java](ExpProfilesYPlugins.java) para ejemplos ejecutables con el ciclo de vida Maven, comandos esenciales, perfiles y configuración de plugins.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

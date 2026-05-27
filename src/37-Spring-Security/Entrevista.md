@@ -72,6 +72,24 @@ public void eliminarUsuario(Long id) { ... }
 
 `@PreAuthorize` es más flexible porque permite expresiones SpEL: `hasRole('ADMIN') or #userId == authentication.principal.id`. Si el usuario no tiene el rol, Spring Security lanza `AccessDeniedException` que se traduce en HTTP 403 Forbidden.
 
+---
+
+**¿En qué orden se aplican los filtros del `SecurityFilterChain` y cómo registras uno propio?**
+
+Spring Security tiene un orden predefinido para sus filtros internos. Los más relevantes en orden de ejecución son: `DisableEncodeUrlFilter` → `SecurityContextHolderFilter` (restaura el contexto de seguridad) → filtros de logout y autenticación (`UsernamePasswordAuthenticationFilter`) → `ExceptionTranslationFilter` (captura `AuthenticationException` y `AccessDeniedException`) → `AuthorizationFilter` (último, evalúa los permisos). Para registrar un filtro JWT personalizado, se usa `http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)` para que se ejecute antes de la autenticación por formulario y el contexto de seguridad quede establecido a tiempo para los filtros de autorización. Si el orden es incorrecto, el filtro de autorización puede rechazar la petición antes de que el filtro JWT haya podido establecer el `Authentication` en el contexto.
+
+---
+
+**¿Cómo implementas refresh tokens y por qué son necesarios?**
+
+Los access tokens JWT tienen vida corta (5-15 minutos) por seguridad: si son robados, expiran pronto. El problema es que con tokens cortos el usuario debe re-autenticarse continuamente. Los refresh tokens resuelven esto: son tokens de larga duración (días/semanas) que se almacenan en BD y sirven únicamente para obtener nuevos access tokens. El flujo es: el cliente llama a `POST /auth/refresh` con el refresh token; el servidor lo valida contra BD (no es JWT stateless, vive en base de datos para poder revocarlo), genera un nuevo access token y opcionalmente rota el refresh token. Si el refresh token se revoca (logout, cambio de contraseña, detección de robo), todas las sesiones de ese usuario quedan invalidadas. La clave es que el refresh token nunca se usa para llamadas a recursos protegidos — solo para el endpoint de renovación, minimizando su exposición.
+
+---
+
+**¿Cuándo elegirías sesiones stateful en lugar de JWT para una API Spring?**
+
+Aunque JWT es la elección por defecto en APIs REST modernas, las sesiones stateful siguen siendo válidas en ciertos contextos. Deberías preferir sesiones cuando: (1) necesitas revocación instantánea de acceso (un JWT no puede "cancelarse" hasta que expira, mientras que una sesión se invalida inmediatamente en el servidor); (2) la aplicación es una web tradicional renderizada en servidor donde el navegador gestiona la cookie de sesión automáticamente; (3) ya tienes un session store centralizado (Redis) y el escalado horizontal está resuelto. JWT tiene ventaja cuando: los clientes son mobile o SPAs que gestionan el token explícitamente, hay microservicios que necesitan validar la identidad sin consultar un servidor de sesiones, o quieres arquitectura completamente stateless. El error más común es usar JWT creyendo que elimina toda la necesidad de estado en servidor — los refresh tokens siguen requiriendo BD.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

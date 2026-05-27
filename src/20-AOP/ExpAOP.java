@@ -1,51 +1,124 @@
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
-// AOP - Ejemplos prácticos en Spring
-// Las clases interceptadas deben ser beans de Spring (@Service, @Component...).
-// Esta clase también debe ser un bean con @Aspect + @Component.
-// Spring Boot activa AOP automáticamente si spring-boot-starter-aop está en el classpath.
-@Aspect
-@Component
+// AOP - Programación Orientada a Aspectos simulada con JDK Dynamic Proxy
+// En Spring: @Aspect + @Component sobre una clase con métodos @Before / @Around / etc.
+// Aquí: InvocationHandler implementa los 4 advice types sin ninguna dependencia de Spring/AspectJ.
 public class ExpAOP {
 
-    // @Before: se ejecuta ANTES del método.
-    // Útil para logging de entrada, validaciones previas.
-    // El pointcut execution(* solid.*.*(..)) intercepta cualquier método de cualquier clase en solid.
-    @Before("execution(* solid.*.*(..))")
-    public void logAntes() {
-        System.out.println("[LOG] Ejecutando método...");
+    // --- Interfaz de negocio (join point target) ---
+    interface PagosService {
+        double procesar(String concepto, double importe);
+        void rechazar(String motivo);
     }
 
-    // @AfterReturning: se ejecuta después de que el método retorna correctamente.
-    // Con el atributo "returning" puedes acceder al valor devuelto.
-    // No se ejecuta si el método lanza una excepción.
-    @AfterReturning(pointcut = "execution(* solid.*.*(..))", returning = "resultado")
-    public void logDespues(Object resultado) {
-        System.out.println("[LOG] Método completado. Resultado: " + resultado);
+    // Implementación real — equivalente al @Service interceptado en Spring AOP
+    static class PagosServiceImpl implements PagosService {
+        @Override
+        public double procesar(String concepto, double importe) {
+            System.out.println("  [SERVICE] Procesando pago: " + concepto + " - " + importe + "€");
+            return importe * 1.21; // IVA incluido
+        }
+
+        @Override
+        public void rechazar(String motivo) {
+            System.out.println("  [SERVICE] Pago rechazado: " + motivo);
+            throw new IllegalStateException("Pago rechazado: " + motivo);
+        }
     }
 
-    // @Around: rodea la ejecución completa del método.
-    // Tienes control total: puedes modificar argumentos, resultado, o suprimir excepciones.
-    // pjp.proceed() es donde se ejecuta el método original.
-    @Around("execution(* solid.*.*(..))")
-    public Object medirTiempo(ProceedingJoinPoint pjp) throws Throwable {
-        long inicio = System.currentTimeMillis();
+    // --- Aspect simulado como InvocationHandler ---
+    // En Spring: @Aspect @Component public class PagosAspect { ... }
+    static class PagosAspect implements InvocationHandler {
 
-        Object resultado = pjp.proceed(); // ejecuta el método original
+        private final Object target;
 
-        long tiempo = System.currentTimeMillis() - inicio;
-        System.out.println("[METRICS] " + pjp.getSignature().getName() + ": " + tiempo + " ms");
+        PagosAspect(Object target) {
+            this.target = target;
+        }
 
-        return resultado;
+        @Override
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+            // @Before — se ejecuta ANTES del método
+            // En Spring: @Before("execution(* PagosService.*(..))")
+            before(method);
+
+            long inicio = System.currentTimeMillis();
+            Object resultado = null;
+            Throwable excepcion = null;
+
+            // @Around — rodea la ejecución completa; pjp.proceed() = method.invoke(target, args)
+            // En Spring: @Around("execution(* PagosService.*(..))")
+            try {
+                resultado = method.invoke(target, args);
+
+                // @AfterReturning — solo si el método retornó sin excepción
+                // En Spring: @AfterReturning(pointcut = "...", returning = "resultado")
+                afterReturning(method, resultado);
+
+            } catch (Throwable t) {
+                excepcion = t.getCause() != null ? t.getCause() : t;
+
+                // @AfterThrowing — solo si el método lanzó excepción
+                // En Spring: @AfterThrowing(pointcut = "...", throwing = "ex")
+                afterThrowing(method, excepcion);
+
+                throw excepcion;
+            } finally {
+                // Parte "after" del @Around — siempre se ejecuta
+                long tiempo = System.currentTimeMillis() - inicio;
+                aroundMetrics(method, tiempo);
+            }
+
+            return resultado;
+        }
+
+        // @Before advice
+        private void before(Method method) {
+            System.out.println("[BEFORE] Ejecutando: " + method.getName() + "()");
+        }
+
+        // @AfterReturning advice
+        private void afterReturning(Method method, Object resultado) {
+            System.out.println("[AFTER_RETURNING] " + method.getName()
+                    + " completado. Resultado: " + resultado);
+        }
+
+        // @AfterThrowing advice
+        private void afterThrowing(Method method, Throwable ex) {
+            System.out.println("[AFTER_THROWING] " + method.getName()
+                    + " lanzó excepción: " + ex.getMessage());
+        }
+
+        // @Around metrics
+        private void aroundMetrics(Method method, long ms) {
+            System.out.println("[AROUND/METRICS] " + method.getName() + ": " + ms + " ms");
+        }
     }
 
-    // @AfterThrowing: se ejecuta solo si el método lanza una excepción.
-    // Con el atributo "throwing" accedes a la excepción lanzada.
-    // No suprime la excepción: el caller la sigue recibiendo.
-    @AfterThrowing(pointcut = "execution(* solid.*.*(..))", throwing = "ex")
-    public void manejarExcepcion(Exception ex) {
-        System.out.println("[ERROR] Excepción capturada: " + ex.getMessage());
+    // --- Fábrica de proxies (equivale a Spring creando CGLIB/JDK proxies) ---
+    @SuppressWarnings("unchecked")
+    static <T> T crearProxy(T target, Class<T> interfaz) {
+        return (T) Proxy.newProxyInstance(
+                interfaz.getClassLoader(),
+                new Class<?>[]{ interfaz },
+                new PagosAspect(target)
+        );
+    }
+
+    public static void main(String[] args) {
+        PagosService servicio = crearProxy(new PagosServiceImpl(), PagosService.class);
+
+        System.out.println("=== Caso 1: método que retorna valor ===");
+        double total = servicio.procesar("Suscripción mensual", 9.99);
+        System.out.println("Total con IVA: " + total + "€");
+
+        System.out.println("\n=== Caso 2: método que lanza excepción ===");
+        try {
+            servicio.rechazar("Saldo insuficiente");
+        } catch (IllegalStateException e) {
+            System.out.println("[MAIN] Excepción manejada: " + e.getMessage());
+        }
     }
 }

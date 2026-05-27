@@ -168,6 +168,8 @@ public void transferir(Long origen, Long destino, BigDecimal importe) { ... }
 - **Spring Data JPA** elimina el boilerplate de repositorios: `findByNombreAndPrecioGreaterThan(String nombre, BigDecimal precio)` genera la query automáticamente.
 - **Caché L1 incluida**: dentro de una transacción, Hibernate no repite queries para la misma entidad — reduce roundtrips a BD.
 
+Ver [ExpEntityLifecycle.java](ExpEntityLifecycle.java), [ExpLazyEager.java](ExpLazyEager.java), [ExpNPlusOne.java](ExpNPlusOne.java), [ExpTransactions.java](ExpTransactions.java), [ExpCaching.java](ExpCaching.java) y [ExpQueryDSL.java](ExpQueryDSL.java) para ejemplos ejecutables con ciclo de vida de entidades, LAZY vs EAGER, problema N+1, transacciones y JPQL.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

@@ -85,7 +85,7 @@ Diferencia clave con interfaces: una clase solo puede extender **una** clase abs
 - Permite campos de instancia y constructores (imposible en interfaces).
 - Combina reutilización de código con polimorfismo.
 
-Ver [AbstractVsInterface.java](AbstractVsInterface.java) para la comparativa entre clase abstracta e interfaz con ejemplos ejecutables.
+Ver [ExpAbstractVsInterface.java](ExpAbstractVsInterface.java), [ExpAbstractSealed.java](ExpAbstractSealed.java), [ExpInheritanceVsComposition.java](ExpInheritanceVsComposition.java), [ExpAbstractFactory.java](ExpAbstractFactory.java) y [ExpTemplateMethod.java](ExpTemplateMethod.java) para ejemplos ejecutables con clases abstractas, interfaces, herencia, composición y patrones relacionados.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

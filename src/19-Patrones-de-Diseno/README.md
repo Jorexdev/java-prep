@@ -87,7 +87,7 @@ Ordenador ordenador = new Ordenador(lista -> Collections.sort(lista));
 - Bajo acoplamiento (Strategy, Observer), extensibilidad (Decorator, Factory).
 - En Java moderno muchos se simplifican con lambdas e interfaces funcionales.
 
-Ver [SingletonDemo.java](SingletonDemo.java), [FactoryDemo.java](FactoryDemo.java), [BuilderDemo.java](BuilderDemo.java), [AdapterDemo.java](AdapterDemo.java), [DecoratorDemo.java](DecoratorDemo.java), [StrategyDemo.java](StrategyDemo.java) y [ObserverDemo.java](ObserverDemo.java).
+Ver [ExpSingleton.java](ExpSingleton.java), [ExpFactory.java](ExpFactory.java), [ExpBuilder.java](ExpBuilder.java), [ExpAdapter.java](ExpAdapter.java), [ExpDecorator.java](ExpDecorator.java), [ExpStrategy.java](ExpStrategy.java) y [ExpObserver.java](ExpObserver.java) para ejemplos ejecutables de los patrones creacionales, estructurales y comportamentales más usados.
 
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 

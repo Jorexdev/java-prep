@@ -44,6 +44,21 @@ Con Bean Validation: añades anotaciones al DTO (`@NotNull`, `@Size`, `@Positive
 **¿Qué es @PathVariable vs @RequestParam? Da un ejemplo de cuándo usar cada uno.**
 `@PathVariable` extrae un segmento de la propia URL: `GET /productos/42` → `@PathVariable Long id`. Se usa para identificar un recurso concreto — el valor forma parte de la ruta y es obligatorio. `@RequestParam` extrae parámetros de la query string: `GET /productos?categoria=libros&pagina=2` → `@RequestParam String categoria`. Se usa para filtros, paginación y opciones que no identifican por sí solos el recurso. Regla práctica: si sin ese valor la URL no tiene sentido → `@PathVariable`; si es opcional o de búsqueda → `@RequestParam`.
 
+---
+
+**¿Cómo funciona el ciclo request-response en DispatcherServlet paso a paso?**
+Cuando llega una petición HTTP: (1) el `DispatcherServlet` la recibe y consulta al `HandlerMapping` para obtener el handler (controller + método) que corresponde a la URL y método HTTP; (2) delega la invocación al `HandlerAdapter` adecuado, que resuelve los parámetros del método (`@RequestBody`, `@PathVariable`, etc.) usando `HttpMessageConverter` y `HandlerMethodArgumentResolver`; (3) el método del controller se ejecuta y devuelve un objeto o un `ResponseEntity`; (4) si es REST, un `HttpMessageConverter` (típicamente Jackson) serializa el objeto a JSON y lo escribe en el cuerpo de la respuesta; (5) si hay vista, el `ViewResolver` mapea el nombre de la vista a una plantilla y la renderiza. Los `HandlerInterceptor` se ejecutan en los puntos `preHandle` (antes del controller), `postHandle` (tras el controller, antes de la vista) y `afterCompletion` (tras renderizar la respuesta).
+
+---
+
+**¿Cuál es la diferencia real entre `@Controller` y `@RestController` y cuándo elegir cada uno?**
+`@Controller` es para aplicaciones web clásicas que renderizan plantillas de servidor (Thymeleaf, FreeMarker): el método devuelve el nombre de la vista y Spring la resuelve con el `ViewResolver`. `@RestController` equivale a `@Controller` + `@ResponseBody` en todos los métodos: el valor de retorno se serializa directamente como JSON (o XML) en el cuerpo de la respuesta HTTP, sin pasar por ningún `ViewResolver`. Se elige `@RestController` para APIs REST consumidas por clientes SPA o mobile; `@Controller` cuando el backend genera el HTML directamente. En una misma aplicación pueden coexistir ambos — por ejemplo, un `@Controller` para el dashboard de administración en Thymeleaf y `@RestController` para los endpoints que consume el frontend React.
+
+---
+
+**¿Cómo implementas paginación con `Pageable` en Spring MVC?**
+Spring Data integra `Pageable` directamente con Spring MVC a través de `HandlerMethodArgumentResolver`. Si declaras `Pageable pageable` como parámetro de un método `@GetMapping`, Spring extrae automáticamente los parámetros `page`, `size` y `sort` de la query string (`GET /productos?page=0&size=20&sort=nombre,asc`). En el service, pasas el `Pageable` al repositorio de Spring Data (`findAll(pageable)`) que devuelve un `Page<T>` con el contenido, el total de elementos y el total de páginas. Devolver `Page<T>` directamente al cliente expone metadatos internos de Spring Data; es preferible mapear a un DTO propio con `content`, `totalElements`, `totalPages` y `currentPage`. Para configurar límites máximos de page size se usa `@PageableDefault(size=20, max=100)`.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

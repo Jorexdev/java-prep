@@ -61,5 +61,11 @@ Con **trazado distribuido**: cuando una request entra al sistema (generalmente e
 
 Stack típico: **Micrometer Tracing** (antes Spring Cloud Sleuth) instrumenta automáticamente RestTemplate, WebClient y Kafka. Los spans se exportan a **Zipkin** o **Jaeger** donde se visualiza el trace completo con latencia por servicio. En los logs, el `traceId` aparece en cada línea, permitiendo hacer `grep traceId` en todos los servicios para correlacionar qué pasó en cada uno. La regla es simple: **todos los logs deben incluir el traceId**, y toda llamada saliente (HTTP, Kafka, gRPC) debe propagar los headers de tracing.
 
+---
+
+**¿Cómo implementas el patrón Outbox en la práctica con Debezium y qué ventajas tiene frente a un poller?**
+
+La implementación con Debezium se basa en CDC (Change Data Capture): Debezium lee el **write-ahead log** (WAL) de PostgreSQL directamente, en lugar de hacer `SELECT` periódico sobre la tabla outbox. Cuando la transacción de negocio hace commit, Debezium detecta el nuevo registro en la tabla outbox a través del WAL y lo publica a Kafka en milisegundos, con latencia casi nula. Las ventajas frente a un poller SQL son: (1) **cero carga de lectura periódica** sobre la BD principal — el WAL se lee de forma no intrusiva; (2) **latencia mínima** — no hay intervalo de polling; (3) **orden garantizado** — los eventos se emiten en el mismo orden en que se escribieron en el WAL; (4) **sin estado duplicado** — no necesitas columna `processed` ni lógica de marcado. El coste es la complejidad operacional de mantener Debezium como componente adicional y configurar los permisos de replicación en la BD. Para volúmenes bajos o equipos pequeños, un poller simple cada pocos segundos es una alternativa pragmática válida.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 <div align="center"><a href="#"><img src="../../assets/separator-v2.svg" width="100%" alt=""/></a></div>

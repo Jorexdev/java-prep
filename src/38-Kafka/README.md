@@ -126,5 +126,7 @@ public void escuchar(String mensaje) { ... }
 
 **Desacoplamiento productor/consumidor** — El producer no sabe nada del consumer. Pueden escalar, desplegarse y fallar de forma completamente independiente. El broker actúa como buffer infinito entre ambos.
 
+Ver [ExpKafkaSimulation.java](ExpKafkaSimulation.java), [ExpConsumerGroups.java](ExpConsumerGroups.java), [ExpPartitioning.java](ExpPartitioning.java), [ExpExactlyOnce.java](ExpExactlyOnce.java), [ExpKafkaPatterns.java](ExpKafkaPatterns.java) y [ExpSchemaRegistry.java](ExpSchemaRegistry.java) para ejemplos ejecutables con producers, consumers, particionado, semánticas de entrega y Schema Registry.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 <div align="center"><a href="#"><img src="../../assets/separator-v2.svg" width="100%" alt=""/></a></div>
