@@ -39,6 +39,16 @@ Sí. Gradle es completamente compatible con Maven Central y cualquier repositori
 **¿Cuándo elegirías Gradle sobre Maven?**
 Para proyectos Android (es el único soportado oficialmente), proyectos multi-módulo grandes donde la velocidad importa, proyectos Kotlin (Kotlin DSL es más natural), o cuando necesitas personalización avanzada del build. Maven sigue siendo preferible en entornos Java enterprise tradicionales donde la convención y la simplicidad son más importantes.
 
+---
+
+**¿Cómo funciona el build cache de Gradle y en qué se diferencia del incremental build?**
+El incremental build evita re-ejecutar tareas cuyas entradas y salidas no cambiaron (dentro del mismo workspace). El build cache va más lejos: almacena outputs en un caché local o remoto identificados por un hash de las entradas. Si otro developer o el agente CI ejecuta la misma tarea con las mismas entradas, obtiene el output del caché sin ejecutar nada. El remote build cache (Gradle Enterprise o un servidor HTTP) permite que el CI prime el caché del desarrollador y viceversa.
+
+---
+
+**¿Qué es la configuration avoidance API de Gradle y por qué mejora el rendimiento?**
+La API clásica (`task.doLast {}`) crea y configura todas las tareas al configurar el proyecto, aunque la mayoría no se ejecuten. La configuration avoidance API (`tasks.register {}` en lugar de `tasks.create {}`) usa providers lazy: la tarea solo se crea y configura si realmente va a ejecutarse. En proyectos grandes, esto reduce el tiempo de configuración hasta un 50% porque Gradle solo materializa las tareas del grafo de ejecución solicitado.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

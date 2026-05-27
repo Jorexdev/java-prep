@@ -39,6 +39,16 @@ Cuando necesitas aplicar un commit específico de una rama a otra sin hacer merg
 **¿Qué es un conflict en Git y cómo lo resuelves?**
 Un conflict ocurre cuando dos ramas modifican las mismas líneas de un archivo y Git no puede fusionarlas automáticamente. Git marca el archivo con marcadores (`<<<<<<<`, `=======`, `>>>>>>>`). La resolución: editar el archivo manualmente dejando el contenido correcto, luego `git add archivo` y `git commit` para completar el merge.
 
+---
+
+**¿Para qué sirve `git bisect` y cómo lo usarías?**
+`git bisect` realiza una búsqueda binaria en el historial para encontrar el commit que introdujo un bug. Le indicas un commit bueno (`git bisect good v1.0`) y uno malo (`git bisect bad HEAD`), y Git hace checkout del commit intermedio para que lo pruebes. Marcas cada commit como good o bad hasta aislar el culpable en O(log n) pasos. Se puede automatizar con `git bisect run ./test.sh` si tienes un script que detecta el bug.
+
+---
+
+**¿Qué hace `git reflog` y cuándo lo usarías?**
+`git reflog` muestra el historial de posiciones de HEAD incluyendo operaciones que no aparecen en `git log` (resets, rebases, checkouts). Es el salvavidas cuando pierdes commits tras un `git reset --hard` o un rebase que salió mal: el commit sigue existiendo en el reflog durante 90 días por defecto. Con `git checkout <hash-del-reflog>` o `git reset --hard <hash>` recuperas el trabajo perdido.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

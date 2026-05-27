@@ -39,6 +39,16 @@ Un starter es solo un POM que agrupa dependencias relacionadas sin código propi
 **¿Qué es `@ConditionalOnMissingBean`?**
 Una anotación de autoconfiguración que aplica la configuración solo si no hay ya un bean del tipo especificado. Es el mecanismo de extensión: Spring Boot configura un bean por defecto, pero si tú defines el tuyo propio, el de Spring Boot cede. Así funciona la personalización sin modificar la autoconfiguración.
 
+---
+
+**¿Cómo registra Spring Boot sus autoconfuraciones y qué cambió en Spring Boot 3?**
+Hasta Spring Boot 2, las autoclases se declaraban en `META-INF/spring.factories` bajo la clave `EnableAutoConfiguration`. En Spring Boot 3 se migró a `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`, un fichero con una clase por línea. El mecanismo es el mismo: al arrancar, Spring carga esas clases, evalúa sus `@Conditional` y registra sólo las que aplican. El fichero antiguo sigue siendo compatible pero está deprecado.
+
+---
+
+**¿Cómo depuras qué autoclases se activaron o se descartaron?**
+Arrancando con la propiedad `debug=true` o el flag `--debug`, Spring Boot imprime el `ConditionsEvaluationReport` que lista: autoclases positivas (activadas), negativas (descartadas con el motivo exacto del `@Conditional` que falló) y exclusiones manuales. También se puede consultar el endpoint `/actuator/conditions` si tienes Actuator en el classpath.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

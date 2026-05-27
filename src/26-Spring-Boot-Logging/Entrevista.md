@@ -39,6 +39,16 @@ En application.yml: `logging.level.com.ejemplo.servicio: DEBUG`. Esto activa DEB
 **¿Cuándo usarías logging estructurado (JSON)?**
 En producción cuando los logs van a un sistema centralizado (ELK, Splunk, Datadog). El logging estructurado emite JSON en lugar de texto plano, lo que facilita la búsqueda, filtrado y creación de alertas. En desarrollo, el formato texto legible por humanos es más práctico.
 
+---
+
+**¿Qué es el logging asíncrono y cuándo vale la pena activarlo?**
+El logging asíncrono (Logback `AsyncAppender`, Log4j2 `AsyncLogger`) delega la escritura al disco en un hilo separado para no bloquear el hilo de negocio. Vale la pena en aplicaciones con alta concurrencia y muchos logs donde el I/O del log se convierte en cuello de botella. El coste es que si la aplicación cae bruscamente, los últimos mensajes en el buffer pueden perderse. Se configura en `logback-spring.xml` envolviendo el appender normal con `<appender class="AsyncAppender">`.
+
+---
+
+**¿Cómo correlacionas logs entre microservicios con un trace ID?**
+Con Spring Cloud Sleuth (o Micrometer Tracing en Boot 3), cada petición recibe un `traceId` y un `spanId` que se propagan automáticamente en cabeceras HTTP (`traceparent` W3C o `X-B3-TraceId` Zipkin). Sleuth los inserta en el MDC de SLF4J, por lo que aparecen en todos los logs sin código adicional. Para correlacionar logs de distintos servicios basta con buscar el mismo `traceId` en el sistema de agregación de logs (ELK, Grafana Loki).
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

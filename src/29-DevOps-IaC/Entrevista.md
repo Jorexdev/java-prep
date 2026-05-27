@@ -39,6 +39,16 @@ Terraform para gestionar el ciclo de vida de infraestructura cloud: crear, modif
 **¿Qué hace `terraform plan`?**
 Muestra los cambios que Terraform aplicaría sin ejecutarlos realmente: qué recursos se crearían, modificarían o destruirían. Es el equivalente a un "dry run". Fundamental en pipelines CI/CD para revisar cambios antes de aplicar. El plan puede guardarse con `terraform plan -out=plan.tfplan` y aplicarse exactamente con `terraform apply plan.tfplan`.
 
+---
+
+**¿Qué es el remote state en Terraform y por qué es necesario en equipos?**
+El remote state almacena el fichero `terraform.tfstate` en un backend compartido (S3+DynamoDB, GCS, Terraform Cloud) en lugar del disco local. Permite que varios miembros del equipo trabajen sobre la misma infraestructura sin conflictos, usando el locking para evitar ejecuciones simultáneas. Sin remote state, dos personas ejecutando `terraform apply` a la vez pueden corromper la infraestructura. El locking con DynamoDB garantiza que solo una operación modifica el estado a la vez.
+
+---
+
+**¿Qué son los módulos en Terraform y cuándo los usarías?**
+Un módulo es un conjunto de ficheros `.tf` en una carpeta que encapsula recursos reutilizables (como un módulo "vpc" o "eks-cluster"). Se invoca con `module "nombre" { source = "./modules/vpc" }` pasando variables. Permiten evitar duplicación entre entornos (dev/staging/prod usan el mismo módulo con distintas variables). Los módulos públicos del Terraform Registry cubren casos comunes de AWS, GCP y Azure.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

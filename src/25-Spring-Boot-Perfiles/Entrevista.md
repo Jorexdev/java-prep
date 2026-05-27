@@ -39,6 +39,16 @@ Con `@ActiveProfiles("test")` en la clase de test (junto con `@SpringBootTest`).
 **¿Puedes combinar varios perfiles simultáneamente?**
 Sí. `spring.profiles.active=base,monitoring,prod` activa los tres. Las propiedades de cada perfil se superponen: el último en la lista tiene mayor precedencia sobre los anteriores. Es útil para perfiles composicionales (base + monitoreo + entorno específico).
 
+---
+
+**¿Qué son los profile groups introducidos en Spring Boot 2.4?**
+Los profile groups permiten activar varios perfiles con un solo nombre lógico. Se definen en `application.properties` con `spring.profiles.group.production=cloud,monitoring,security`. Cuando activas `production`, Spring Boot activa automáticamente los tres perfiles incluidos. Simplifica la gestión en entornos donde cada entorno requiere un conjunto fijo de perfiles sin que el operador tenga que conocer todos los nombres internos.
+
+---
+
+**¿Cómo accedes programáticamente al perfil activo y a las propiedades de entorno?**
+Inyectando `Environment` de Spring: `environment.getActiveProfiles()` devuelve el array de perfiles activos y `environment.getProperty("clave")` resuelve la propiedad con la precedencia correcta. También puedes inyectar `@Value("${spring.profiles.active:default}")` para obtenerlo como String. En código de test, `@ActiveProfiles("dev")` establece el perfil activo sin tocar variables de entorno.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

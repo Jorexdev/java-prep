@@ -39,6 +39,16 @@ Son equivalentes en capacidades — solo difieren en formato. YAML es más legib
 **¿Cómo pasas una propiedad por línea de comandos?**
 `java -jar app.jar --server.port=9090 --spring.datasource.url=jdbc:...`. Spring Boot las procesa con la mayor precedencia. También puedes usar la notación de sistema Java: `-Dserver.port=9090`, aunque tiene menor precedencia que los argumentos de aplicación.
 
+---
+
+**¿Qué es el relaxed binding en `@ConfigurationProperties`?**
+El relaxed binding permite que la misma propiedad se defina con distintas convenciones de nombrado: `max-pool-size`, `maxPoolSize`, `MAX_POOL_SIZE` o `max_pool_size` se mapean todas al campo `maxPoolSize` del POJO. Esto facilita la configuración desde entornos distintos (ficheros YAML, variables de entorno del sistema operativo, argumentos de línea de comandos) sin cambiar el código. Con `@Value` no hay relaxed binding: el nombre debe coincidir exactamente.
+
+---
+
+**¿Cómo validas las propiedades de configuración en tiempo de arranque?**
+Añadiendo `@Validated` a la clase `@ConfigurationProperties` y anotaciones JSR-303 (`@NotNull`, `@Min`, `@Max`, `@Pattern`) sobre los campos. Si alguna propiedad no cumple las restricciones, Spring lanza una excepción en el arranque antes de que la aplicación empiece a atender peticiones. Esto convierte errores de configuración en fallos rápidos y explícitos en lugar de NullPointerExceptions en producción.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">
