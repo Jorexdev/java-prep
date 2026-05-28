@@ -39,6 +39,18 @@ No directamente — `new T[10]` no compila. Se debe usar `(T[]) new Object[10]` 
 **¿Qué diferencia hay entre `List<?>` y `List<Object>`?**
 `List<Object>` acepta cualquier objeto pero no es compatible con `List<String>` (la herencia no se transfiere a genéricos). `List<?>` es un wildcard que representa "lista de algún tipo desconocido" — puedes leer de ella como Object pero no puedes añadir nada (excepto null).
 
+---
+
+**¿Qué significa PECS y cómo lo aplicas al diseñar una API genérica?**
+
+PECS (Producer Extends, Consumer Super) es la regla para elegir wildcards: usa `<? extends T>` cuando el parámetro produce (proporciona) valores que vas a leer, y `<? super T>` cuando el parámetro consume (acepta) valores que vas a escribir. Ejemplo clásico de `Collections.copy`: el origen es `List<? extends T>` (produce) y el destino es `List<? super T>` (consume). Si tanto lees como escribes, usa el tipo concreto `<T>` sin wildcard.
+
+---
+
+**¿Por qué Java no permite crear arrays genéricos como `new T[10]`?**
+
+Por el type erasure: en runtime `T` se borra y el JVM no sabe qué tipo usar al crear el array. Los arrays en Java son covariantes y reifican su tipo en runtime (un `String[]` sabe en tiempo de ejecución que es `String[]`), pero los genéricos no — su tipo se borra. Mezclar ambos violaría el sistema de tipos. La alternativa correcta es `(T[]) new Object[n]` con supresión de unchecked warning, o mejor, usar `List<T>` que está diseñada para trabajar con genéricos.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

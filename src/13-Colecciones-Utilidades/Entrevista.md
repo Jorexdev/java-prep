@@ -39,6 +39,16 @@ Crea una vista inmutable de la lista: cualquier intento de modificarla (add, rem
 **¿Cuándo usarías un Comparator encadenado con `thenComparing()`?**
 Para ordenación multicriteria: primero por un campo, en caso de empate por otro. Ejemplo: `Comparator.comparing(Empleado::getDepartamento).thenComparing(Empleado::getSalario, Comparator.reverseOrder())` — agrupa por departamento y dentro de cada grupo ordena por salario descendente.
 
+---
+
+**¿Cuál es la diferencia entre `Collections.unmodifiableList()` y `List.of()`?**
+`Collections.unmodifiableList(lista)` crea una vista no modificable sobre la lista original: si la lista subyacente cambia, los cambios son visibles a través de la vista. `List.of(...)` crea una lista verdaderamente inmutable y autónoma: no permite null, no tiene lista subyacente mutable y cualquier intento de modificación lanza `UnsupportedOperationException`. Para defensiva real, usa `List.copyOf()` que hace una copia inmutable independiente.
+
+---
+
+**¿Cómo compones criterios de ordenación con `Comparator.comparing().thenComparing()`?**
+`Comparator.comparing()` acepta un extractor de clave y aplica el orden natural o uno específico. `thenComparing()` añade criterios de desempate en cadena: `Comparator.comparing(Persona::getApellido).thenComparing(Persona::getNombre).thenComparingInt(Persona::getEdad)`. La cadena se evalúa de izquierda a derecha; solo se pasa al siguiente criterio si el anterior retorna cero. Los métodos `thenComparingInt/Long/Double` evitan el boxing de primitivos.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

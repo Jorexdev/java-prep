@@ -39,6 +39,18 @@ Una implementación thread-safe donde cada escritura crea una copia del array in
 **¿Cuál es la diferencia entre `List.of()` y `new ArrayList<>()`?**
 `List.of()` devuelve una lista inmutable (no se puede añadir, modificar ni eliminar) y no permite null. `new ArrayList<>()` es mutable, permite null y es modificable. Usar `List.of()` cuando la lista no va a cambiar.
 
+---
+
+**¿Qué peligros tiene `subList()` y cómo los evitas?**
+
+`subList(from, to)` devuelve una vista respaldada por el ArrayList original, no una copia. Cualquier modificación estructural al ArrayList original (añadir o eliminar elementos fuera de la subList) invalida la subList y provoca `ConcurrentModificationException` al acceder a ella. Si la lista original se puede modificar, crea una copia explícita: `new ArrayList<>(list.subList(from, to))`. Además, retener una referencia a la subList impide que el ArrayList original sea recolectado por el GC aunque ya no se necesite.
+
+---
+
+**¿Cuándo tiene sentido usar `CopyOnWriteArrayList` en lugar de un `ArrayList` sincronizado?**
+
+`CopyOnWriteArrayList` es ideal cuando las lecturas son la mayoría de las operaciones y las escrituras son esporádicas (ej. listas de listeners o suscriptores). Cada escritura hace una copia completa del array, lo que hace las escrituras costosas en O(n), pero garantiza que los iteradores nunca lanzan `ConcurrentModificationException` porque trabajan sobre un snapshot inmutable. Un `Collections.synchronizedList(ArrayList)` sería más eficiente si escrituras y lecturas son equilibradas, pero requiere sincronización manual al iterar.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

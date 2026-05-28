@@ -43,6 +43,16 @@ Define una interfaz con el método del algoritmo, implementa las variantes como 
 **¿Qué diferencia hay entre Observer y Event Bus?**
 Observer es una relación directa entre Subject y sus Observers (el Subject los conoce). Event Bus desacopla emisores y receptores completamente — nadie se conoce; los eventos viajan por un intermediario. Observer es más simple; Event Bus escala mejor con muchos productores y consumidores.
 
+---
+
+**¿Cuál es la diferencia entre los patrones Strategy y State?**
+Ambos encapsulan comportamiento variable en objetos intercambiables, pero el cliente que los controla es diferente. En Strategy, el cliente elige y fija la estrategia externamente; el objeto contexto no cambia de estrategia por sí solo. En State, el propio contexto (o el estado actual) decide cuándo transicionar a otro estado: el cambio de comportamiento es automático e interno, dirigido por el estado del sistema (ej. un semáforo que avanza de Rojo → Verde → Amarillo según su lógica interna).
+
+---
+
+**¿Cuándo usarías Decorator en lugar de herencia para añadir funcionalidad?**
+Cuando necesitas combinar comportamientos en runtime de forma flexible o cuando no controlas la clase base. La herencia es estática (se define en compilación) y genera explosión de subclases si hay múltiples combinaciones posibles. Decorator envuelve un objeto de la misma interfaz y añade comportamiento antes/después: `new BufferedInputStream(new GZIPInputStream(new FileInputStream(path)))` apila tres decoradores sin crear subclases específicas para cada combinación. Prefiere Decorator cuando el número de combinaciones potenciales crece.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

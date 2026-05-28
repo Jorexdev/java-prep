@@ -39,6 +39,16 @@ Porque los implementadores solo implementan lo que necesitan. Una interfaz "gord
 **¿Cómo se relaciona DIP con la inyección de dependencias?**
 DIP dice que el módulo de alto nivel no debe depender de módulos de bajo nivel — ambos deben depender de abstracciones (interfaces). La Inyección de Dependencias (DI) es el mecanismo que provee esas abstracciones en runtime: Spring construye el grafo de dependencias inyectando implementaciones concretas donde se declaran interfaces.
 
+---
+
+**¿Cuándo es aceptable violar conscientemente un principio SOLID?**
+Cuando el coste de aplicarlo supera el beneficio en ese contexto. SRP puede relajarse en entidades pequeñas donde dividir añadiría complejidad sin ganancia real. OCP no aplica a código que cambia de forma coordinada (los puntos de extensión tienen coste de abstracción). ISP en servicios internos puede ser sobreingeniería. La clave es reconocer la violación, documentar la razón y establecer una frontera clara — no hacerlo por desconocimiento o prisa, sino por decisión informada.
+
+---
+
+**¿Qué problemas concretos resuelve el principio de sustitución de Liskov (LSP)?**
+LSP garantiza que el código que usa una abstracción no necesita saber el tipo concreto que recibe. Violarlo lleva a `instanceof` checks, comportamientos sorpresivos y contratos rotos. Ejemplos reales: un `ReadOnlyList` que extiende `List` pero lanza en `add()` — cualquier código que llama a `add()` sobre una `List` se rompe en runtime. LSP bien aplicado hace que los tests del subtipo pasen con los casos del supertipo (principio de Hoare).
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

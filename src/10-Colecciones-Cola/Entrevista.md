@@ -39,6 +39,18 @@ Una Queue thread-safe que bloquea: `put()` espera si está llena, `take()` esper
 **¿Por qué ArrayDeque es preferible a LinkedList como Queue?**
 ArrayDeque usa un array circular que evita la alocación de nodos en cada operación (LinkedList crea un nuevo objeto Node por cada elemento). Esto reduce la presión sobre el GC y mejora el rendimiento de caché de la CPU. Sin embargo, ArrayDeque no permite null.
 
+---
+
+**¿Cuál es el invariante de `PriorityQueue` y qué garantiza sobre el orden de extracción?**
+
+`PriorityQueue` implementa un min-heap: el elemento con menor prioridad (según `Comparable` o el `Comparator` proporcionado) siempre está en la raíz y es el primero en ser extraído con `poll()`. El invariante heap garantiza que el padre es siempre menor o igual que sus hijos, pero NO garantiza orden total entre los demás elementos — la iteración sobre una `PriorityQueue` no produce los elementos en orden de prioridad. Para obtener todos en orden hay que extraerlos uno a uno con `poll()`.
+
+---
+
+**¿Qué diferencia fundamental hay entre `Queue` y `BlockingQueue`, y en qué escenario usarías cada una?**
+
+`Queue` es de uso single-threaded o bajo sincronización manual: `poll()` devuelve null si está vacía y el llamador debe manejar esa situación. `BlockingQueue` añade semántica de bloqueo: `take()` suspende el hilo hasta que haya un elemento disponible y `put()` suspende si está llena. Es la base del patrón productor-consumidor concurrente sin necesidad de `wait/notify` explícitos. Usa `Queue` (ej. `ArrayDeque`) para lógica secuencial; usa `BlockingQueue` (ej. `LinkedBlockingQueue`, `ArrayBlockingQueue`) para comunicación entre hilos.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">
