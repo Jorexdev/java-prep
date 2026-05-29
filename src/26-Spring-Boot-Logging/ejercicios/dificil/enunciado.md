@@ -41,3 +41,10 @@ Implementa `Tracer` que crea spans hijos automáticamente: el span activo
 se convierte en el padre del siguiente.
 Al finalizar la traza, imprime el árbol de spans con indentación y duraciones.
 Demo: operación raíz con 2 hijos y cada hijo con un nieto.
+
+---
+
+**Ejercicio 5 — Correlación de logs entre servicios con trace-id propagado a hilos hijos**
+Implementa `TraceContext(traceId, spanId, parentSpanId)` con `createChild(newSpanId)`. `TracePropagator` gestiona el contexto activo del hilo con `ThreadLocal<TraceContext>`: `startTrace()` crea raíz, `startChildSpan()` hereda traceId, `install(ctx)` propaga a un nuevo hilo, `restoreParent(ctx)` restaura tras el span hijo. `TraceLogger` incluye automáticamente `[traceId span=spanId]` en cada línea de log. Implementa 5 servicios que se llaman en cadena: `GatewayService` → `AuthService` (en VT hijo) + `OrderService` → `InventoryService` + `PaymentService`. Todos los logs de una misma petición deben mostrar el mismo `traceId`. Demo: 2 requests secuenciales + 3 concurrentes; verificar que los traceIds no se mezclan entre requests.
+
+---

@@ -59,3 +59,11 @@ El `main` prueba cuatro requests:
 2. Token válido pero sin permisos → corta en `AuthorizationFilter` (403)
 3. Request válido con permisos → pasa toda la cadena (200)
 4. OPTIONS pre-flight → pasa `CorsFilter`, corta antes de JWT (204)
+
+---
+
+## Ejercicio 6 — JWT validation chain
+
+Implementa una cadena de validaciones JWT con tres validadores encadenados: `SignatureValidator` (verifica que el token tenga exactamente tres partes y que la firma coincida con un secreto fijo usando HMAC simulado), `ExpirationValidator` (comprueba que el campo `exp` del payload no haya pasado usando un reloj simulado) y `ClaimsValidator` (exige que estén presentes los claims `sub` y `roles`). Define `ValidationChain` que ejecuta los validadores en orden y retorna el primer error o un `ValidationResult.ok(claims)`. El `main` valida cuatro tokens: uno completamente válido, uno con firma alterada, uno expirado y uno sin el claim `roles`.
+
+---

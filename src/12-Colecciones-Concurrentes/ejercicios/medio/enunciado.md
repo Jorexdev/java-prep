@@ -47,3 +47,13 @@ Crea un leaderboard de jugadores con `ConcurrentSkipListMap<Integer, String>` or
 5 threads actualizan scores de 10 jugadores (valores aleatorios 1-100) usando `put`.
 1 thread lee el top-3 continuamente durante 200ms.
 Imprime el top-3 cada 50ms mostrando que siempre está ordenado.
+
+---
+
+**Ejercicio 6 — StampedLock con optimistic read**
+Implementa un `PuntoMutable` (x, y) protegido con `StampedLock`.
+`leer()` usa `tryOptimisticRead()`: obtiene el stamp, lee x e y, valida con `validate(stamp)` y, si la validación falla (hubo escritura concurrente), hace fallback a `readLock()`.
+`mover(dx, dy)` usa `writeLock()`.
+Lanza 6 reader threads y 2 writer threads durante 300ms.
+Imprime: lecturas optimistas exitosas, fallbacks a read lock, escrituras, y porcentaje de éxito optimista.
+Añade un comentario explicando cuándo StampedLock supera a ReadWriteLock.

@@ -40,3 +40,10 @@ El sistema aplica automáticamente los transforms necesarios cuando el consumer 
 distinto al que produce el producer.
 Demo con chain: `jar -> classes -> filtered-classes`.
 Muestra qué transforms se aplican y en qué orden.
+
+---
+
+**Ejercicio 5 — Build cache: hash de inputs/outputs**
+Implementa `BuildCache` que almacena resultados de tareas indexados por el hash de sus inputs (`Map<String, CacheEntry>`). `CacheEntry` contiene el hash de inputs, los outputs y el timestamp. Al ejecutar una tarea: si el hash de los inputs actuales coincide con una entrada en caché, es `CACHE HIT` y se reutilizan los outputs; si no, es `CACHE MISS` y se ejecuta la tarea guardando los nuevos outputs. Demo con 6 tareas, primer build completo (todos MISS), luego cambiar los inputs de 2 tareas y hacer segundo build (4 HITS, 2 MISS). Muestra el ahorro de tiempo acumulado.
+
+---

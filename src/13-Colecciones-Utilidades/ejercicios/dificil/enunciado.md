@@ -30,3 +30,14 @@ Implementa `IteradorFibonacci` que implementa `Iterator<Long>` y genera la secue
 de forma lazy (sin precomputar). `hasNext()` devuelve siempre true (secuencia infinita).
 Usa `limit()` de Stream para tomar los primeros N términos.
 Envuelve el iterador en un `Spliterator` con `StreamSupport.stream()` para integrarlo con streams.
+
+---
+
+## Ejercicio 5 — Comparator chain con tiebreakers y sort estable
+
+Crea `Producto(nombre, categoria, precio, stock)` sin orden natural.
+Construye un `Comparator<Producto>` encadenado con `thenComparing`: primero por categoría ascendente, luego por precio descendente, luego por nombre ascendente como tiebreaker final.
+Genera una lista de 12 productos con nombres deliberadamente iguales en distintas categorías para forzar todos los niveles del tiebreaker.
+Ordena con `Collections.sort()` (sort estable) y con `List.sort()`.
+Demuestra estabilidad: dos productos con categoría, precio y nombre idénticos mantienen su orden relativo original.
+Imprime la lista ordenada, indicando en cada ítem qué criterio fue determinante.

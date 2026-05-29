@@ -46,3 +46,10 @@ Implementa un `TransactionalAspect` que:
 - Llama `commit()` si el método termina sin excepción.
 - Llama `rollback()` si lanza excepción.
 Demo con un servicio que tiene un método exitoso y uno que falla.
+
+---
+
+**Ejercicio 6 — Retry aspect con backoff exponencial**
+Implementa `RetryAspect(maxAttempts, initialDelayMs, multiplier)` que envuelve cualquier `Callable<T>` con lógica de reintento automático. En cada intento fallido, espera `delay` ms y lo multiplica por `multiplier` (backoff exponencial). Si se agotan los intentos, propaga la última excepción. `RetryProxy<T>` delega al aspecto cada llamada a `calcular(int)` y `obtenerDato(String)`. Demo con 3 escenarios: servicio con 65% fallo (suele recuperarse), servicio con 95% fallo (agota intentos) y tabla de delays esperados (50ms → 100ms → 200ms → 400ms).
+
+---

@@ -17,3 +17,6 @@ Las soluciones están en [soluciones/](soluciones/).
 
 ## Ejercicio 4 — Hooks opcionales completos
 `Pipeline` abstracta con `ejecutar()` que llama `antes()` (hook vacío), `proceso()` (abstracto), `despues()` (hook vacío). `PipelineBasico` solo implementa proceso. `PipelineConLog` sobreescribe los tres.
+
+## Ejercicio 5 — Mini framework de plugins
+`Plugin` abstracto con métodos abstractos `nombre()`, `version()`, `ejecutar(Contexto)` y método concreto `prioridad()` (por defecto 0). `Contexto` transporta un mapa de datos compartidos. `PluginRegistry` registra plugins y los ejecuta ordenados por prioridad descendente. Implementa tres plugins concretos: `PluginLogger` (prioridad 10, registra eventos en el contexto), `PluginTransformador` (prioridad 5, transforma un valor del contexto a mayúsculas), `PluginAuditoria` (prioridad 1, imprime el estado final del contexto).

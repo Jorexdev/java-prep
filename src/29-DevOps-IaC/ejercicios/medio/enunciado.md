@@ -28,3 +28,10 @@ Modela `Role(name, tasks: List<AnsibleTask>)`. Un `Playbook` tiene una lista de 
 
 **Ejercicio 5 — Ansible idempotency**
 Crea `IdempotentTask` que registra si ya fue ejecutada con éxito. Una segunda ejecución devuelve `SKIPPED` en lugar de `CHANGED`. Verifica el comportamiento con 10 tareas donde 5 ya fueron aplicadas anteriormente.
+
+---
+
+**Ejercicio 6 — Terraform modules con inputs/outputs**
+Crea `TerraformModule(name, inputVars: Map<String,String>, resources: List<String>, outputVars: Map<String,String>)`. Los outputs de un módulo pueden pasarse como inputs a otro módulo dependiente. Implementa `ModuleComposer` que resuelve el grafo de módulos en orden topológico y ejecuta el apply propagando los outputs. Demo con 3 módulos: `vpc` (sin inputs, produce vpc-id y subnet-id), `database` (inputs: vpc-id, subnet-id; produce db-endpoint), `app` (inputs: db-endpoint, vpc-id; produce app-url).
+
+---

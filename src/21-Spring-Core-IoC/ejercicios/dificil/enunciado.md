@@ -17,3 +17,10 @@ Define `NotificadorService` con dos implementaciones: `EmailNotificador` y `SmsN
 
 **Ejercicio 4 — Event system**
 Implementa: clase base `ApplicationEvent` con timestamp y source, interfaz `ApplicationListener<T extends ApplicationEvent>` con `onEvent(T event)`, clase `ApplicationEventPublisher` con `register(ApplicationListener<T>)` y `publish(T event)`. Crea `ContextRefreshedEvent` y un `LogEvent` custom. Implementa dos listeners. En `main`, registra los listeners, publica ambos eventos y muestra que cada listener recibe solo los eventos del tipo correcto usando `instanceof`.
+
+---
+
+**Ejercicio 5 — Contenedor IoC con ciclo de vida completo**
+Implementa `IoCContainer` que soporta: `register(Class<?>)` para clases concretas e `register(Class<?> iface, Class<?> impl)` para interfaces. `getBean(Class<?>)` instancia via constructor sin args, inyecta campos `@Autowired` recursivamente (singleton: guarda la instancia antes de inyectar para evitar ciclos), llama métodos `@PostConstruct` tras inyectar, y detecta ciclos de dependencias con un `Set<Class<?>> inCreation`. `close()` invoca `@PreDestroy` en orden inverso al de creación. Demo con 4 beans encadenados: `DataSourceConfig` → `CacheService` → `UserRepository` → `UserService`. Verificar singleton (`ds1 == ds2`), uso del cache en la segunda llamada, y que el cierre ocurre en orden inverso.
+
+---

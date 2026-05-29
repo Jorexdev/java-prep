@@ -28,3 +28,10 @@ Crea `Secret(name, Map<String,String> data)` donde los valores se almacenan "enc
 
 **Ejercicio 5 — Pod affinity**
 Crea `NodeAffinityRule(labelKey, values, operator)` donde operator puede ser `IN` o `NOT_IN`. El scheduler solo asigna el pod a nodos que cumplen todas las reglas. Demo con 3 nodos (diferentes zones y tipos) y 2 pods con reglas de afinidad distintas. Muestra en qué nodo queda schedulado cada pod.
+
+---
+
+**Ejercicio 6 — HPA con cooldown**
+Extiende `HPA(minReplicas, maxReplicas, targetCPUPercent, scaleUpCooldownMs, scaleDownCooldownMs)`. Implementa que tras un scale-up no se puede volver a escalar hasta que haya pasado el cooldown de scale-up, y lo mismo para scale-down. Simula 12 ciclos con métricas de CPU que provocan scale-up y scale-down. Muestra si la acción se ejecutó o fue bloqueada por cooldown.
+
+---

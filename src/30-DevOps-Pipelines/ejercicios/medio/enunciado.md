@@ -28,3 +28,10 @@ Crea `Stage` con un campo `Predicate<PipelineContext> when`. El stage solo se ej
 
 **Ejercicio 5 — Test report**
 Crea `TestResult(suite, passed, failed, skipped)`. Agrega los resultados de 4 suites de tests. Genera un reporte final con los totales (total passed, failed, skipped), el porcentaje de éxito y la lista detallada de failures (suites con failed > 0).
+
+---
+
+**Ejercicio 6 — Matrix strategy en paralelo**
+Implementa `MatrixPipeline` con dimensiones configurables (`os: [linux, windows, macos]` × `java: [17, 21]`). Genera todas las combinaciones y ejecútalas en paralelo con threads. Cada job tiene un tiempo de ejecución simulado aleatorio entre 100-300ms y puede fallar aleatoriamente (10% de probabilidad). Al terminar todas, imprime una tabla de resultados con estado (SUCCESS/FAILED) y duración por combinación, y el resumen global.
+
+---

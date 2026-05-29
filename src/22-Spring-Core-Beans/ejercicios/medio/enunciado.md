@@ -20,3 +20,10 @@ Implementa `DisposableBean` con método `destroy()`. El `ApplicationContext` reg
 
 **Ejercicio 5 — @Value con defaults**
 Implementa `PropertiesInjector` con un `Map<String, String>` como fuente de propiedades. El método `inject(String key, String defaultValue)` devuelve el valor del mapa si existe, o `defaultValue` si no. Además, resuelve referencias anidadas: `"${app.name}"` se busca en el mapa. Demuestra con 5 propiedades, algunas presentes y otras usando el default.
+
+---
+
+**Ejercicio 6 — Scope singleton vs prototype con contador de instancias**
+Implementa `ScopeContainer` con `registerSingleton(Class<T>, T instance)` y `registerPrototype(Class<?>)`. `getBean(Class<?>)` devuelve siempre la misma instancia para singleton (sin invocar el constructor) y crea una nueva via reflection para prototype. Añade un contador estático de instancias en cada clase bean para medir exactamente cuántos objetos se crean. Demo con `DatabaseConnection` (singleton) y `UserSession` (prototype): llama `getBean` 4 veces por cada tipo. Verifica singleton con `==` (debe ser `true` en todas las comparaciones) y prototype con `==` (debe ser `false`). Imprime total de instancias creadas por tipo.
+
+---

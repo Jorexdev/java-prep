@@ -31,3 +31,11 @@ Implementa un `Sidecar` que envuelve cualquier servicio e intercepta sus llamada
 ## Ejercicio 4 — Two-Phase Commit simulado
 
 Implementa el protocolo 2PC con `ResourceManager` (prepare/commit/rollback) y `TransactionCoordinator`. En la Fase 1 el coordinador llama `prepare` a todos los participantes; si alguno responde NO, llama `rollback` a todos los que respondieron YES. En la Fase 2, si todos responden YES, llama `commit` a todos. El `main` prueba tres escenarios: todos confirman (éxito), uno falla en prepare (abort con rollback parcial), todos confirman pero uno falla en commit (necesita recovery).
+
+---
+
+## Ejercicio 5 — Saga coreografiada con compensación automática
+
+Implementa una saga coreografiada mediante un `EventBus` en memoria donde cada servicio reacciona a eventos y publica nuevos eventos o eventos de compensación. Define los servicios: `PedidoService`, `InventarioService`, `PagoService` y `EnvioService`. Cada servicio escucha solo sus eventos de interés. Si un servicio falla, publica un evento de compensación (`PedidoCancelado`, `StockLiberado`, `ReembolsoEmitido`) que los servicios anteriores reciben y usan para deshacer su trabajo. La compensación es automática y reactiva, sin orquestador central. El `main` simula tres flujos: flujo exitoso completo, fallo en `PagoService` (desencadena `StockLiberado` y `PedidoCancelado`) y fallo en `InventarioService` (desencadena `PedidoCancelado`).
+
+---

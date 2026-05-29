@@ -43,3 +43,16 @@ Crea un `UsuarioRepository` con 100 usuarios distribuidos entre varios departame
 - `bulkUpdateActivo` (modo eficiente): reemplaza el contenido del repositorio filtrando y reconstruyendo la lista en una sola pasada.
 
 El `main` mide el tiempo de cada variante con `System.nanoTime()` y compara los resultados.
+
+---
+
+**Ejercicio 6 — N+1 con solución Batch Fetching**
+
+Crea las clases `Autor(int id, String nombre)` y `Libro(int id, String titulo, int autorId)`. Implementa un `LibroRepository` con un contador de queries que soporta dos modos de carga:
+
+- **LAZY (N+1)**: carga la lista de libros en 1 query, luego por cada libro lanza una query adicional para obtener el autor → total N+1 queries.
+- **BATCH FETCH**: carga todos los libros en 1 query, recopila todos los `autorId` únicos, los resuelve en una sola query "batch" usando un `Map<Integer, Autor>` precargado → total 2 queries.
+
+El `main` carga 8 libros de 3 autores distintos, ejecuta ambos modos e imprime el número de queries ejecutadas en cada caso y los datos obtenidos.
+
+---

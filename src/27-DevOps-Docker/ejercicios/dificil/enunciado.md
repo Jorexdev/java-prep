@@ -23,3 +23,10 @@ Múltiples imágenes pueden compartir layers con el mismo hash. Crea `LayerStore
 
 **Ejercicio 4 — Rolling update**
 Crea `Service(name, replicas, currentImage)` con lista de `Container`. Implementa `rollingUpdate(newImage, healthCheckFn)`: reemplaza las replicas una a una — levanta nueva, espera health check (80% éxito simulado con `Random`), elimina la vieja. Si el health check falla, realiza rollback completo al estado anterior. Demo con 3 replicas donde la replica 2 falla el health check y se activa el rollback.
+
+---
+
+**Ejercicio 5 — Multi-stage build pipeline**
+Simula un multi-stage build: la etapa `builder` compila el código y produce artefactos (jar, dependencias). La etapa `runner` parte de una imagen base limpia y copia únicamente los artefactos necesarios del builder. Implementa `BuildStage(name, baseImage, List<String> commands)` con `copyFrom(sourceStage, artifact)`. El stage final solo debe contener los artefactos copiados, no las herramientas de compilación. Demo con etapa builder (jdk:21, 450 MB + artefactos) y etapa runner (jre:21-slim, 85 MB) que copia solo `app.jar`. Calcula y muestra la reducción de tamaño final respecto al builder.
+
+---

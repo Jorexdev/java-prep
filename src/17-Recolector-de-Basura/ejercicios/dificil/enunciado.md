@@ -29,3 +29,10 @@ Implementa un analizador `EscapeAnalyzer` que, dado el código de cada método (
 
 **Ejercicio 4 — Off-heap simulation**
 Implementa `OffHeapBuffer` usando `java.nio.ByteBuffer.allocateDirect()`. El buffer almacena 1000 integers. Implementa `write(int index, int value)` y `read(int index)`. Mide el tiempo de escritura+lectura de 1000 integers en un buffer directo vs un `int[]` en heap. Imprime la diferencia. Explica por qué los buffers directos no tienen presión de GC y cuándo usarlos.
+
+---
+
+**Ejercicio 5 — Memory leak detector con WeakReference + ReferenceQueue**
+Implementa `LeakDetector<T>` que rastrena objetos mediante `WeakReference<T>` asociadas a una `ReferenceQueue<T>`. `track(T obj, String name)` registra el objeto. `processQueue()` drena la queue y reporta qué objetos fueron recogidos por el GC. `printReport()` muestra totales: registrados, recogidos, vivos, posibles leaks. Escenario 1: 5 objetos `CachedResult` sin referencia fuerte; después de `System.gc()` deben aparecer en la queue. Escenario 2: mismos 5 objetos retenidos por un `CacheSinControl` (HashMap); el GC NO los recoge (leak demostrado). Escenario 3: vaciar el cache y confirmar que ahora sí se recogen.
+
+---

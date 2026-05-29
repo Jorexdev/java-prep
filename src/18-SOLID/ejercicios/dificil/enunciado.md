@@ -23,3 +23,8 @@ Implementa un mini-contenedor IoC manual: `Contenedor` que registra y resuelve d
 `Contenedor.resolver(Class<?>)` devuelve la instancia.
 Demuestra que `ServicioPedidos` → `RepositorioPedidos` → `ConexionBD` se pueden
 resolver sin que ninguna clase conozca sus dependencias concretas.
+
+---
+
+## Ejercicio 5 — Plugin architecture con los 5 principios
+Diseña un sistema de procesamiento de datos por plugins. Interfaces ISP segregadas: `DataSource` (lectura), `Transformer` (transformación encadenable), `DataSink` (escritura), `Validator` (validación opcional). `Pipeline` (SRP/DIP) solo conoce las interfaces. Implementa `CsvSource`, `TrimTransformer`, `UpperCaseTransformer`, `PrefixTransformer`, `ConsoleSink`, `CollectorSink` y `NonEmptyValidator`. `PluginRegistry` registra factories por nombre via `Supplier` (DIP). OCP: añadir `PrefixTransformer` y `CollectorSink` sin tocar `Pipeline`. LSP: `CollectorSink` sustituye a `ConsoleSink` en cualquier pipeline. Demo: 3 pipelines distintos (incluyendo uno con validación fallida).

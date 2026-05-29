@@ -52,3 +52,10 @@ Regla: dividir por `_`, primera palabra en minúsculas con camelCase del resto d
 unir con `.`.
 Demo con 5 env vars: `MY_APP_DB_HOST`, `SERVER_PORT`, `SPRING_DATASOURCE_URL`,
 `APP_FEATURE_FLAG_ENABLED`, `LOG_LEVEL`.
+
+---
+
+**Ejercicio 6 — Binding jerárquico con validación de constraints**
+Define una jerarquía de config con 3 niveles: `AppConfig { name, serverPort, environment, DatabaseConfig, CacheConfig }` donde `DatabaseConfig` contiene un `TimeoutsConfig` anidado. Implementa anotaciones propias `@NotNull`, `@NotBlank`, `@Min`, `@Max`, `@Pattern`. `HierarchicalBinder` puebla el árbol desde un `Map<String,String>`. `HierarchicalValidator.validate(Object)` recorre recursivamente todos los campos con reflection y acumula errores. Demo con config válida (0 errores) y config inválida con 7 errores distintos (port fuera de rango, name en blanco, environment no reconocido, timeout excedido, poolSize=0, etc.). Al final lanza `ConfigValidationException(List<String>)`.
+
+---

@@ -28,3 +28,10 @@ Crea `HealthCheck(command, intervalMs, timeoutMs, retries)`. Simula que el conta
 
 **Ejercicio 5 — Network bridge**
 Crea `DockerNetwork(name)` con lista de containers. Implementa `canCommunicate(c1, c2)`: devuelve `true` solo si ambos containers están en la misma red. Demo con 3 redes: `frontend` (web, api), `backend` (api, db), `isolated` (monitor). Verifica que web↔api=true, web↔db=false, api↔db=true.
+
+---
+
+**Ejercicio 6 — Overlay network con DNS**
+Crea `OverlayNetwork(name, subnet)` con un registro DNS interno (`Map<String, String>` hostname → IP). Implementa `registerContainer(name, ip)` y `resolve(hostname)` para resolución DNS. Un container solo puede resolver hostnames de containers en la misma red overlay. Demo con 2 redes: `app-net` (api=10.0.1.2, db=10.0.1.3) y `monitoring-net` (prometheus=10.0.2.2, grafana=10.0.2.3). Verifica que api resuelve db (misma red), pero api no puede resolver prometheus (red diferente).
+
+---

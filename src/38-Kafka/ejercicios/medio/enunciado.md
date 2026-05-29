@@ -29,3 +29,11 @@ Crea `LagMonitor` para un consumer group: compara `latestOffset` (último offset
 **Ejercicio 5 — Rebalancing**
 
 Crea `ConsumerGroup` con un método `rebalance()` que redistribuye particiones equitativamente entre consumers activos usando round-robin. Empieza con 2 consumers y 4 particiones (2 cada uno). Añade un tercer consumer → rebalance → distribución (2,1,1). Elimina un consumer → rebalance → distribución (2,2). El `main` imprime la asignación antes y después de cada cambio.
+
+---
+
+**Ejercicio 6 — Consumer group rebalancing con listener**
+
+Extiende el ejercicio anterior añadiendo un mecanismo de notificación: define la interfaz `RebalanceListener` con `onPartitionsRevoked(String consumerId, List<Integer> partitions)` y `onPartitionsAssigned(String consumerId, List<Integer> partitions)`. Al rebalancear, el `ConsumerGroup` notifica primero la revocación de las asignaciones actuales y luego las nuevas asignaciones. Implementa `OffsetCommitListener` que, al recibir la revocación, hace un "commit" de los offsets actuales (simulados como `Map<Integer, Long>`) antes de que las particiones sean reasignadas. El `main` parte de 2 consumers, añade un tercero y elimina uno, mostrando los commits automáticos durante cada rebalanceo.
+
+---

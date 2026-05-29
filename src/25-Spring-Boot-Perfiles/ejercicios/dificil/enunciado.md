@@ -17,3 +17,10 @@ Crea un `FeatureManager` con un mapa de `feature → Set<String> perfilesRequeri
 
 **Ejercicio 4 — Environment abstraction**
 Implementa una clase `Environment` con los métodos: `getProperty(String key)`, `getActiveProfiles()`, `getDefaultProfiles()`, y `acceptsProfiles(String... profiles)`. Los beans la inyectan (simulado) para adaptar su comportamiento. Define 3 beans que usan `Environment` de formas distintas: uno cambia su log level, otro su datasource, otro sus timeouts. Demuestra con perfiles "dev", "prod" y "test".
+
+---
+
+**Ejercicio 5 — Multi-environment config con precedencia y override**
+Implementa `MultiEnvConfig` que acepta múltiples fuentes con `addSource(Map<String,String>, Priority)`. `Priority` es un enum con 6 niveles: `DEFAULTS < SHARED_ENV < PROFILE_ENV < ENV_VARS < SYSTEM_PROPS < CLI_ARGS`. `get(String key)` devuelve el valor de la fuente con mayor prioridad. `showPrecedence(String key)` imprime todas las fuentes que definen esa clave, marcando cuál gana. `buildForEnvironment(String profile)` popula las 6 capas con propiedades realistas para `dev`, `staging` y `prod`. Demo: tabla comparativa de 6 propiedades clave entre los 3 entornos, y análisis de precedencia para 5 propiedades en `prod` mostrando qué fuente gana y cuáles son overrideadas.
+
+---

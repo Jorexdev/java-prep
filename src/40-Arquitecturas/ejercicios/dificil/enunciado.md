@@ -17,3 +17,10 @@ Implementa `SnapshotStore` con `Map<String, Snapshot(int version, Object state)>
 
 **Ejercicio 4 — Anti-Corruption Layer completo**
 Sistema legado: `LegacyClienteDTO(String codCliente, String nombreCompleto, String direccionCompleta)`. Dominio nuevo: `Cliente(UUID id, Nombre nombre, Direccion direccion)`, `Nombre(String given, String family)`, `Direccion(String calle, String ciudad)`. Implementa `LegacyClienteAdapter implements ClienteRepository` (del dominio) que traduce usando `LegacyTranslator`. `LegacyTranslator` parsea `nombreCompleto` ("Nombre Apellido") en `Nombre` y `direccionCompleta` ("Calle, Ciudad") en `Direccion`. El `main` usa `ClienteRepository` del dominio sin saber que hay un sistema legado detrás. Cambia el legado (renombra un campo) y demuestra que solo hay que tocar el translator.
+
+---
+
+**Ejercicio 5 — Event Sourcing: agregar eventos, reconstruir estado y snapshot cada N eventos**
+Implementa `EventStore` append-only con `Map<String, List<StoredEvent>>`. `StoredEvent(aggregateId, version, type, Map<String,String> data)`. `CuentaBancaria` se reconstituye desde eventos: `CuentaAbierta`, `Depositado`, `Retirado`, `Bloqueada`. Añade `SnapshotStore` que persiste un snapshot de la cuenta cada 5 eventos. Al reconstituir: carga el snapshot más reciente (si existe) y hace replay solo de los eventos posteriores — debe imprimir `"Usando snapshot vN, replaying M eventos"`. El `main` aplica 12 eventos a una cuenta, la reconstruye mostrando el uso del snapshot, y demuestra que el estado final es idéntico tanto con snapshot como sin él.
+
+---

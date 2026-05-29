@@ -17,3 +17,10 @@ Implementa el ciclo de vida completo de un bean en este orden: constructor → `
 
 **Ejercicio 4 — AwareInterfaces**
 Define las interfaces `BeanNameAware` con `setBeanName(String name)` y `ApplicationContextAware` con `setApplicationContext(Object ctx)`. El contenedor, tras crear un bean, detecta si implementa estas interfaces y llama a los setters correspondientes. Implementa un bean que usa su nombre para loguear y el contexto para buscar otro bean. Demuestra el flujo completo.
+
+---
+
+**Ejercicio 5 — Event system con @EventListener simulado**
+Implementa `ApplicationEvent` (base con source y timestamp), `TypedListener<T extends ApplicationEvent>` que solo procesa eventos del tipo `T` (verifica con `Class.isInstance`), y `ApplicationEventPublisher` con `register` y `publish`. Crea 4 eventos: `ContextRefreshedEvent`, `UserCreatedEvent`, `OrderPlacedEvent`, `SystemShutdownEvent`. Registra 6 listeners con servicios distintos: `EmailNotificationService` (escucha UserCreated y Shutdown), `AuditService` (escucha ApplicationEvent base = todos), `BillingService` (escucha OrderPlaced), `MetricsService` (escucha UserCreated y OrderPlaced). Publica 6 eventos y verifica que cada listener recibe solo los de su tipo. Imprime estadísticas de cuántos eventos procesó cada listener.
+
+---

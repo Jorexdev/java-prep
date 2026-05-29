@@ -41,3 +41,10 @@ Implementa `TestContextFactory(List<String> allowedAutoConfigs)` que acepta
 solo las auto-configs en la lista (simula `@ImportAutoConfiguration`).
 Tiene disponibles 8 auto-configs, pero en los tests solo activa las 3 permitidas.
 Demo comparando el contexto completo vs el contexto de test con subset de 3.
+
+---
+
+**Ejercicio 5 — ConditionsEvaluationReport manual**
+Implementa las condiciones `OnProperty`, `OnBean`, `OnMissingBean` y `AllConditions` (AND compuesto), cada una devolviendo `ConditionResult(match, description, reason)`. `AutoConfigProcessor` procesa una lista de `AutoConfigDef` (nombre + condición + factory): evalúa la condición, crea el bean si hace match, y registra el resultado. Las auto-configs en la lista `excluded` muestran `[X] Excluded by user`. `ConditionsEvaluationReport.print()` muestra el reporte visual con secciones POSITIVE MATCHES / NEGATIVE MATCHES. Demo con 6 auto-configs: `DataSourceAutoConfig`, `JpaRepositoriesAutoConfig` (requiere DataSource), `RedisCacheAutoConfig` (requiere redis + no hay CacheManager), `SimpleCacheAutoConfig` (fallback), `SecurityAutoConfig`, `AuditingAutoConfig`. Escenario 1: config completa. Escenario 2: sin datasource, 2 excluidas manualmente.
+
+---

@@ -54,3 +54,10 @@ Implementa el starter `"observability"` que activa `MetricsCollector`,
 `HealthIndicator` y `TracingFilter` si `"observability.enabled=true"`.
 Cada bean se configura con las propiedades del starter (endpoint, samplingRate).
 Demo: flujo completo con la propiedad en true y en false.
+
+---
+
+**Ejercicio 6 — Custom starter con auto-configuración condicional**
+Implementa un starter propio con 3 módulos: `cache` (activa `CacheManager` si `cache.enabled=true`; activa `CacheStatistics` si además `cache.stats.enabled=true`; activa `SimpleCacheManager` como fallback si `cache.enabled` no está), `security` (activa `SecurityFilter` si `security.enabled=true`) y `metrics` (activa `MetricsRegistry` si `metrics.enabled=true`). Define condiciones reutilizables: `PropertyEqualsCondition`, `PropertyMissingCondition`. `CustomStarterAutoConfig` evalúa cada bean con su condición y genera un reporte tabular `[✓ MATCH] / [✗ NO_MATCH]`. Demo con 2 escenarios: todas las features ON (5 beans activos) y config mínima (solo metrics, fallback SimpleCacheManager activo).
+
+---

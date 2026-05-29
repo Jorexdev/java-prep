@@ -41,3 +41,10 @@ Implementa `deepMerge(Map base, Map override)`: las claves del override sobreesc
 pero si ambas tienen un `Map` en la misma clave, se fusionan recursivamente (en lugar de reemplazar).
 Las ramas que solo existen en base se heredan.
 Demo con estructuras de 3 niveles de profundidad.
+
+---
+
+**Ejercicio 5 — ConfigurationProperties con listas, mapas anidados y refresh dinámico**
+Implementa `ComplexBinder` que puebla `AppProperties` desde un `Map<String,String>` con patrones: lista simple (`prefix[0]`, `prefix[1]`...), lista de objetos (`prefix[0].host`, `prefix[0].port`...), mapa de strings (`prefix.key`), mapa de booleanos y mapa de listas (`prefix.role[0]`). `AppProperties` contiene `List<String> allowedOrigins`, `List<ServiceEndpoint> endpoints`, `Map<String,String> customHeaders`, `Map<String,List<String>> rolePermissions`, `DataSourceProperties` (con su propia lista y mapa), y `FeatureFlags` (con mapa de experimentos). `RefreshableConfig` envuelve el binder y permite `load(props)` con notificación a listeners al refrescar (simula `@RefreshScope`). Demo: carga `dev` y luego hace refresh a `prod`, mostrando las diferencias clave.
+
+---

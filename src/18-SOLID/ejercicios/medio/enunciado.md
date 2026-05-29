@@ -28,3 +28,10 @@ Implementa `TarjetaCredito`, `PayPal`, `Cripto`.
 Aplica: SRP (clases con una responsabilidad), OCP (nuevo método sin modificar procesador),
 LSP (cualquier método es sustituible), ISP (interfaces específicas si necesario),
 DIP (procesador depende de abstracción).
+
+---
+
+## Ejercicio 6 — Refactorización SOLID de sistema heredado
+Dado un `GestorLegado` que mezcla descuentos, persistencia, notificación y envío en un solo método (violan los 5 principios), refactorízalo completamente. Resultado esperado: `Pedido` (entidad de datos, SRP), `EstrategiaDescuento` con implementaciones `SinDescuento/Premium/Vip/Mayorista` + `DescuentoFactory` (OCP: añadir tipos sin modificar `ServicioPedidos`), interfaces segregadas `RepositorioPedidos`, `ServicioNotificacion`, `CalculadorEnvio` (ISP), `ServicioPedidos` inyectado con esas interfaces (DIP), todas las implementaciones sustituibles (LSP). Demo procesando 4 pedidos con tipos y modalidades distintos, incluyendo el tipo `Mayorista` como extensión OCP.
+
+---

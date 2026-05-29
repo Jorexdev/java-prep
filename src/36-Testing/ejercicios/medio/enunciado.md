@@ -16,3 +16,6 @@ Implementa `CarritoCompras` siguiendo el ciclo TDD en tres pasos visibles. Paso 
 
 **Ejercicio 5 — Tests parametrizados**
 Implementa `ParametrizedTestRunner` que reciba una lista de casos `Object[]` (entradas + valor esperado) y ejecute el mismo test para cada uno, mostrando `PASS`/`FAIL` por caso. Implementa la función `esNumeroPrimo(int n)` y pruébala con los casos: 2→true, 3→true, 4→false, 13→true, 15→false, 97→true, 100→false.
+
+**Ejercicio 6 — Custom AssertJ assertion para dominio**
+Implementa `PedidoAssert` extendiendo `AbstractAssert<PedidoAssert, Pedido>` de forma simulada (sin la librería real). `Pedido` tiene `id`, `estado` (`PENDIENTE`, `CONFIRMADO`, `CANCELADO`), `total` y `List<String> items`. `PedidoAssert` debe ofrecer los métodos encadenables: `estaConfirmado()`, `tieneTotal(double esperado)`, `contieneItem(String item)` y `tieneNumeroDeItems(int n)`. Cada aserción fallida lanza `AssertionError` con un mensaje descriptivo. El `main` ejecuta una batería de 6 aserciones, mostrando `PASS`/`FAIL` por cada una, incluidas dos que deben fallar intencionadamente.

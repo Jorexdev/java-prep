@@ -23,3 +23,10 @@ Crea `NetworkPolicy(podSelector, ingressRules, egressRules)`. Implementa `isAllo
 
 **Ejercicio 4 — Operator reconciler**
 Crea `CustomResource(kind, name, spec)` con un estado deseado. El `Reconciler` compara el estado deseado (`desired`) con el estado actual (`actual`) y emite una lista de `Action(CREATE/UPDATE/DELETE, resourceName, detail)`. Simula 3 ciclos de reconciliación donde entre ciclos se añaden, modifican y eliminan recursos del estado deseado.
+
+---
+
+**Ejercicio 5 — Rolling update con zero-downtime**
+Implementa `RollingDeployment(name, pods, maxUnavailable, maxSurge)`. El update garantiza zero-downtime: nunca hay menos pods disponibles que `replicas - maxUnavailable`. Para cada pod nuevo, realiza un health check antes de eliminar el viejo. Si el health check falla 3 veces seguidas, el deployment entra en estado `DEGRADED` y para el rollout. Demo con 4 replicas, maxUnavailable=1, maxSurge=1, actualizando de `v1` a `v2` donde el pod-2 falla repetidamente el health check.
+
+---
