@@ -21,3 +21,7 @@ Implementa el algoritmo de Dijkstra para encontrar el camino más corto desde un
 ## Ejercicio 4 — Cola multinivel (HIGH/MEDIUM/LOW)
 
 Implementa una cola de prioridad con 3 niveles usando 3 ArrayDeque internas. offer(msg, prioridad) añade al deque correcto. poll() retorna siempre del nivel HIGH primero, luego MEDIUM, luego LOW.
+
+## Ejercicio 5 — TaskScheduler con prioridad y delay
+
+Implementa `TaskScheduler` con `PriorityQueue<Task>` donde `Task` tiene `nombre`, `prioridad` (int, mayor = antes) y `executeAt` (timestamp en ms). `schedule(task, delayMs)` calcula el timestamp y encola la tarea. `runPending()` ejecuta todas las tareas cuyo `executeAt <= System.currentTimeMillis()`, en orden de prioridad descendente. Demo: programa 10 tareas con distintas prioridades y delays (0-500ms), llama `runPending()` en un bucle hasta que todas se ejecuten, imprimiendo nombre, prioridad y retardo real.

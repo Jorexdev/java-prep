@@ -21,3 +21,7 @@ Usa TreeSet como NavigableSet: floor(x), ceiling(x), headSet(x), tailSet(x), sub
 ## Ejercicio 4 — Power set de un Set
 
 Dado un Set<Integer> pequeño, genera su power set (todos los subconjuntos posibles) como Set<Set<Integer>>. Para {1,2,3} el resultado tiene 8 subconjuntos.
+
+## Ejercicio 5 — Bloom Filter simplificado
+
+Implementa un `BloomFilter` usando `BitSet` y tres funciones hash independientes (varían la semilla). `add(String)` aplica las tres funciones y marca los bits correspondientes. `mightContain(String)` retorna true solo si los tres bits están marcados. Demo: añade 1000 palabras conocidas, verifica que todas retornan true (no hay falsos negativos), luego prueba 200 palabras no añadidas y cuenta cuántas devuelven true (falsos positivos esperados ~1-3%).

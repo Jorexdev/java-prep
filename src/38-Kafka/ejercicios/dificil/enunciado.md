@@ -29,3 +29,11 @@ Crea un `EventLog` append-only con los tipos de evento: `UsuarioCreado`, `EmailC
 **Ejercicio 4 — Log Compaction simulado**
 
 Crea `CompactedTopic` con un `Map<String, String>` de `key → último valor` y una lista interna de todos los mensajes. Implementa `compact()` que elimina mensajes antiguos con la misma key, dejando solo el más reciente. Soporta tombstones: un mensaje con `value = null` borra la key del mapa compactado. En el `main`, produce 20 mensajes (5 keys distintas, cada una actualizada varias veces, más 1 tombstone), ejecuta compaction y verifica el estado final.
+
+---
+
+**Ejercicio 5 — Kafka Streams con stateful aggregation y ventana de tiempo**
+
+Implementa un pipeline de Kafka Streams simulado con agregación stateful. Define `StreamRecord(String key, long value, long timestamp)`. Crea `TumblingWindow(long windowMs)` que agrupa records por clave y ventana de tiempo (los timestamps se dividen en ventanas fijas de `windowMs` ms). Implementa `KafkaStreamsAggregator` con `aggregate(List<StreamRecord>)` que devuelve un `Map<String, Map<Long, Long>>` de `clave → (inicio de ventana → suma)`. El `main` procesa 15 records de 3 claves distintas distribuidos en tres ventanas de 10 s cada una, y muestra la suma acumulada por clave y ventana.
+
+---

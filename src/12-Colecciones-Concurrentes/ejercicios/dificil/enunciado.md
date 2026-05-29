@@ -38,3 +38,13 @@ Cada worker tiene su propio `ArrayDeque<Runnable>`.
 Cuando un worker termina su deque, busca el worker con más tareas y roba la mitad.
 Distribuye 40 tareas inicialmente (10 por worker), algunas muy rápidas y otras lentas (sleep variable).
 Imprime: qué worker ejecutó cada tarea, cuántos robos ocurrieron, tiempo total.
+
+---
+
+**Ejercicio 5 — Phaser multi-fase para pipeline paralelo**
+Implementa un pipeline de procesamiento con `Phaser` de 3 fases: carga, transformación y almacenamiento.
+4 workers procesan 12 ítems en paralelo (3 por worker).
+Usa el `Phaser` para sincronizar el avance de fase: ningún worker puede entrar en transformación hasta que todos hayan completado la carga; idem para almacenamiento.
+En la fase de transformación, el worker-0 abandona el Phaser (`arriveAndDeregister`) simulando un fallo parcial.
+Imprime: fase actual, worker que avanza, tiempo de cada fase y tiempo total.
+Usa `phaser.getPhase()` para verificar el número de fase en cada sincronización.

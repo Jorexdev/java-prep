@@ -23,3 +23,10 @@ Crea `GitOpsController` con "estado deseado en git" (`Map<String,String>` recurs
 
 **Ejercicio 4 — Pipeline DSL**
 Implementa un builder fluido: `Pipeline.named("ci").stage("compile").then("test").parallel("lint","security").then("deploy").build()`. El grafo resultante debe ejecutar `compile` → `test` → (`lint` y `security` en paralelo) → `deploy`. Muestra el grafo de stages y ejecuta el pipeline con output.
+
+---
+
+**Ejercicio 5 — GitOps drift detection y reconciliación**
+Crea `GitOpsController` con `desiredState` (Map recurso→spec leído de "git") y `actualState` (Map recurso→spec desplegado actualmente). `detectDrift()` compara ambos estados y clasifica diferencias en: `MISSING` (en desired, no en actual), `EXTRA` (en actual, no en desired), `DRIFTED` (mismo recurso, spec distinta). `reconcile()` aplica los cambios necesarios para llevar actual al estado desired. Simula 3 ciclos donde entre ciclos alguien modifica manualmente el estado actual (drift), y el controller detecta y corrige.
+
+---

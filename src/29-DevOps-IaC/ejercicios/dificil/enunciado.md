@@ -23,3 +23,10 @@ Simula `terraform import`: dado un recurso que ya existe en la "nube" (Map simul
 
 **Ejercicio 4 — Ansible error handling**
 Simula la construcción `block/rescue/always` de Ansible: si una tarea dentro del `block` falla, se ejecutan las tareas de `rescue`. Las tareas en `always` se ejecutan siempre, independientemente del resultado. Demuestra un escenario con fallo y recuperación exitosa.
+
+---
+
+**Ejercicio 5 — Remote state con locking distribuido**
+Implementa `RemoteStateBackend` que almacena el state de Terraform (Map de recursos) y gestiona un lock distribuido. `acquireLock(workspaceId, requester)` falla si otro workspace tiene el lock activo. Implementa `applyChanges(workspace, changes)` que solo aplica si consigue el lock, y libera el lock al terminar (o en caso de excepción). Simula un conflict resolution: 2 workspaces intentan hacer apply simultáneamente, el segundo recibe `LockConflictException` con información del holder actual.
+
+---

@@ -39,3 +39,10 @@ El aspect mantiene un `ConcurrentHashMap<String, Deque<Long>>` (método → time
 En cada llamada: añade el timestamp actual, elimina los timestamps fuera de la ventana, verifica el límite.
 Si supera `maxCalls` en `windowMs`, lanza `RateLimitException`.
 Demo: `@RateLimit(maxCalls=3, windowMs=1000)`. Llama 5 veces rápidamente. Las 2 últimas deben fallar.
+
+---
+
+**Ejercicio 5 — Aspect chain con transformación de resultados y traducción de excepciones**
+Implementa 3 `InvocationHandler` que se apilan en cadena sobre una interfaz `Calculadora`. `ResultTransformAspect(factor)`: transforma resultados numéricos multiplicándolos por `factor`. `ExceptionTranslationAspect`: intercepta `InvocationTargetException`, traduce `ArithmeticException` → `DomainException` e `IllegalArgumentException` → `ValidationException`. `DetailedLoggingAspect`: loguea ENTER/EXIT/THROW con nombre de método, args y tiempo. Orden de cadena: Log (externo) → ExcTranslation → ResultTransform → Target real. Demo con 5 casos: 2 exitosos (resultado transformado visible), 3 con excepciones distintas (cada una traducida a su tipo de dominio).
+
+---

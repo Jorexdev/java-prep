@@ -32,3 +32,10 @@ Simula 100 accesos donde las claves se crean con `new String(...)` y se descarta
 
 **Ejercicio 5 — Object pool**
 Implementa un `ObjectPool<T>` genérico que mantiene una lista de objetos disponibles. Los métodos son `acquire()` (devuelve un objeto del pool o crea uno nuevo) y `release(T obj)` (devuelve el objeto al pool). Mide en nanosegundos el tiempo promedio de 10000 operaciones acquire+release vs 10000 operaciones new+descarte. Imprime la diferencia de rendimiento.
+
+---
+
+**Ejercicio 6 — Generational GC: short-lived vs long-lived**
+Demuestra el impacto del GC generacional creando dos tipos de objetos. Fase 1: crea 10 rondas de 100 objetos `ShortLived` (10KB cada uno) que salen de scope inmediatamente; llama `System.gc()` y muestra que el heap se recupera. Fase 2: crea 50 objetos `LongLived` (500KB cada uno) retenidos en una lista; llama `System.gc()` y observa que el heap NO baja. Fase 3: patrón mixto con bursts de short-lived sobre long-lived. Fase 4: vacía la lista de long-lived y confirma la liberación. Imprime el heap usado (MB) tras cada fase.
+
+---

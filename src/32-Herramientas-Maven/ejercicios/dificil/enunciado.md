@@ -36,3 +36,10 @@ Implementa `LocalRepo(Map<String,Artifact>)` y `RemoteRepo(Map<String,Artifact>)
 `resolve(dep)` busca primero en el repo local; si no está, "descarga" del remoto y guarda en local.
 Demo con 10 dependencias donde 6 ya están en caché local.
 Muestra qué deps se resuelven localmente y cuáles requieren descarga.
+
+---
+
+**Ejercicio 5 — Multi-module con herencia de parent POM**
+Implementa `ParentPom(groupId, artifactId, version, properties, dependencyManagement)` y `ChildModule(name, parent, ownDeps)`. Los módulos hijos heredan las propiedades y el `dependencyManagement` del parent. Al resolver las dependencias de un hijo, las versiones se toman del `dependencyManagement` heredado si no se declaran explícitamente. El `ReactorBuild` ordena los módulos (topológico) y construye en orden. Demo con parent + 4 módulos (`common`, `domain`, `service` depende de domain y common, `web` depende de service) y 3 dependencias gestionadas en el parent BOM.
+
+---

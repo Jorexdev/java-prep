@@ -20,3 +20,10 @@ Implementa `SyncEventBus` (entrega en el mismo thread, en orden) y `AsyncEventBu
 
 **Ejercicio 5 — Specification pattern componible**
 Define la interfaz `Specification<T>` con `isSatisfiedBy(T)` y los métodos `default and`, `default or`, `default not`. Implementa `Producto(String id, String categoria, double precio, int stock, boolean activo)` y las specs `PrecioEntre(min, max)`, `CategoriaDe(String cat)`, `EnStock()` y `Activo()`. Implementa `ProductoCatalogo.buscar(Specification<Producto>)`. El `main` usa la composición `PrecioEntre(10,100).and(EnStock()).and(CategoriaDe("electrónica").not())`.
+
+---
+
+**Ejercicio 6 — CQRS: command bus y query bus con handlers registrados**
+Implementa `CommandBus` con `register(Class<C>, CommandHandler<C>)` y `dispatch(Command)`. Implementa `QueryBus` con `register(Class<Q>, QueryHandler<Q,R>)` y `query(Query)`. Define un dominio `CuentaBancaria` con commands `AbrirCuenta`, `Depositar`, `Retirar` y queries `ObtenerSaldo`, `ObtenerHistorial`. Cada command actualiza el write model y publica un `DomainEvent` al `EventBus`. Un `ReadModelUpdater` escucha los eventos y actualiza el read model `CuentaResumen(id, saldo, numOperaciones, historial)`. Las queries leen del read model. El `main` ejecuta 5 commands y 2 queries, verificando que el read model refleja el estado actualizado y que el historial de operaciones es correcto.
+
+---

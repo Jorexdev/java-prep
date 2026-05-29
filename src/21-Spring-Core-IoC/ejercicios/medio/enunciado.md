@@ -20,3 +20,10 @@ Implementa `BeanFactory` con registro de clases (no instancias). Al llamar `getB
 
 **Ejercicio 5 — Conditional bean**
 Implementa `ContenedorCondicional` con un `Map<String, String>` de configuración y el método `registerIf(String propiedad, String valorEsperado, Supplier<?> factory)`. El bean solo se crea y registra si la propiedad tiene el valor esperado. Crea una clase `DataSource` simulada. En `main`, ejecuta con `"db.enabled"="true"` (debe crear el bean) y con `"db.enabled"="false"` (no debe crearlo). Muestra un mensaje en cada caso.
+
+---
+
+**Ejercicio 6 — @Qualifier manual con reflection**
+Implementa `QualifierContainer` que registra múltiples beans del mismo tipo con nombres distintos (qualifiers). `register(Class<?>, String qualifier, Object)` almacena el bean; `setPrimary(Class<?>, String)` marca el bean por defecto. `getBean(Class<?>, String qualifier)` resuelve por qualifier; `getBean(Class<?>)` usa el primary o lanza `IllegalStateException` si hay ambigüedad sin primary. `inject(Object target)` usa reflection para inyectar campos `@Inject`: si tienen `@Qualifier` usa ese nombre, si no usa `getBean(tipo)`. Demo: registra `EmailService`, `SmsService`, `PushService` como `NotificacionService`; inyecta automáticamente `PedidoService` (campos con `@Qualifier`) y `AlertaService` (campo sin qualifier, resuelto por @Primary).
+
+---

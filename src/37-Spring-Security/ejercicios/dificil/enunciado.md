@@ -40,3 +40,11 @@ Implementa un rate limiter con el algoritmo Token Bucket.
 Crea `TokenBucket(int capacity, int refillPerSecond)` con el método `tryConsume()` que devuelve `boolean`. Implementa `RateLimitFilter` que aplica un bucket distinto por `userId` (usando `Map<String, TokenBucket>`).
 
 El `main` simula: un usuario con límite de 5 req/s hace 8 peticiones rápidas (las primeras 5 son aceptadas, las 3 siguientes rechazadas), luego espera 1 segundo (refill), y hace 5 peticiones más (todas aceptadas).
+
+---
+
+## Ejercicio 5 — SecurityFilterChain con múltiples filtros, orden y cortocircuito
+
+Implementa una `SecurityFilterChain` configurable con soporte para múltiples filtros en orden de prioridad. Cada filtro tiene un número de orden `@Order` (simulado como parámetro del constructor). La cadena los ejecuta de menor a mayor orden. Implementa cinco filtros: `CorsFilter` (orden 1), `CsrfFilter` (orden 2, bloquea POST/PUT/DELETE sin token CSRF), `RateLimitFilter` (orden 3, token bucket por IP), `JwtAuthFilter` (orden 4) y `AuditFilter` (orden 5, registra todas las requests). Si un filtro corta la cadena, los filtros posteriores no se ejecutan pero `AuditFilter` siempre registra el resultado final usando un mecanismo `afterCompletion`. El `main` configura la cadena y prueba cinco escenarios que ejerciten cada punto de cortocircuito.
+
+---

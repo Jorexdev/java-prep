@@ -79,3 +79,11 @@ Métodos:
 Un hilo de fondo limpia periódicamente los locks expirados.
 
 El `main` lanza 3 hilos compitiendo por el mismo recurso, demuestra exclusión mutua y que un lock expira si el propietario no lo libera a tiempo.
+
+---
+
+## Ejercicio 6 — Circuit Breaker con estados CLOSED/OPEN/HALF_OPEN
+
+Implementa `CircuitBreaker(String name, int failureThreshold, long openTimeoutMs)` con tres estados: `CLOSED` (tráfico normal), `OPEN` (rechaza todas las llamadas con `CircuitOpenException`) y `HALF_OPEN` (permite una llamada de prueba para verificar recuperación). Transiciones: si los fallos superan el threshold en estado `CLOSED` → pasa a `OPEN`; tras `openTimeoutMs` → pasa a `HALF_OPEN`; si la llamada de prueba en `HALF_OPEN` tiene éxito → vuelve a `CLOSED`; si falla → vuelve a `OPEN`. Usa un reloj simulado con `AtomicLong`. El `main` lanza 10 llamadas con 3 fallos consecutivos, muestra la transición a `OPEN`, avanza el reloj para pasar a `HALF_OPEN`, y demuestra la recuperación exitosa.
+
+---

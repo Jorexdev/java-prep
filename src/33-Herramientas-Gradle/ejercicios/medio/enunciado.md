@@ -39,3 +39,10 @@ Demo con una dependencia que existe en un included build y otra que solo está e
 Implementa `ConfigCache` que guarda el task graph serializado (como `Map`).
 En el segundo build, si los inputs de configuración no han cambiado, reutiliza el grafo cacheado.
 Demo midiendo el tiempo: primer build (configura), segundo build (cache hit).
+
+---
+
+**Ejercicio 6 — Task graph con UP-TO-DATE**
+Crea `GradleTask(name, inputs: Set<String>, outputs: Set<String>, List<String> dependsOn)`. Implementa `TaskRunner` que antes de ejecutar cada tarea comprueba si sus inputs y outputs no han cambiado desde la última ejecución (UP-TO-DATE check basado en hash de inputs). Si no hay cambios, la tarea se salta con estado `UP-TO-DATE`. El runner ejecuta las tareas en orden topológico. Demo con 5 tareas donde en el segundo build, 3 tareas están UP-TO-DATE y solo 2 se reejecutam porque sus inputs cambiaron.
+
+---

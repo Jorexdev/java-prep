@@ -48,3 +48,10 @@ En el main, ejecuta con `ScopedValue.where(USER_ID, "user-42").run(...)`.
 Dentro del run, llama a 3 métodos anidados: `nivel1()` → `nivel2()` → `nivel3()`.
 Cada nivel imprime el `USER_ID.get()` sin recibirlo como parámetro.
 Demuestra que fuera del `run` el valor no está disponible (lanza `NoSuchElementException`).
+
+---
+
+**Ejercicio 6 — VirtualThreadPool con Semaphore**
+Implementa un `VirtualThreadPool` que limita la concurrencia de virtual threads usando un `Semaphore`. El pool admite un máximo de 5 VTs simultáneos activos, con una cola interna de tareas `Runnable` pendientes (`LinkedBlockingQueue`). Métodos: `submit(Runnable task)` para encolar tareas, `start()` para lanzar el despachador, `shutdown()` y `awaitTermination()`. Demo con 20 tareas I/O-bound (sleep 100ms), mostrando que nunca hay más de 5 activas a la vez. Muestra: tareas completadas, tiempo total, máximo de activos simultáneos observado.
+
+---

@@ -46,3 +46,10 @@ Implementa `LogLevelManager` que permite cambiar el nivel de cualquier logger en
 sin reiniciar la aplicación. Los loggers consultan el manager en cada llamada.
 Demo: cambiar `com.app.service` de INFO a DEBUG (aparecen mensajes DEBUG),
 luego volver a INFO (desaparecen). Mostrar el efecto en tiempo real.
+
+---
+
+**Ejercicio 6 — Structured logging con campos JSON automáticos via MDC**
+Implementa `MDC` (Mapped Diagnostic Context) usando `ThreadLocal<Map<String,String>>`. `StructuredJsonLogger` emite cada log como una línea JSON con campos fijos (`ts`, `level`, `logger`, `msg`, `thread`) más todos los campos presentes en el MDC del hilo actual automáticamente, más campos extra opcionales pasados al método de log. `RequestContext(requestId, userId)` implementa `AutoCloseable`: puebla el MDC al construirse y lo limpia en `close()`. Demo con 5 escenarios: request normal (MDC con requestId+userId), pedido de alto valor (añade campo `role`), pedido fallido con error, 3 Virtual Threads concurrentes con MDC aislado por hilo, y log sin MDC activo.
+
+---

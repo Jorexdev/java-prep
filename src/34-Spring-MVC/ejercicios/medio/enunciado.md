@@ -20,3 +20,10 @@ Implementa una clase `ApiRouter` con un mapa `versión → handler`. La versión
 
 **Ejercicio 5 — Content negotiation**
 Define una interfaz `Serializer` con `String serialize(Object obj)`. Implementa `JsonSerializer` (formato `{"campo":"valor"}`) y `PlainTextSerializer` (formato `campo=valor`). Crea un `ContentNegotiator` que elija el serializador correcto según el valor del Accept header.
+
+---
+
+**Ejercicio 6 — Content negotiation con XML**
+Extiende el ejercicio anterior añadiendo un tercer serializador `XmlSerializer` (formato `<campo>valor</campo>`). Crea un `NegotiatedEndpoint` con un único método `handle(String path, Map<String,String> data, String acceptHeader)` que delegue la serialización al serializador correcto según el Accept header (`application/json`, `application/xml` o `text/plain`). El método debe devolver también el `Content-Type` de la respuesta. El `main` llama al mismo endpoint tres veces, una por cada tipo, y muestra que la representación cambia sin alterar los datos.
+
+---

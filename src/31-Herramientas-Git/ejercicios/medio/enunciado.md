@@ -53,3 +53,10 @@ Implementa las reglas de GitFlow en `validateMerge(from, to)`:
 
 Si la merge viola las reglas, lanza una excepción descriptiva.
 Demo con merges válidos e inválidos.
+
+---
+
+**Ejercicio 6 — Interactive rebase: squash, reword, drop**
+Dado un historial de 6 commits con mensajes y contenidos, implementa un interactive rebase con plan: `pick c1`, `squash c2` (fusiona con c1, concatena mensajes), `reword c3` (cambia el mensaje a "feat: módulo login refactorizado"), `pick c4`, `drop c5`, `pick c6`. El resultado debe tener 4 commits con los mensajes y contenidos correctos. Muestra el historial antes y después, indicando qué operación se aplicó a cada commit original.
+
+---

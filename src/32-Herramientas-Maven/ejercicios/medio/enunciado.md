@@ -40,3 +40,10 @@ Implementa `PluginConfig(Map<String,String> config)` que el plugin lee del POM.
 Los valores pueden referenciar propiedades del POM con `${property}`.
 Demo: configurar `maven-compiler-plugin` con `source=${java.version}`,
 `target=${java.version}`, `parameters=true`. Mostrar la config resuelta.
+
+---
+
+**Ejercicio 6 — BOM con nearest-wins**
+Crea `BomManager` que combina un BOM importado con declaraciones explícitas en `dependencyManagement`. La regla "nearest wins" se aplica: una versión declarada directamente en el POM tiene precedencia sobre la del BOM; y si hay dos BOMs importados, el primero en declararse gana. Demo con BOM-A que declara `jackson:2.15`, BOM-B que declara `jackson:2.14` y `spring:6.1`, y el POM que declara explícitamente `jackson:2.16`. Muestra qué versión se resuelve para cada dependencia y por qué.
+
+---
