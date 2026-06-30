@@ -39,39 +39,39 @@
 - [x] Logging con SLF4J / Logback → 26-Spring-Boot-Logging
 
 ## 6. Desarrollo Web
-- [ ] Spring MVC (controllers, mappings, ResponseEntity)
-- [ ] Validación con Bean Validation
-- [ ] Manejo de errores global (@ControllerAdvice, @ExceptionHandler)
+- [x] Spring MVC (controllers, mappings, ResponseEntity)
+- [x] Validación con Bean Validation
+- [x] Manejo de errores global (@ControllerAdvice, @ExceptionHandler)
 
 ## 7. Persistencia
-- [ ] JPA / Hibernate (entidades, relaciones, fetch types)
-- [ ] CrudRepository, JpaRepository, queries con @Query
-- [ ] Transacciones con @Transactional
+- [x] JPA / Hibernate (entidades, relaciones, fetch types)
+- [x] CrudRepository, JpaRepository, queries con @Query
+- [x] Transacciones con @Transactional
 - [ ] Migraciones (Flyway / Liquibase)
-- [ ] N+1 problem, batch inserts, caching
+- [x] N+1 problem, batch inserts, caching
 - [ ] MongoDB / Redis
 - [ ] Spring Cache con Redis
 
 ## 8. Comunicación entre Servicios
 - [ ] RestTemplate / WebClient
-- [ ] Resilience4j (retry, circuit breaker, bulkhead)
-- [ ] Kafka (producers, consumers, topics)
-- [ ] Arquitectura basada en eventos
-- [ ] Spring Cloud Gateway
-- [ ] Eureka / Consul (service registry)
+- [x] Resilience4j (retry, circuit breaker, bulkhead)
+- [x] Kafka (producers, consumers, topics)
+- [x] Arquitectura basada en eventos
+- [x] Spring Cloud Gateway
+- [x] Eureka / Consul (service registry)
 - [ ] Spring Cloud Config (config server)
 
 ## 9. Seguridad
-- [ ] Spring Security (SecurityFilterChain, filtros)
-- [ ] Autenticación y autorización
-- [ ] JWT
-- [ ] @PreAuthorize / Method Security
-- [ ] OAuth2 / OIDC
+- [x] Spring Security (SecurityFilterChain, filtros)
+- [x] Autenticación y autorización
+- [x] JWT
+- [x] @PreAuthorize / Method Security
+- [x] OAuth2 / OIDC
 - [ ] Keycloak / Auth0
 
 ## 10. Observabilidad
 - [ ] Micrometer (métricas)
-- [ ] Logging estructurado
+- [x] Logging estructurado
 - [ ] Prometheus + Grafana
 - [ ] Tracing distribuido (OpenTelemetry / Zipkin / Jaeger)
 
@@ -81,18 +81,18 @@
 - [ ] RabbitMQ / Kafka
 
 ## 12. Testing
-- [ ] Unit testing (JUnit5 + Mockito)
-- [ ] Integration testing (Spring Boot Test)
-- [ ] Testcontainers (DBs, Kafka, RabbitMQ)
+- [x] Unit testing (JUnit5 + Mockito)
+- [x] Integration testing (Spring Boot Test)
+- [x] Testcontainers (DBs, Kafka, RabbitMQ)
 - [ ] Contract Testing (Pact)
 - [ ] API Testing (Postman, REST Assured)
 - [ ] Swagger / OpenAPI
 
 ## 13. Arquitecturas de Software
-- [ ] Arquitectura en capas
-- [ ] Clean Architecture
-- [ ] DDD (conceptos básicos)
-- [ ] Arquitectura hexagonal
+- [x] Arquitectura en capas
+- [x] Clean Architecture
+- [x] DDD (conceptos básicos)
+- [x] Arquitectura hexagonal
 
 ## 14. Buenas prácticas
 - [ ] Organización de paquetes y nomenclatura
