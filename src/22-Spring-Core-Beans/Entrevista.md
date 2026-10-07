@@ -49,6 +49,16 @@ Funcionalmente son equivalentes — todos declaran un bean Spring. La diferencia
 **¿Qué problema resuelve `@Scope("request")` y qué infraestructura necesita?**
 El scope `request` crea una instancia nueva del bean por cada petición HTTP, destruyéndola al finalizarla. Resuelve el problema de compartir estado mutable entre peticiones en un bean singleton. Requiere que el contexto web esté activo (un `DispatcherServlet` o un `RequestContextListener`). En beans singleton que inyectan un bean request-scoped, Spring inyecta un proxy ScopedProxyMode para que cada llamada resuelva el bean correcto del hilo actual.
 
+---
+
+**¿Cómo funciona `@Async` de Spring y por qué no funciona si llamas al método desde la misma clase?**
+Spring crea un proxy AOP alrededor del bean para interceptar la llamada y ejecutarla en un ThreadPoolTaskExecutor separado. El problema de la self-invocation ocurre porque cuando llamas a `this.metodoAsync()` dentro de la misma clase, la llamada va directamente al objeto real, no al proxy — el AOP no se activa y el método se ejecuta en el thread actual de forma síncrona. La solución es inyectarse a sí mismo como bean (`@Autowired ApplicationContext ctx; ctx.getBean(MiServicio.class).metodoAsync()`) o extraer el método a otro bean. El retorno puede ser `void`, `Future<T>` o `CompletableFuture<T>`. Con `AsyncUncaughtExceptionHandler` se capturan excepciones de métodos `void` que de otro modo se perderían silenciosamente.
+
+---
+
+**¿Cuál es la diferencia entre `fixedRate` y `fixedDelay` en `@Scheduled`? ¿Cuándo puede solaparse una ejecución?**
+`fixedRate` lanza la siguiente ejecución cada N ms desde el inicio de la anterior, independientemente de cuánto tarde. `fixedDelay` espera N ms desde que terminó la ejecución anterior. Con `fixedRate`, si una ejecución tarda más que el intervalo, la siguiente se encola — en un `ThreadPoolTaskScheduler` de un solo thread, las ejecuciones se solapan en el tiempo lógico pero se ejecutan secuencialmente; con pool de varios threads sí pueden ejecutarse en paralelo. Para evitar solapamiento se prefiere `fixedDelay` o usar `@SchedulerLock` de ShedLock en entornos distribuidos con múltiples instancias.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">

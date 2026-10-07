@@ -49,6 +49,18 @@ El logging asíncrono (Logback `AsyncAppender`, Log4j2 `AsyncLogger`) delega la 
 **¿Cómo correlacionas logs entre microservicios con un trace ID?**
 Con Spring Cloud Sleuth (o Micrometer Tracing en Boot 3), cada petición recibe un `traceId` y un `spanId` que se propagan automáticamente en cabeceras HTTP (`traceparent` W3C o `X-B3-TraceId` Zipkin). Sleuth los inserta en el MDC de SLF4J, por lo que aparecen en todos los logs sin código adicional. Para correlacionar logs de distintos servicios basta con buscar el mismo `traceId` en el sistema de agregación de logs (ELK, Grafana Loki).
 
+---
+
+**¿Qué es Micrometer y cómo expone métricas a Prometheus en Spring Boot?**
+
+Micrometer es la capa de abstracción de métricas de Spring Boot — funciona como SLF4J pero para métricas: el código instrumenta con `Counter`, `Gauge`, `Timer` o `DistributionSummary` contra la API de Micrometer, y el backend (Prometheus, Datadog, InfluxDB, CloudWatch) se configura como dependencia sin tocar el código. Con `spring-boot-starter-actuator` + `micrometer-registry-prometheus`, el endpoint `/actuator/prometheus` expone todas las métricas en formato Prometheus text exposition. Prometheus hace scraping periódico de ese endpoint. Las métricas llevan `Tags` (dimensiones) que permiten filtrar en Grafana: `registry.counter("pedidos.procesados", "estado", "OK")`. Las métricas JVM (heap, GC, threads) se auto-instrumentan con `JvmMetrics`.
+
+---
+
+**¿Cómo funciona el distributed tracing con OpenTelemetry y cuál es la diferencia entre Jaeger y Zipkin?**
+
+OpenTelemetry (OTel) es el estándar CNCF para instrumentación: define cómo crear Spans (unidades de trabajo con start/end time, atributos y eventos) y Traces (árbol de spans). Cada request lleva un `traceparent` header (W3C Trace Context) con `traceId + spanId` que se propaga entre servicios — así todos los spans de una misma request comparten el mismo `traceId`. OTel es el SDK + API; Jaeger y Zipkin son los backends de almacenamiento y visualización. La diferencia: Zipkin usa su propio formato B3 headers y es más simple. Jaeger es más completo (Adaptive Sampling, Service Performance Monitoring, arquitectura con Collector + Query + UI). En Spring Boot 3, Micrometer Tracing unifica ambos: se cambia solo el exporter sin tocar el código de instrumentación.
+
 <div align="center"><img height="32" width="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='32'/%3E"/></div>
 
 <div align="center">
