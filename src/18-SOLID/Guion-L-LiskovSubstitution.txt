@@ -1,3 +1,19 @@
+Este metodo parece inofensivo, pero esconde una trampa.
+
+CuentaAhorro hereda de Cuenta, pero mira lo que hace: retirar() en Cuenta nunca falla, resta cualquier monto sin preguntar. CuentaAhorro lo sobreescribe y ahora lanza una excepcion si no hay fondos.
+
+¿Y por que es un problema? Porque si un proceso recorre una lista de cuentas dando por hecho que retirar() siempre funciona, como prometia Cuenta, el dia que llega una CuentaAhorro sin saldo, todo explota con una excepcion que nadie esperaba.
+
+Eso es justo lo que dice Liskov: tienes que poder sustituir la clase padre por la hija sin que el comportamiento cambie de forma inesperada. Aqui CuentaAhorro aprieta un contrato que Cuenta prometia mas permisivo.
+
+Asi que la solucion es hacer el contrato honesto desde el principio: Cuenta pasa a ser una interfaz que ya deja claro que retirar() puede rechazar la operacion.
+
+Ahora, CuentaAhorro implementa esa interfaz con el contrato explicito. Nadie se lleva sorpresas.
+
+---
+
+CODIGO:
+
 // MAL - Cuenta promete que retirar() nunca falla.
 class Cuenta {
     protected double saldo;

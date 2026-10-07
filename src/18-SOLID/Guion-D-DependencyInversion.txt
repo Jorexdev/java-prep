@@ -1,0 +1,60 @@
+Este interruptor enciende una lampara. El dia que quieras conectarle un ventilador, tienes que abrir el interruptor y tocarlo.
+
+Aqui Switch depende directamente de Lamp, una clase concreta. Cada dispositivo nuevo significa volver a este archivo y meter mano en codigo que ya funcionaba.
+
+Eso es lo que dice el principio de inversion de dependencias, la D de SOLID: los modulos de alto nivel no deberian depender de modulos de bajo nivel, ambos deberian depender de abstracciones.
+
+Asi que metemos una interfaz en medio: Switchable. Lamp y Fan la implementan, y Switch recibe el dispositivo desde fuera en vez de crearlo.
+
+Ahora conectas lo que quieras sin tocar Switch, y en un test le pasas un mock sin problema.
+
+---
+
+CODIGO:
+
+// MAL - Switch depende directamente de Lamp (clase concreta).
+// Para controlar un Fan tendriamos que modificar Switch.
+class LampDirect {
+    public void turnOn() { System.out.println("Lampara encendida"); }
+}
+
+class SwitchBad {
+    private LampDirect lamp = new LampDirect(); // acoplado a la implementacion
+    public void toggle() { lamp.turnOn(); }
+}
+
+// BIEN - Switch depende de la abstraccion Switchable.
+// Puedes pasarle cualquier dispositivo sin modificar Switch.
+// Esto es exactamente lo que hace Spring con @Autowired + interfaces.
+interface Switchable {
+    void turnOn();
+}
+
+class Lamp implements Switchable {
+    public void turnOn() { System.out.println("La lampara esta encendida"); }
+}
+
+class Fan implements Switchable {
+    public void turnOn() { System.out.println("El ventilador esta encendido"); }
+}
+
+class Switch {
+    private final Switchable device;
+
+    // La dependencia se inyecta desde fuera, no se crea aqui
+    public Switch(Switchable device) { this.device = device; }
+
+    public void toggle() { device.turnOn(); }
+}
+
+public class ExpDependencyInversion {
+    public static void main(String[] args) {
+        // Podemos pasar cualquier Switchable sin tocar Switch
+        new Switch(new Lamp()).toggle();
+        new Switch(new Fan()).toggle();
+
+        // En tests, pasariamos un mock de Switchable
+        Switchable mock = () -> System.out.println("[Mock] Dispositivo encendido");
+        new Switch(mock).toggle();
+    }
+}

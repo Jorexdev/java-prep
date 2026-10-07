@@ -13,7 +13,7 @@
 - [x] CompletableFuture, ExecutorService
 - [x] Virtual Threads
 - [x] Garbage Collector (visión general, tuning básico)
-- [ ] Revisar base completa
+- [x] Revisar base completa
 
 ## 2. Principios y Patrones de Software
 - [x] Principios SOLID
@@ -47,19 +47,19 @@
 - [x] JPA / Hibernate (entidades, relaciones, fetch types)
 - [x] CrudRepository, JpaRepository, queries con @Query
 - [x] Transacciones con @Transactional
-- [ ] Migraciones (Flyway / Liquibase)
+- [x] Migraciones (Flyway / Liquibase) → 35-JPA-Hibernate
 - [x] N+1 problem, batch inserts, caching
-- [ ] MongoDB / Redis
-- [ ] Spring Cache con Redis
+- [x] MongoDB / Redis → 43-NoSQL
+- [x] Spring Cache con Redis → 43-NoSQL
 
 ## 8. Comunicación entre Servicios
-- [ ] RestTemplate / WebClient
+- [x] RestTemplate / WebClient → 39-Microservicios
 - [x] Resilience4j (retry, circuit breaker, bulkhead)
 - [x] Kafka (producers, consumers, topics)
 - [x] Arquitectura basada en eventos
 - [x] Spring Cloud Gateway
 - [x] Eureka / Consul (service registry)
-- [ ] Spring Cloud Config (config server)
+- [x] Spring Cloud Config (config server) → 39-Microservicios
 
 ## 9. Seguridad
 - [x] Spring Security (SecurityFilterChain, filtros)
@@ -67,26 +67,26 @@
 - [x] JWT
 - [x] @PreAuthorize / Method Security
 - [x] OAuth2 / OIDC
-- [ ] Keycloak / Auth0
+- [x] Keycloak / Auth0 → 37-Spring-Security
 
 ## 10. Observabilidad
-- [ ] Micrometer (métricas)
+- [x] Micrometer (métricas) → 26-Spring-Boot-Logging
 - [x] Logging estructurado
-- [ ] Prometheus + Grafana
-- [ ] Tracing distribuido (OpenTelemetry / Zipkin / Jaeger)
+- [x] Prometheus + Grafana → 26-Spring-Boot-Logging / 39-Microservicios
+- [x] Tracing distribuido (OpenTelemetry / Zipkin / Jaeger) → 26-Spring-Boot-Logging, 39-Microservicios
 
 ## 11. Asincronía y Scheduling
-- [ ] @Async
-- [ ] @Scheduled
-- [ ] RabbitMQ / Kafka
+- [x] @Async → 22-Spring-Core-Beans
+- [x] @Scheduled → 22-Spring-Core-Beans
+- [x] RabbitMQ / Kafka → 39-Microservicios
 
 ## 12. Testing
 - [x] Unit testing (JUnit5 + Mockito)
 - [x] Integration testing (Spring Boot Test)
 - [x] Testcontainers (DBs, Kafka, RabbitMQ)
-- [ ] Contract Testing (Pact)
-- [ ] API Testing (Postman, REST Assured)
-- [ ] Swagger / OpenAPI
+- [x] Contract Testing (Pact) → 36-Testing
+- [x] API Testing (Postman, REST Assured) → 36-Testing
+- [x] Swagger / OpenAPI → 34-Spring-MVC
 
 ## 13. Arquitecturas de Software
 - [x] Arquitectura en capas
@@ -95,8 +95,8 @@
 - [x] Arquitectura hexagonal
 
 ## 14. Buenas prácticas
-- [ ] Organización de paquetes y nomenclatura
-- [ ] Manejo de logs y trazabilidad
-- [ ] Clean Code
-- [ ] 12-factor app
-- [ ] Performance tuning  
+- [x] Organización de paquetes y nomenclatura → 40-Arquitecturas
+- [x] Manejo de logs y trazabilidad → 26-Spring-Boot-Logging
+- [x] Clean Code → 40-Arquitecturas
+- [x] 12-factor app → 40-Arquitecturas
+- [x] Performance tuning → 40-Arquitecturas
